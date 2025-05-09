@@ -38,17 +38,17 @@ class HomeComponent extends Component {
                                 <tbody>
                                     <tr>
                                         <td id='title' style={{width: '100%', padding: '20px 20px', color: 'rgb(1, 33, 55)', }}>
-                                            JS Full Stack Wizard Repo ( <Link to='https://github.com/strahinjapopovic/js-wizard'>js-wizard</Link> )
+                                            JS Full Stack Wizard Repo ( <Link to='https://github.com/strahinjapopovic/inter-com-wizins'>inter-com-wizins</Link> )
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td id="desc" style={{padding: '20px 20px', }}>GitHub Repository, <Link to='https://github.com/strahinjapopovic/js-wizard'>
-                                            js-wizard</Link> has been developed as a part of MERN testing project by utilizing React main concepts through Vite server config-dev patterns 
+                                        <td id="desc" style={{padding: '20px 20px', }}>GitHub Repository, <Link to='https://github.com/strahinjapopovic/inter-com-wizins'>
+                                            inter-com-wizins</Link> has been developed as a part of MERN testing project by utilizing React main concepts through Vite server config-dev patterns 
                                             with Client-Serveer architecture, Apollo Server with GraphQL and MongoDB. More about repository you can find 
-                                            at <Link to='https://github.com/strahinjapopovic/js-wizard'>GitHub</Link>.
+                                            at <Link to='https://github.com/strahinjapopovic/inter-com-wizins'>GitHub</Link>.
                                             Main idea was to use this software to establish main utility repo-hub at individual private company server with specific adjustments in 
                                             number of tools available, so everyone with company clearance can use it in everyday activities. 
-                                            This utility hub got a name Inter-Company Hub Repos ( ICRs ).
+                                            This utility hub got a name Inter Company Wizard Installer ( ICWI ) repository.
                                             Software is mainly developed for desktop devices but with minor responsivnes ajustments now it is available for 
                                             mobile and tablet devices which improves user experience.
                                             As mentioned above, more about this application and others, you can visit my GitHub 

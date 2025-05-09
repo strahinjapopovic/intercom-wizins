@@ -87,11 +87,11 @@ const Header = () => {
           <span></span>
         </div>
       </button>
-      <div id="header">
+      <div id="header" className={ Auth.loggedIn() ? 'isLoggedInGreetingMarginTop'  : '' } >
         <section id="header-main" className={ Auth.loggedIn() ? (isOpen ? 'isOpenMoveDownLoggedIn' : '') : (isOpen ? 'isOpenMoveDownHome' : '') } >
           <span id='greeting'>{ Auth.loggedIn() ? `${loggedIn()}!` : `` }</span>
           <p><FontAwesomeIcon icon={faJs} style={{color: "#012137", }} /> FullStack<br />Wizard<br /><span>Repo</span></p>
-          <img id='mobileImgMain' src={iconMain} width={90} style={{margin: '10px calc((100% - 70px) / 2 )', }}/>
+          <img id='mobileImgMain' src={iconMain} width={90} style={{margin: '10px calc((100% - 90px) / 2 )', }}/>
         </section>
       </div>
     </>
