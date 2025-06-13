@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
+import React from 'react';
 //-------------------------------------------------------------------------//
 import dirIcon from '../../assets/images/directory-icon/folder-dev-icon.png';
 //-------------------------------------------------------------------------//
-class TitleMain extends Component {
+class TitleMain extends React.Component {
     constructor(props) {
         super(props);
     }

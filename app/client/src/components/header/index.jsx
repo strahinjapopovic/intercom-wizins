@@ -1,5 +1,5 @@
+import { useState } from 'react';
 import Auth from '../../utils/auth';
-import React, { useState } from 'react';
 import { useQuery } from '@apollo/client';
 import { NavLink } from 'react-router-dom';
 import { GET_USER } from '../../utils/queries';
@@ -9,8 +9,8 @@ import { faJs } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import iconMain from '../../assets/images/favicon/js-wizard-thumbnail-inverse.png';
 //-------------------------------------------------------------------------//
-const Header = () => {
-  const logout = (event) => {
+const Header = function() {
+  const logout = function (event) {
     event.preventDefault();
     Auth.logout();
   };
@@ -22,10 +22,10 @@ const Header = () => {
     window.deferredPrompt = event;
     setInstallable(true);
   });
-  window.addEventListener('appinstalled', (event) => {
+  window.addEventListener('appinstalled', function (event) {
     window.deferredPrompt = null;
   });
-  const handleInstallClick = (event) => {
+  const handleInstallClick = function (event) {
     event.preventDefault();
     const promptEvent = window.deferredPrompt;
     if(!promptEvent) {
@@ -34,12 +34,12 @@ const Header = () => {
     promptEvent.prompt();
     window.deferredPrompt = null;
   };
-  const loggedIn = () => {
+  const loggedIn = function() {
     const { data: dataq, loading: loadingq, error: errorq } = useQuery(GET_USER, {
       variables: { username: Auth.getProfile().data.username, },
     });
     if(dataq)
-    { return `Hi ${dataq.user.firstName} ${dataq.user.lastName}`; }
+    { return `Hi ${dataq.user.firstName} ${dataq.user.lastName}!`; }
   }
   //-------------------------------------------------------------------------//
   const classNameIsActiveFunc = ({ isActive }) => { return ( isActive ? 'isActive'  : 'topBtn' )};
@@ -89,8 +89,8 @@ const Header = () => {
       </button>
       <div id="header" className={ Auth.loggedIn() ? 'isLoggedInGreetingMarginTop'  : '' } >
         <section id="header-main" className={ Auth.loggedIn() ? (isOpen ? 'isOpenMoveDownLoggedIn' : '') : (isOpen ? 'isOpenMoveDownHome' : '') } >
-          <span id='greeting'>{ Auth.loggedIn() ? `${loggedIn()}!` : `` }</span>
-          <p><FontAwesomeIcon icon={faJs} style={{color: "#012137", }} /> FullStack<br />Wizard<br /><span>Repo</span></p>
+          <span id='greeting'>{ Auth.loggedIn() ? loggedIn() : `` }</span>
+          <p><FontAwesomeIcon icon={faJs} style={{color: "#012137", }} /> InterCom<br />WizIns<br /><span>Repo</span></p>
           <img id='mobileImgMain' src={iconMain} width={90} style={{margin: '10px calc((100% - 90px) / 2 )', }}/>
         </section>
       </div>

@@ -1,4 +1,3 @@
-import htmlEntity from 'he';
 import { useState } from 'react';
 import Auth from '../utils/auth';
 import { Link } from 'react-router-dom';
@@ -20,7 +19,7 @@ const Login = (props) => {
   const [formState, setFormState] = useState({ username: '', email: '', password: '' });
   const [login, { data, loading, error }] = useMutation(LOGIN_USER);
   //--------------------------------------------//
-  const handleChange = (event) => {
+  const handleChange = function (event) {
     const { name, value } = event.target;
     setFormState({
       ...formState,
@@ -28,7 +27,7 @@ const Login = (props) => {
     });
   };
   //--------------------------------------------//
-  const handleFormSubmit = async (event) => {
+  const handleFormSubmit = async function (event) {
     event.preventDefault();
     console.log(formState);
     try {
@@ -39,7 +38,7 @@ const Login = (props) => {
         Auth.login(data.login.token);
       }, 2000);
     } catch (error) {
-      console.error(error);
+      console.log(error);
     }
   //--------------------------------------------//
     // clear form values

@@ -1,6 +1,6 @@
 const bcrypt = require('bcryptjs');
 const { User } = require('../models');
-const { signToken, AuthenticationError, SignupError, } = require('../utils/utils');
+const { signToken, AuthenticationError, SignupError, DeleteUserError } = require('../utils/utils');
 
 const resolvers = {
   Query: {
@@ -23,8 +23,20 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
+    deleteUser: async (_, { id }) => {
+      try {
+        const deleteUser = await User.deleteOne({ _id: id, },);
+        if(deleteUser.acknowledged == true && deleteUser.deletedCount >= 1) {
+          console.log(`deleteUser:`);
+          console.log(JSON.stringify(deleteUser, null, 2));
+          return deleteUser;
+        }
+      } catch (err) {
+        console.log(err);
+      }
+    },
     login: async (parent, { username, email, password }) => {
-      const user = await User.findOne({$or: [{ username }, { email }] });
+      const user = await User.findOne({$or: [{ username: username }, { email: email }] });
       if (!user) {
         throw AuthenticationError;
       }
@@ -35,13 +47,9 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    resetPassword: async (parent, { email, password }) => {
+    resetPassword: async (_, { email, password }) => {
       const filter = { email: email };
-      const updateDocument = {
-          $set: {
-            password: bcrypt.hashSync(password, 10),
-          },
-      };
+      const updateDocument = { $set: { password: bcrypt.hashSync(password, 10),}, };
       const changePass = await User.findOneAndUpdate(filter, updateDocument, {new: true});
       if(changePass) {
         console.log(`---\n`, filter, `\n`, updateDocument, `\n`, changePass, `\n---`);

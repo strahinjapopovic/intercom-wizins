@@ -20,6 +20,11 @@ module.exports = {
       code: 'USERNAME_EXISTS',
     }
   }),
+  DeleteUserError: new GraphQLError(`Error Deleting User`, {
+    extensions: {
+      code: `BAD_ID_WHEN_DELETE`,
+    }
+  }),
   signToken: function ({ firstName, lastName, email, username, _id }) {
     const payload = { firstName, lastName, email, username, _id };
     return jwt.sign({ data: payload }, secret, { expiresIn: expiration });

@@ -54,13 +54,13 @@ export default defineConfig({
         ],
         screenshots : [
           {
-            src: "./install-icon-836x420-borderOn.png",
+            src: "./install-icon-1721x833.png",
             type: "image/png",
-            sizes: "836x420",
+            sizes: "1721x833",
             form_factor: "wide"
           },
           {
-              src: "./install-icon-narrow-324x663-borderOn.png",
+              src: "./install-icon-narrow-324x663.png",
               type: "image/png",
               sizes: "324x663",
               form_factor: "narrow"
@@ -105,5 +105,12 @@ export default defineConfig({
         secure: false,
       }
     }
-  }
+  },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        silenceDeprecations: ["legacy-js-api"],
+      },
+    },
+  },
 })

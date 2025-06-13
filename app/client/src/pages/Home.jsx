@@ -1,6 +1,6 @@
 import Auth from '../utils/auth';
 import { Link } from 'react-router-dom';
-import React, { Component } from 'react';
+import { Component } from 'react';
 //-------------------------------------------------------------------------//
 import TitleMain from '../components/title/index.jsx';
 import HomeComponent from '../components/home/index.jsx';
@@ -40,6 +40,6 @@ class Home extends Component {
         </main>
       </div>
     );
-  };
+  }
 }
 export default Home;

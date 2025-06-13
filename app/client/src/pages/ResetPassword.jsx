@@ -1,19 +1,12 @@
 import htmlEntity from 'he';
 import bcrypt from 'bcryptjs';
 import { useState } from 'react';
-import emailjs from '@emailjs/browser';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
-import { GET_USER_EMAIL } from '../utils/queries.js';
 import { RESET_PASSWORD } from '../utils/mutations.js';
 import getResPassParam from '../hooks/use-resetpass-params.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
-import verificationCodeKey from '../utils/verificationCodeAns.jsx';
-import SpinnerLoader from '../components/spinner/spinnerLoader.jsx';
-import wizardFavicon from '../assets/images/favicon/wizardFavicon.png';
-import okCheckIcon from '../assets/images/message-icon/ok-check-icon.png';
-import errorCheckIcon from '../assets/images/message-icon/err-check-icon.png';
 //--------------------------------------------//  
 const ResetPassword = () => {
 //--------------------------------------------//
@@ -50,19 +43,19 @@ const ResetPassword = () => {
         const matchY = await bcrypt.compare(codeyid, JSON.parse(localStorage.getItem('resetData')).codeyID);
         if(matchX === true && matchY === true) {
           console.log(matchX, matchY, `\nSUCCESSFULL: Password can be fully processed`);
-          // const { data } = await resPass({
-          //   variables: {
-          //     email: stateForm.email,
-          //     password: stateForm.password,
-          //   }
-          // });
-          // if (data) {
-          //   setTimeout(() => {
-          //     window.location.assign('/login');
-          //   }, 3000);
-          // } else {
-          //     window.location.assign('/forgot-password');
-          // }
+          const { data } = await resPass({
+            variables: {
+              email: stateForm.email,
+              password: stateForm.password,
+            }
+          });
+          if (data) {
+            setTimeout(() => {
+              window.location.assign('/login');
+            }, 3000);
+          } else {
+              window.location.assign('/forgot-password');
+          }
         } else {
           console.log(`ERROR: Reset password failed!`);
         }

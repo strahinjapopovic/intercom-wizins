@@ -19,7 +19,7 @@ const Signup = () => {
   //--------------------------------------------//
   const [addUser, { data, loading, error }] = useMutation(ADD_USER);
   //--------------------------------------------//
-  const handleOnChange = (event) => {
+  const handleOnChange = function (event) {
     const { name, value } = event.target; //spred sintax: formState.firstName = event.target.value => setFormState({...formState, firstName: event.target.value, )};
     setFormState({
       ...formState,
@@ -36,7 +36,7 @@ const Signup = () => {
     variables: { email: formState.email, },
   });
   //--------------------------------------------//
-  const handleFormSubmit = async (event) => {
+  const handleFormSubmit = async function (event) {
     event.preventDefault();
     //--------------------------------------------//
     try {
@@ -114,7 +114,7 @@ const Signup = () => {
                             !(dataq?.user) && !(dataqe?.getUserEmail) &&
                             (formState.confirmed === formState.password) &&
                           (<div id='openDialogBoxMsg'>
-                            <span><img src={tickSuccess} style={{ width: '23px', }}/> Registration Message</span><br /><br />
+                            <span><img src={tickSuccess} style={{ width: '23px', }}/> Registration Info</span><br /><br />
                             To register a profile, please verify your email address.<br />To do so, click on a dialog box at bottom left-side.<br />
                             Instructions will be sent to your nominated email address.
                           </div>)
@@ -150,7 +150,7 @@ const Signup = () => {
                     <tr>
                       <td colSpan={2}>
                         { dataq?.user ? 
-                          (<span id='usernameError'><img src={errorCheckIcon} /> Username ( '{ formState.username }' ) exists or already taken</span>) : 
+                          <span id='usernameError'><img src={errorCheckIcon} /> Username {formState.username} exists or already taken</span> : 
                           ( formState.username &&
                             /^[0-9A-Za-z]{6,16}$/.test(formState.username)) && 
                           (<span id='usernameSuccess'><img src={okCheckIcon} /> Username free</span>) 
@@ -169,7 +169,7 @@ const Signup = () => {
                     <tr>
                       <td colSpan={2}>
                         { dataqe?.getUserEmail ? 
-                          (<span id='usernameError'><img src={errorCheckIcon} /> Email ( '{ formState.email }' ) exists or already taken</span>) : 
+                          <span id='usernameError'><img src={errorCheckIcon} /> Email { formState.email } exists or already taken</span> : 
                           ( formState.email &&
                             /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/.test(formState.email)) && 
                           (<span id='usernameSuccess'><img src={okCheckIcon} /> Email free</span>) 
@@ -236,7 +236,7 @@ const Signup = () => {
                       </td>
                     </tr>
                     <tr>
-                      <td colSpan={2}><button type="submit" id="submit" name="submit"><FontAwesomeIcon icon={faCircleCheck} /> Sign up</button></td>
+                      <td colSpan={2}><button type="submit" id="submit" name="submit"><FontAwesomeIcon icon={faCircleCheck} /> Sign-up</button></td>
                     </tr>
                     <tr>
                       <td colSpan={2}>

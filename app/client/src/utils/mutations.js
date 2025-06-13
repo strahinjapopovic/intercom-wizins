@@ -43,3 +43,13 @@ export const RESET_PASSWORD = gql`
     }
   }
 `;
+
+export const DELETE_USER = gql`
+  mutation deleteUser($id: ID!) {
+    deleteUser(id: $id) {
+      user {
+        _id
+      }
+    }
+  }
+`;

@@ -1,10 +1,10 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
-import React, { Component } from 'react';
 //-------------------------------------------------------------------------//
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faJs } from '@fortawesome/free-brands-svg-icons';
 //-------------------------------------------------------------------------//
-class Footer extends Component {
+class Footer extends React.Component {
   constructor(props) {
     super(props)
     this.state = { date: new Date() };

@@ -9,9 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
 import verificationCodeKey from '../utils/verificationCodeAns.jsx';
 import xErrorMsg from '../assets/images/message-icon/xmark-red.png';
-import SpinnerLoader from '../components/spinner/spinnerLoader.jsx';
 import alertSign from '../assets/images/message-icon/alert-sign.png';
-import wizardFavicon from '../assets/images/favicon/wizardFavicon.png';
 import tickSuccess from '../assets/images/message-icon/tick-mark-green.png';
 //--------------------------------------------//  
 const ForgotPassword = () => {
@@ -22,7 +20,7 @@ const ForgotPassword = () => {
   const [getUserEmail, { data, loading, error }] = useLazyQuery(GET_USER_EMAIL);
   const [errorStateCheck, setErrorStateCheck] = useState({ errorInputCheck: '', });
   //--------------------------------------------//
-  const handleChange = (event) => {
+  const handleChange = function (event) {
     const { name, value } = event.target;
     setFormStateEmail({
       ...formStateEmail,
@@ -30,7 +28,7 @@ const ForgotPassword = () => {
     });
   };
   //--------------------------------------------//
-  const handleFormSubmit = async (event) => {
+  const handleFormSubmit = async function (event) {
     event.preventDefault();
     setErrorStateCheck({
       errorInputCheck: "checked",
@@ -79,11 +77,9 @@ const ForgotPassword = () => {
               lab = 'AM';
           } 
           else if(hour == 12){
-              hour = hour;
               lab = 'PM';
           } 
           else if(hour < 12) {
-              hour = hour;
               lab = 'AM';
           }
           if(minute >= 60) {

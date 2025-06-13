@@ -1,5 +1,5 @@
 import Auth from '../utils/auth';
-import React, { Component } from 'react';
+import React from 'react';
 //-------------------------------------------------------------------------//
 import TitleMain from '../components/title/index.jsx';
 import DownloadComponent from '../components/download/index.jsx';
@@ -7,7 +7,7 @@ import DownloadMobileComp from '../components/download/index-mobile.jsx';
 //-------------------------------------------------------------------------//
 import UnautorisedAccessErrorMsg from '../components/error/errorUnauthorisedAccess.jsx';
 //-------------------------------------------------------------------------//
-class Download extends Component {
+class Download extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -31,6 +31,6 @@ class Download extends Component {
         </main>
       </div>
     );
-  };
+  }
 }
 export default Download;

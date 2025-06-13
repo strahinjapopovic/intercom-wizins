@@ -1,5 +1,5 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
-import React, { Component } from 'react';
 //-------------------------------------------------------------------------//
 import winLogo from '../../assets/images/software-icon/win-logo.png';
 import macLogo from '../../assets/images/software-icon/mac-logo.png';
@@ -10,40 +10,43 @@ import mongodbIcon from '../../assets/images/software-icon/mongodb-icon.png';
 import insomniaIcon from '../../assets/images/software-icon/insomnia-icon.png';
 import postgresIcon from '../../assets/images/software-icon/postgresql-icon.png';
 //-------------------------------------------------------------------------//
-class HomeMobileComp extends Component {
+class HomeMobileComp extends React.Component {
     constructor(props) {
         super(props);
     }
     render() {
         return (
-            <div id='mainDownloadMobile' style={{padding: '10px', }}>
+            <div id='mainDownloadMobile' style={{border: '1px solid rgb(1, 33, 55)', padding: '0 20px 20px 20px', 
+            backgroundColor: 'rgb(240, 240, 240)', borderRadius: '3px', }}>
                 {/*----------------------------------------------------------------------------------------------------------------------------------------------*/}
-                <section id='mainTitle' 
-                style={{borderBottom: '1px solid black', fontWeight: 'bold', fontSize: '18px', padding: '20px 0', color: 'rgba(1, 33, 55)', textAlign: 'center', }}>
+                <section id='mainTitleHome' 
+                    style={{fontWeight: 'bold', padding: '30px 0', fontSize: '20px', color: 'rgb(1, 33, 55)', textAlign:'center', }}>
                     <div><img src={winLogo} width={18} /> Windows-OS & <img src={macLogo} width={18} /> Mac-OSX</div>
                 </section>
                 {/*----------------------------------------------------------------------------------------------------------------------------------------------*/}
-                <section style={{borderBottom: '1px solid black', fontSize: '12px', padding: '30px 0', }}>
+                <section style={{border: '1px solid rgb(1, 33, 55)', fontSize: '12px', padding: '30px 20px', 
+                    borderRadius: '3px', marginBottom: '20px', backgroundColor: 'white', }}>
                     <div id='title' style={{fontWeight: 'bold', fontSize: '14px', color: 'rgba(1, 33, 55)', paddingBottom: '10px', textAlign: 'center', }}>
                         JS Full Stack Wizard Repo ( <Link to='https://github.com/strahinjapopovic/js-wizard'>js-wizard</Link> )
                     </div>
                     <div style={{textAlign: 'justify', }}>
-                        GitHub Repository, <Link to='https://github.com/strahinjapopovic/js-wizard'>
-                        js-wizard</Link> has been developed as a part of MERN testing project by utilizing React main concepts through Vite server config-dev patterns 
-                        with Client-Serveer architecture, Apollo Server with GraphQL and MongoDB. More about repository you can find 
-                        at <Link to='https://github.com/strahinjapopovic/js-wizard'>GitHub</Link>.
+                        Inter Company Wizard Installer (ICWI)
+                        or <Link to='https://github.com/strahinjapopovic/inter-com-wizins'>inter-com-wizins</Link> repo application, 
+                        has been developed as a part of MERN testing project by utilizing Vite server config-dev patterns with React main concepts through 
+                        Client-Serveer architecture, Apollo Server, GraphQL and MongoDB. More about repository you can find 
+                        at <Link to='https://github.com/strahinjapopovic/inter-com-wizins'>GitHub</Link>.
                         Main idea was to use this software to establish main utility repo-hub at individual private company server with specific adjustments in 
                         number of tools available, so everyone with company clearance can use it in everyday activities. 
-                        This utility hub got a name Inter-Company Hub Repos ( ICHRs ).
-                        Software is mainly developed for desktop devices but with minor responsivnes ajustments now it is awailable for 
-                        mobile and tablet devices which improves user experience.
-                        As mentioned above, more about this application and others, you can visit my GitHub 
-                        repo <Link to='https://github.com/strahinjapopovic'>here</Link>.
+                        Software is mainly developed for desktop devices but now it is available for 
+                        mobile and tablet devices as well which improves user experience through all sizes.
+                        As mentioned above, more about this application, you can find at GitHub repository
+                        <Link to='https://github.com/strahinjapopovic/inter-com-wizins'>here</Link>.
                     </div>
                     {/*----------------------------------------------------------------------------------------------------------------------------------------------*/}
                 </section>
                 {/*----------------------------------------------------------------------------------------------------------------------------------------------*/}
-                <section style={{borderBottom: '1px solid black', fontSize: '12px', padding: '30px 0', }}>
+                <section style={{border: '1px solid rgb(1, 33, 55)', fontSize: '12px', padding: '30px 20px', 
+                    borderRadius: '3px', marginBottom: '20px', backgroundColor: 'white', }}>
                     <div id='title' style={{fontWeight: 'bold', fontSize: '16px', color: 'rgba(1, 33, 55)', paddingBottom: '10px', textAlign: 'center', }}>
                         Visual Studio Code (VS Code)
                     </div>
@@ -56,7 +59,8 @@ class HomeMobileComp extends Component {
                     {/*----------------------------------------------------------------------------------------------------------------------------------------------*/}
                 </section>
                 {/*----------------------------------------------------------------------------------------------------------------------------------------------*/}
-                <section style={{borderBottom: '1px solid black', fontSize: '12px', padding: '30px 0', }}>
+                <section style={{border: '1px solid rgb(1, 33, 55)', fontSize: '12px', padding: '30px 20px', 
+                    borderRadius: '3px', marginBottom: '20px', backgroundColor: 'white', }}>
                     <div id='title' style={{fontWeight: 'bold', fontSize: '16px', color: 'rgba(1, 33, 55)', paddingBottom: '10px',  textAlign: 'center', }}>
                         Node.js (JS-RTE)
                     </div>
@@ -68,7 +72,8 @@ class HomeMobileComp extends Component {
                     {/*----------------------------------------------------------------------------------------------------------------------------------------------*/}
                 </section>
                 {/*----------------------------------------------------------------------------------------------------------------------------------------------*/}
-                <section style={{borderBottom: '1px solid black', fontSize: '12px', padding: '30px 0', }}>
+                <section style={{border: '1px solid rgb(1, 33, 55)', fontSize: '12px', padding: '30px 20px', 
+                    borderRadius: '3px', marginBottom: '20px', backgroundColor: 'white', }}>
                     <div id='title' style={{fontWeight: 'bold', fontSize: '16px', color: 'rgba(1, 33, 55)', paddingBottom: '10px',  textAlign: 'center', }}>
                         PostgreSQL Database (Postgres)
                     </div>
@@ -81,7 +86,8 @@ class HomeMobileComp extends Component {
                     {/*----------------------------------------------------------------------------------------------------------------------------------------------*/}
                 </section>
                 {/*----------------------------------------------------------------------------------------------------------------------------------------------*/}
-                <section style={{borderBottom: '1px solid black', fontSize: '12px', padding: '30px 0', }}>
+                <section style={{border: '1px solid rgb(1, 33, 55)', fontSize: '12px', padding: '30px 20px', 
+                    borderRadius: '3px', marginBottom: '20px', backgroundColor: 'white', }}>
                     <div id='title' style={{fontWeight: 'bold', fontSize: '16px', color: 'rgba(1, 33, 55)', paddingBottom: '10px',  textAlign: 'center', }}>
                         MongoDB (NoSQL database)
                     </div>
@@ -96,7 +102,8 @@ class HomeMobileComp extends Component {
                     {/*----------------------------------------------------------------------------------------------------------------------------------------------*/}
                 </section>
                 {/*----------------------------------------------------------------------------------------------------------------------------------------------*/}
-                <section style={{borderBottom: '1px solid black', fontSize: '12px', padding: '30px 0', }}>
+                <section style={{border: '1px solid rgb(1, 33, 55)', fontSize: '12px', padding: '30px 20px', 
+                    borderRadius: '3px', marginBottom: '20px', backgroundColor: 'white', }}>
                     <div id='title' style={{fontWeight: 'bold', fontSize: '16px', color: 'rgba(1, 33, 55)', paddingBottom: '10px',  textAlign: 'center', }}>
                         Mongosh (MongoDB Shell)
                     </div>
@@ -111,13 +118,14 @@ class HomeMobileComp extends Component {
                     {/*----------------------------------------------------------------------------------------------------------------------------------------------*/}
                 </section>
                 {/*----------------------------------------------------------------------------------------------------------------------------------------------*/}
-                <section style={{fontSize: '12px', padding: '30px 0', }}>
+                <section style={{border: '1px solid rgb(1, 33, 55)', fontSize: '12px', padding: '30px 20px', 
+                    borderRadius: '3px', marginBottom: '20px', backgroundColor: 'white', }}>
                     <div id='title' style={{fontWeight: 'bold', fontSize: '16px', color: 'rgba(1, 33, 55)', paddingBottom: '10px',  textAlign: 'center', }}>
                         Insomnia (API Development Platform)
                     </div>
                     <div style={{textAlign: 'justify', }}>
                         <img src={insomniaIcon} width={25} /> <strong>Kong Insomnia</strong> is a collaborative open source API development
-                        platform that makes it easy to build high-quality APIs — without the bloat and clutter of other tools. It's an application
+                        platform that makes it easy to build high-quality APIs — without the bloat and clutter of other tools. It is an application
                         that takes the pain out of interacting with and designing, debugging, and testing APIs. Insomnia combines an easy-to-use interface with advanced
                         functionality like authentication helpers, code generation, and environment variables. For more information
                         click here for <a href='https://docs.insomnia.rest/insomnia/install'>installation </a>guide, also for

@@ -76,11 +76,9 @@ class ConfirmationDialogBox extends React.Component {
             lab = 'AM';
         }
         else if (hour == 12) {
-            hour = hour;
             lab = 'PM';
         }
         else if (hour < 12) {
-            hour = hour;
             lab = 'AM';
         }
         //-----------------------------------------------------------------------------------//
@@ -127,7 +125,7 @@ class ConfirmationDialogBox extends React.Component {
         //-----------------------------------------------------------------------------------//
         console.log(`Verification Code is: ${verificationCodeStr}`);
         if (this.dialogRef.current) this.dialogRef.current.showModal();
-    };
+    }
     async verifyEmail(e) {
         e.preventDefault();
         this.setState(prevState => ({
@@ -151,7 +149,7 @@ class ConfirmationDialogBox extends React.Component {
                 return match;
             }
         }
-    };
+    }
     closeDialog() {
         localStorage.removeItem('data');
         if (this.dialogRef.current) {
@@ -162,7 +160,7 @@ class ConfirmationDialogBox extends React.Component {
             });
             this.dialogRef.current.close();
         }
-    };
+    }
 
     render() {
         let dateMessage = '';

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import React, { Component } from 'react';
+import React from 'react';
 //-------------------------------------------------------------------------//
 import { faDownload } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -13,7 +13,7 @@ import mongodbIcon from '../../assets/images/software-icon/mongodb-icon.png';
 import insomniaIcon from '../../assets/images/software-icon/insomnia-icon.png';
 import postgresIcon from '../../assets/images/software-icon/postgresql-icon.png';
 //-------------------------------------------------------------------------//
-class DownloadComponent extends Component {
+class DownloadComponent extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -384,7 +384,7 @@ class DownloadComponent extends Component {
                                     </tr>
                                     <tr>
                                         <td id="desc" colSpan={3}><strong>Kong Insomnia</strong> is a collaborative open source API development
-                                            platform that makes it easy to build high-quality APIs — without the bloat and clutter of other tools. It's an application
+                                            platform that makes it easy to build high-quality APIs — without the bloat and clutter of other tools. It is an application
                                             that takes the pain out of interacting with and designing, debugging, and testing APIs. Insomnia combines an easy-to-use interface with advanced
                                             functionality like authentication helpers, code generation, and environment variables. For more information
                                             click here for <a href='https://docs.insomnia.rest/insomnia/install'>installation </a>guide, also for

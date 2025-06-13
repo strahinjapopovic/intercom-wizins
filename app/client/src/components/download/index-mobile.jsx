@@ -1,5 +1,5 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
-import React, { Component } from 'react';
 //-------------------------------------------------------------------------//
 import { faDownload } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -13,23 +13,22 @@ import mongodbIcon from '../../assets/images/software-icon/mongodb-icon.png';
 import insomniaIcon from '../../assets/images/software-icon/insomnia-icon.png';
 import postgresIcon from '../../assets/images/software-icon/postgresql-icon.png';
 //-------------------------------------------------------------------------//
-class DownloadMobileComp extends Component {
+class DownloadMobileComp extends React.Component {
     constructor(props) {
         super(props);
     }
     render() {
         return (
-            <div id='mainDownloadMobile' style={{width: '95%', margin: '0 auto', }}>
+            <div id='mainDownloadMobile' style={{border: '1px solid rgb(1, 33, 55)', padding: '0 20px 20px 20px', 
+            backgroundColor: 'rgb(240, 240, 240)', borderRadius: '3px', }}>
                 {/*----------------------------------------------------------------------------------------------------------------------------------------------*/}
-                <section id='mainTitle' style={{borderBottom: '1px solid black', fontWeight: 'bold', }}>
-                    <br />
-                    <div><img src={winLogo} width={30} /> Windows-OS</div>
-                    <div style={{width: '25%', textAlign: 'center', }}>&</div>
-                    <div><img src={macLogo} width={30} /> Mac-OSX</div>
-                    <br />
-                </section><br />
+                <section id='mainTitleDownload' 
+                style={{fontWeight: 'bold', padding: '30px 0', fontSize: '20px', color: 'rgb(1, 33, 55)', textAlign:'center', }}>
+                    <div><img src={winLogo} width={18} /> Windows-OS & <img src={macLogo} width={18} /> Mac-OSX</div>
+                </section>
                 {/*----------------------------------------------------------------------------------------------------------------------------------------------*/}
-                <section style={{borderBottom: '1px solid black', fontSize: '12px', paddingBottom: '20px', marginBottom: '20px', }}>
+                <section style={{fontSize: '12px', padding: '20px', border: '1px solid rgb(1, 33, 55)', 
+                    backgroundColor: 'white', marginBottom: '20px', borderRadius: '3px', }}>
                     <div id='title' style={{fontWeight: 'bold', fontSize: '18px', }}>Visual Studio Code (VS Code)</div><br />
                     <div style={{textAlign: 'justify', }}>
                         <img src={vscIcon} width={30} /> <strong>Visual Studio Code</strong>, also commonly referred to as VS Code,
@@ -39,7 +38,7 @@ class DownloadMobileComp extends Component {
                     </div><br />
                     {/*----------------------------------------------------------------------------------------------------------------------------------------------*/}
                     <section id='subSection' 
-                    style={{width: '95%', margin: '5px auto', padding: '5px 5px 0 5px', backgroundColor: 'rgb(240, 240, 240)', borderRadius: '3px', border: '1px solid black', }}>
+                    style={{padding: '5px 5px 0 5px', backgroundColor: 'rgb(240, 240, 240)', borderRadius: '3px', border: '1px solid black', }}>
                         <div><p><strong>OS:</strong> WindowsOS x86-64 (10, 11)</p></div>
                         <div>
                             <p><strong>File:</strong> <a href='https://js-wizard-s3.s3.amazonaws.com/win/VSCode-Setup-1.91.1_WindowsOS-x64.exe' download>VSCode-Setup-1.91.1_WindowsOS-x64 (.exe)</a></p>
@@ -56,7 +55,7 @@ class DownloadMobileComp extends Component {
                         </div>
                     </section>
                     <section id='subSection' 
-                    style={{width: '95%', margin: '5px auto', padding: '5px 5px 0 5px', backgroundColor: 'rgb(240, 240, 240)', borderRadius: '3px', border: '1px solid black', }}>
+                    style={{padding: '5px 5px 0 5px', backgroundColor: 'rgb(240, 240, 240)', borderRadius: '3px', border: '1px solid black', marginTop: '20px', }}>
                         <div><p><strong>OS:</strong> MacOS x86-64 (10.15+)</p></div>
                         <div>
                             <p><strong>File:</strong> <a href='https://js-wizard-s3.s3.amazonaws.com/mac/VSCode-Universal_MacOS.zip' download>VSCode-Universal_MacOS (.zip)</a></p>
@@ -74,7 +73,7 @@ class DownloadMobileComp extends Component {
                     </section>
                     {/*----------------------------------------------------------------------------------------------------------------------------------------------*/}
                     <section id='subSection' 
-                    style={{width: '95%', margin: '5px auto', padding: '5px 5px 0 5px', backgroundColor: 'rgb(240, 240, 240)', borderRadius: '3px', border: '1px solid black', }}>
+                    style={{padding: '5px 5px 0 5px', backgroundColor: 'rgb(240, 240, 240)', borderRadius: '3px', border: '1px solid black', marginTop: '20px', }}>
                         <div><p><strong>OS:</strong> WindowsOS x64 (ARM64)</p></div>
                         <div>
                             <p><strong>File:</strong> <a href='https://js-wizard-s3.s3.amazonaws.com/win/VSCodeUserSetup-1.91.1-ARM64.exe' download>VSCodeUserSetup-1.91.1-ARM64 (.exe)</a></p>
@@ -91,7 +90,7 @@ class DownloadMobileComp extends Component {
                         </div>
                     </section>
                     <section id='subSection'
-                    style={{width: '95%', margin: '5px auto', padding: '5px 5px 0 5px', backgroundColor: 'rgb(240, 240, 240)', borderRadius: '3px', border: '1px solid black', }}>
+                    style={{padding: '5px 5px 0 5px', backgroundColor: 'rgb(240, 240, 240)', borderRadius: '3px', border: '1px solid black', marginTop: '20px', }}>
                         <div><p><strong>OS:</strong> Apple Silicon (ARM64)</p></div>
                         <div>
                             <p><strong>File:</strong> <a href='https://js-wizard-s3.s3.amazonaws.com/mac/VSCode-darwin-arm64.zip' download>VSCode-darwin-arm64 (.zip)</a></p>
@@ -109,7 +108,8 @@ class DownloadMobileComp extends Component {
                     </section>
                 </section>
                 {/*----------------------------------------------------------------------------------------------------------------------------------------------*/}
-                <section style={{borderBottom: '1px solid black', fontSize: '12px', paddingBottom: '20px', marginBottom: '20px', }}>
+                <section style={{fontSize: '12px', padding: '20px', border: '1px solid rgb(1, 33, 55)', 
+                    backgroundColor: 'white', marginBottom: '20px', borderRadius: '3px', }}>
                     <div id='title' style={{fontWeight: 'bold', fontSize: '18px', }}>Node.js (JS-RTE)</div><br />
                     <div style={{textAlign: 'justify', }}>
                         <img src={nodeIcon} width={30} /> <strong>Node.js</strong> is a cross-platform, open-source JavaScript
@@ -118,7 +118,7 @@ class DownloadMobileComp extends Component {
                     </div><br />
                     {/*----------------------------------------------------------------------------------------------------------------------------------------------*/}
                     <section id='subSection' 
-                    style={{width: '95%', margin: '5px auto', padding: '5px 5px 0 5px', backgroundColor: 'rgb(240, 240, 240)', borderRadius: '3px', border: '1px solid black', }}>
+                    style={{padding: '5px 5px 0 5px', backgroundColor: 'rgb(240, 240, 240)', borderRadius: '3px', border: '1px solid black', }}>
                         <div><p><strong>OS:</strong> WindowsOS x86-64</p></div>
                         <div>
                             <p><strong>File:</strong> <a href='https://js-wizard-s3.s3.amazonaws.com/win/Node-v22.5.1_WindowsOS-x64.msi' download>Node-v22.5.1_WindowsOS-x64 (.msi)</a></p>
@@ -135,7 +135,7 @@ class DownloadMobileComp extends Component {
                         </div>
                     </section>
                     <section id='subSection' 
-                    style={{width: '95%', margin: '5px auto', padding: '5px 5px 0 5px', backgroundColor: 'rgb(240, 240, 240)', borderRadius: '3px', border: '1px solid black', }}>
+                    style={{padding: '5px 5px 0 5px', backgroundColor: 'rgb(240, 240, 240)', borderRadius: '3px', border: '1px solid black', marginTop: '20px', }}>
                         <div><p><strong>OS:</strong> MacOS x86-64</p></div>
                         <div>
                             <p><strong>File:</strong> <a href='https://js-wizard-s3.s3.amazonaws.com/mac/Node-v22.5.1_MacOS-x64.pkg'>Node-v22.5.1_MacOS-x64 (.pkg)</a></p>
@@ -153,7 +153,7 @@ class DownloadMobileComp extends Component {
                     </section>
                     {/*----------------------------------------------------------------------------------------------------------------------------------------------*/}
                     <section id='subSection' 
-                    style={{width: '95%', margin: '5px auto', padding: '5px 5px 0 5px', backgroundColor: 'rgb(240, 240, 240)', borderRadius: '3px', border: '1px solid black', }}>
+                    style={{padding: '5px 5px 0 5px', backgroundColor: 'rgb(240, 240, 240)', borderRadius: '3px', border: '1px solid black', marginTop: '20px', }}>
                         <div><p><strong>OS:</strong> WindowsOS (ARM64)</p></div>
                         <div>
                             <p><strong>File:</strong> <a href='https://js-wizard-s3.s3.amazonaws.com/win/Node-v22.5.1_WindowsOS-ARM64.msi' download>Node-v22.5.1_WindowsOS-ARM64 (.msi)</a></p>
@@ -170,7 +170,7 @@ class DownloadMobileComp extends Component {
                         </div>
                     </section>
                     <section id='subSection'
-                    style={{width: '95%', margin: '5px auto', padding: '5px 5px 0 5px', backgroundColor: 'rgb(240, 240, 240)', borderRadius: '3px', border: '1px solid black', }}>
+                    style={{padding: '5px 5px 0 5px', backgroundColor: 'rgb(240, 240, 240)', borderRadius: '3px', border: '1px solid black', marginTop: '20px', }}>
                         <div><p><strong>OS:</strong> MacOS (ARM64)</p></div>
                         <div>
                             <p><strong>File:</strong> <a href='https://js-wizard-s3.s3.amazonaws.com/mac/Node-v22.5.1_MacOS-ARM64.pkg' download>Node-v22.5.1_MacOS-ARM64 (.pkg)</a></p>
@@ -188,7 +188,8 @@ class DownloadMobileComp extends Component {
                     </section>
                 </section>
                 {/*----------------------------------------------------------------------------------------------------------------------------------------------*/}
-                <section style={{borderBottom: '1px solid black', fontSize: '12px', paddingBottom: '20px', marginBottom: '20px', }}>
+                <section style={{fontSize: '12px', padding: '20px', border: '1px solid rgb(1, 33, 55)', 
+                    backgroundColor: 'white', marginBottom: '20px', borderRadius: '3px', }}>
                     <div id='title' style={{fontWeight: 'bold', fontSize: '18px', }}>PostgreSQL Database (Postgres)</div><br />
                     <div style={{textAlign: 'justify', }}>
                         <img src={postgresIcon} width={30} /> <strong>PostgreSQL</strong> is a powerful, open source object-relational
@@ -198,7 +199,7 @@ class DownloadMobileComp extends Component {
                     </div><br />
                     {/*----------------------------------------------------------------------------------------------------------------------------------------------*/}
                     <section id='subSection' 
-                    style={{width: '95%', margin: '5px auto', padding: '5px 5px 0 5px', backgroundColor: 'rgb(240, 240, 240)', borderRadius: '3px', border: '1px solid black', }}>
+                    style={{padding: '5px 5px 0 5px', backgroundColor: 'rgb(240, 240, 240)', borderRadius: '3px', border: '1px solid black', }}>
                         <div><p><strong>OS:</strong> WindowsOS x86-64</p></div>
                         <div>
                             <p>
@@ -218,7 +219,7 @@ class DownloadMobileComp extends Component {
                         </div>
                     </section>
                     <section id='subSection' 
-                    style={{width: '95%', margin: '5px auto', padding: '5px 5px 0 5px', backgroundColor: 'rgb(240, 240, 240)', borderRadius: '3px', border: '1px solid black', }}>
+                    style={{padding: '5px 5px 0 5px', backgroundColor: 'rgb(240, 240, 240)', borderRadius: '3px', border: '1px solid black', marginTop: '20px', }}>
                         <div><p><strong>OS:</strong> MacOS x86-64</p></div>
                         <div>
                             <p>
@@ -239,7 +240,8 @@ class DownloadMobileComp extends Component {
                     </section>
                 </section>
                 {/*----------------------------------------------------------------------------------------------------------------------------------------------*/}
-                <section style={{borderBottom: '1px solid black', fontSize: '12px', paddingBottom: '20px', marginBottom: '20px', }}>
+                <section style={{fontSize: '12px', padding: '20px', border: '1px solid rgb(1, 33, 55)', 
+                    backgroundColor: 'white', marginBottom: '20px', borderRadius: '3px', }}>
                     <div id='title' style={{fontWeight: 'bold', fontSize: '18px', }}>MongoDB (NoSQL database)</div><br />
                     <div style={{textAlign: 'justify', }}>
                         <img src={mongodbIcon} width={30} /> <strong>MongoDB</strong> is a source-available, cross-platform,
@@ -251,7 +253,7 @@ class DownloadMobileComp extends Component {
                     </div><br />
                     {/*----------------------------------------------------------------------------------------------------------------------------------------------*/}
                     <section id='subSection' 
-                    style={{width: '95%', margin: '5px auto', padding: '5px 5px 0 5px', backgroundColor: 'rgb(240, 240, 240)', borderRadius: '3px', border: '1px solid black', }}>
+                    style={{padding: '5px 5px 0 5px', backgroundColor: 'rgb(240, 240, 240)', borderRadius: '3px', border: '1px solid black', }}>
                         <div><p><strong>OS:</strong> WindowsOS x86-64</p></div>
                         <div>
                             <p><strong>File:</strong> <a href='https://js-wizard-s3.s3.amazonaws.com/win/MongoDB-7.0.12_WindowsOS-x86-64-signed.msi' download>MongoDB-7.0.12_WindowsOS-x86-64-signed (.msi)</a></p>
@@ -268,7 +270,7 @@ class DownloadMobileComp extends Component {
                         </div>
                     </section>
                     <section id='subSection' 
-                    style={{width: '95%', margin: '5px auto', padding: '5px 5px 0 5px', backgroundColor: 'rgb(240, 240, 240)', borderRadius: '3px', border: '1px solid black', }}>
+                    style={{padding: '5px 5px 0 5px', backgroundColor: 'rgb(240, 240, 240)', borderRadius: '3px', border: '1px solid black', marginTop: '20px', }}>
                         <div><p><strong>OS:</strong> MacOS x86-64</p></div>
                         <div>
                             <p><strong>File:</strong> <a href='https://js-wizard-s3.s3.amazonaws.com/mac/MongoDB-7.0.12_MacOS-x86-64.tgz' download>MongoDB-7.0.12_MacOS-x86-64 (.tgz)</a></p>
@@ -286,7 +288,7 @@ class DownloadMobileComp extends Component {
                     </section>
                     {/*----------------------------------------------------------------------------------------------------------------------------------------------*/}
                     <section id='subSection' 
-                    style={{width: '95%', margin: '5px auto', padding: '5px 5px 0 5px', backgroundColor: 'rgb(240, 240, 240)', borderRadius: '3px', border: '1px solid black', }}>
+                    style={{padding: '5px 5px 0 5px', backgroundColor: 'rgb(240, 240, 240)', borderRadius: '3px', border: '1px solid black', marginTop: '20px', }}>
                         <div><p><strong>OS:</strong> WindowsOS x86-64</p></div>
                         <div>
                             <p>
@@ -308,7 +310,7 @@ class DownloadMobileComp extends Component {
                         </div>
                     </section>
                     <section id='subSection'
-                    style={{width: '95%', margin: '5px auto', padding: '5px 5px 0 5px', backgroundColor: 'rgb(240, 240, 240)', borderRadius: '3px', border: '1px solid black', }}>
+                    style={{padding: '5px 5px 0 5px', backgroundColor: 'rgb(240, 240, 240)', borderRadius: '3px', border: '1px solid black', marginTop: '20px', }}>
                         <div><p><strong>OS:</strong> MacOS (ARM64)</p></div>
                         <div>
                             <p>
@@ -329,7 +331,8 @@ class DownloadMobileComp extends Component {
                     </section>
                 </section>
                 {/*----------------------------------------------------------------------------------------------------------------------------------------------*/}
-                <section style={{borderBottom: '1px solid black', fontSize: '12px', paddingBottom: '20px', marginBottom: '20px', }}>
+                <section style={{fontSize: '12px', padding: '20px', border: '1px solid rgb(1, 33, 55)', 
+                    backgroundColor: 'white', marginBottom: '20px', borderRadius: '3px', }}>
                     <div id='title' style={{fontWeight: 'bold', fontSize: '18px', }}>Mongosh (MongoDB Shell)</div><br />
                     <div style={{textAlign: 'justify', }}>
                         <img src={mongodbIcon} width={30} /> <strong>The MongoDB Shell or mongosh</strong>, is a JavaScript and Node.js REPL
@@ -341,7 +344,7 @@ class DownloadMobileComp extends Component {
                     </div><br />
                     {/*----------------------------------------------------------------------------------------------------------------------------------------------*/}
                     <section id='subSection' 
-                    style={{width: '95%', margin: '5px auto', padding: '5px 5px 0 5px', backgroundColor: 'rgb(240, 240, 240)', borderRadius: '3px', border: '1px solid black', }}>
+                    style={{padding: '5px 5px 0 5px', backgroundColor: 'rgb(240, 240, 240)', borderRadius: '3px', border: '1px solid black', }}>
                         <div><p><strong>OS:</strong> WindowsOS x86-64</p></div>
                         <div>
                             <p><strong>File: </strong> 
@@ -359,7 +362,7 @@ class DownloadMobileComp extends Component {
                         </div>
                     </section>
                     <section id='subSection' 
-                    style={{width: '95%', margin: '5px auto', padding: '5px 5px 0 5px', backgroundColor: 'rgb(240, 240, 240)', borderRadius: '3px', border: '1px solid black', }}>
+                    style={{padding: '5px 5px 0 5px', backgroundColor: 'rgb(240, 240, 240)', borderRadius: '3px', border: '1px solid black', marginTop: '20px', }}>
                         <div><p><strong>OS:</strong> MacOS x86-64</p></div>
                         <div>
                             <p><strong>File: </strong> 
@@ -379,14 +382,12 @@ class DownloadMobileComp extends Component {
                     {/*----------------------------------------------------------------------------------------------------------------------------------------------*/}
                 </section>
                 {/*----------------------------------------------------------------------------------------------------------------------------------------------*/}
-
-
-
-                <section style={{fontSize: '12px', paddingBottom: '20px', marginBottom: '20px', }}>
+                <section style={{fontSize: '12px', padding: '20px', border: '1px solid rgb(1, 33, 55)', 
+                    backgroundColor: 'white', marginBottom: '20px', borderRadius: '3px', }}>
                     <div id='title' style={{fontWeight: 'bold', fontSize: '18px', }}>Insomnia (API Development Platform)</div><br />
                     <div style={{textAlign: 'justify', }}>
                         <img src={insomniaIcon} width={30} /> <strong>Kong Insomnia</strong> is a collaborative open source API development
-                        platform that makes it easy to build high-quality APIs — without the bloat and clutter of other tools. It's an application
+                        platform that makes it easy to build high-quality APIs — without the bloat and clutter of other tools. It is an application
                         that takes the pain out of interacting with and designing, debugging, and testing APIs. Insomnia combines an easy-to-use interface with advanced
                         functionality like authentication helpers, code generation, and environment variables. For more information
                         click here for <a href='https://docs.insomnia.rest/insomnia/install'>installation </a>guide, also for
@@ -395,7 +396,7 @@ class DownloadMobileComp extends Component {
                     </div><br />
                     {/*----------------------------------------------------------------------------------------------------------------------------------------------*/}
                     <section id='subSection' 
-                    style={{width: '95%', margin: '5px auto', padding: '5px 5px 0 5px', backgroundColor: 'rgb(240, 240, 240)', borderRadius: '3px', border: '1px solid black', }}>
+                    style={{padding: '5px 5px 0 5px', backgroundColor: 'rgb(240, 240, 240)', borderRadius: '3px', border: '1px solid black', }}>
                         <div><p><strong>OS:</strong> WindowsOS x86-64</p></div>
                         <div>
                             <p><strong>File: </strong> 
@@ -413,7 +414,7 @@ class DownloadMobileComp extends Component {
                         </div>
                     </section>
                     <section id='subSection' 
-                    style={{width: '95%', margin: '5px auto', padding: '5px 5px 0 5px', backgroundColor: 'rgb(240, 240, 240)', borderRadius: '3px', border: '1px solid black', }}>
+                    style={{padding: '5px 5px 0 5px', backgroundColor: 'rgb(240, 240, 240)', borderRadius: '3px', border: '1px solid black', marginTop: '20px', }}>
                         <div><p><strong>OS:</strong> MacOS x86-64</p></div>
                         <div>
                             <p><strong>File: </strong> 

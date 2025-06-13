@@ -1,5 +1,5 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
-import React, { Component } from 'react';
 //-------------------------------------------------------------------------//
 import winLogo from '../../assets/images/software-icon/win-logo.png';
 import macLogo from '../../assets/images/software-icon/mac-logo.png';
@@ -10,7 +10,7 @@ import mongodbIcon from '../../assets/images/software-icon/mongodb-icon.png';
 import insomniaIcon from '../../assets/images/software-icon/insomnia-icon.png';
 import postgresIcon from '../../assets/images/software-icon/postgresql-icon.png';
 //-------------------------------------------------------------------------//
-class HomeComponent extends Component {
+class HomeComponent extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -42,17 +42,17 @@ class HomeComponent extends Component {
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td id="desc" style={{padding: '20px 20px', }}>GitHub Repository, <Link to='https://github.com/strahinjapopovic/inter-com-wizins'>
-                                            inter-com-wizins</Link> has been developed as a part of MERN testing project by utilizing React main concepts through Vite server config-dev patterns 
-                                            with Client-Serveer architecture, Apollo Server with GraphQL and MongoDB. More about repository you can find 
+                                        <td id="desc" style={{padding: '20px 20px', }}>Inter Company Wizard Installer (ICWI)
+                                            or <Link to='https://github.com/strahinjapopovic/inter-com-wizins'>inter-com-wizins</Link> repo application, 
+                                            has been developed as a part of MERN testing project by utilizing Vite server config-dev patterns with React main concepts through 
+                                            Client-Serveer architecture, Apollo Server, GraphQL and MongoDB. More about repository you can find 
                                             at <Link to='https://github.com/strahinjapopovic/inter-com-wizins'>GitHub</Link>.
                                             Main idea was to use this software to establish main utility repo-hub at individual private company server with specific adjustments in 
                                             number of tools available, so everyone with company clearance can use it in everyday activities. 
-                                            This utility hub got a name Inter Company Wizard Installer ( ICWI ) repository.
-                                            Software is mainly developed for desktop devices but with minor responsivnes ajustments now it is available for 
-                                            mobile and tablet devices which improves user experience.
-                                            As mentioned above, more about this application and others, you can visit my GitHub 
-                                            repo <Link to='https://github.com/strahinjapopovic'>here</Link>.
+                                            Software is mainly developed for desktop devices but now it is available for 
+                                            mobile and tablet devices as well which improves user experience through all sizes.
+                                            As mentioned above, more about this application, you can find at GitHub repository
+                                            <Link to='https://github.com/strahinjapopovic/inter-com-wizins'>here</Link>.
                                         </td>
                                     </tr>
                                 </tbody>
@@ -191,7 +191,7 @@ class HomeComponent extends Component {
                                     </tr>
                                     <tr>
                                         <td id="desc" style={{paddingLeft: '20px', }}><strong>Kong Insomnia</strong> is a collaborative open source API development
-                                            platform that makes it easy to build high-quality APIs — without the bloat and clutter of other tools. It's an application
+                                            platform that makes it easy to build high-quality APIs — without the bloat and clutter of other tools. It is an application
                                             that takes the pain out of interacting with and designing, debugging, and testing APIs. Insomnia combines an easy-to-use interface with advanced
                                             functionality like authentication helpers, code generation, and environment variables. For more information
                                             click here for <a href='https://docs.insomnia.rest/insomnia/install'>installation </a>guide, also for

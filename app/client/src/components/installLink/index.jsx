@@ -1,19 +1,19 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 //-------------------------------------------------------------------------//
 import installSecIcon from '../../../src/assets/images/profile-section-ico/installIcon.png';
 //-------------------------------------------------------------------------//
 const InstallLink = () => {
   const [installable, setInstallable] = useState(false);
-  window.addEventListener('beforeinstallprompt', (event) => {
+  window.addEventListener('beforeinstallprompt', function (event) {
     event.preventDefault();
     window.deferredPrompt = event;
     setInstallable(true);
   });
-  window.addEventListener('appinstalled', (event) => {
+  window.addEventListener('appinstalled', function (event) {
     window.deferredPrompt = null;
   });
-  const handleInstallClick = (event) => {
+  const handleInstallClick = function (event) {
     event.preventDefault();
     const promptEvent = window.deferredPrompt;
     if(!promptEvent) {
