@@ -20,7 +20,8 @@ const Signup = () => {
   const [addUser, { data, loading, error }] = useMutation(ADD_USER);
   //--------------------------------------------//
   const handleOnChange = function (event) {
-    const { name, value } = event.target; //spred sintax: formState.firstName = event.target.value => setFormState({...formState, firstName: event.target.value, )};
+    //spred sintax: formState.firstName = event.target.value => setFormState({...formState, firstName: event.target.value, )};
+    const { name, value } = event.target; 
     setFormState({
       ...formState,
       [name]: value,
@@ -47,8 +48,8 @@ const Signup = () => {
         formState.confirmed &&
         /^[0-9A-Za-z]{6,16}$/.test(formState.username) &&
         /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/.test(formState.email) &&
-        /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/.test(formState.password) &&
-        /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/.test(formState.confirmed))) {
+        /^(?=.*\d)(?=.*[!@#$%^&_*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/.test(formState.password) &&
+        /^(?=.*\d)(?=.*[!@#$%^&_*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/.test(formState.confirmed))) {
           const { data } = await addUser({ variables: { ...formState }, });
         }
       // console.log(formState.email); 
@@ -94,8 +95,8 @@ const Signup = () => {
                             formState.confirmed && 
                             formState.password &&
                             /^[0-9A-Za-z]{6,16}$/.test(formState.username) &&
-                            /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/.test(formState.password) &&
-                            /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/.test(formState.confirmed) &&
+                            /^(?=.*\d)(?=.*[!@#$%^&_*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/.test(formState.password) &&
+                            /^(?=.*\d)(?=.*[!@#$%^&_*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/.test(formState.confirmed) &&
                             /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/.test(formState.email))) ?
                             (<div id="error-message">
                               <span><img src={alertSign} style={{ width: '23px', }}/> {`${error.name}`}</span><br /><br />
@@ -108,8 +109,8 @@ const Signup = () => {
                             formState.confirmed && 
                             formState.password &&
                             /^[0-9A-Za-z]{6,16}$/.test(formState.username) &&
-                            /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/.test(formState.password) &&
-                            /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/.test(formState.confirmed) &&
+                            /^(?=.*\d)(?=.*[!@#$%^&_*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/.test(formState.password) &&
+                            /^(?=.*\d)(?=.*[!@#$%^&_*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/.test(formState.confirmed) &&
                             /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/.test(formState.email))) &&
                             !(dataq?.user) && !(dataqe?.getUserEmail) &&
                             (formState.confirmed === formState.password) &&
@@ -213,19 +214,19 @@ const Signup = () => {
                       <td colSpan={2}>
                         {(formState.confirmed && 
                           formState.password &&
-                          /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/.test(formState.password) &&
-                          /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/.test(formState.confirmed)) &&
+                          /^(?=.*\d)(?=.*[!@#$%^&_*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/.test(formState.password) &&
+                          /^(?=.*\d)(?=.*[!@#$%^&_*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/.test(formState.confirmed)) &&
                           (formState.confirmed === formState.password) ? 
                             (<span id='usernameSuccess'>
                               <img src={okCheckIcon} /> Password confirmed successfully
                             </span>) : 
-                          ((!(/^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/.test(formState.password) &&
-                            /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/.test(formState.confirmed)) &&
+                          ((!(/^(?=.*\d)(?=.*[!@#$%^&_*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/.test(formState.password) &&
+                            /^(?=.*\d)(?=.*[!@#$%^&_*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/.test(formState.confirmed)) &&
                             formState.confirmed && 
                             formState.password &&
                             ((formState.confirmed !== formState.password) || (formState.confirmed === formState.password))) || 
-                            ((/^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/.test(formState.password) &&
-                            /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/.test(formState.confirmed)) &&
+                            ((/^(?=.*\d)(?=.*[!@#$%^&_*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/.test(formState.password) &&
+                            /^(?=.*\d)(?=.*[!@#$%^&_*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/.test(formState.confirmed)) &&
                             formState.confirmed && 
                             formState.password &&
                             ((formState.confirmed !== formState.password)))) &&
@@ -246,8 +247,8 @@ const Signup = () => {
                           formState.lastName &&
                           formState.username &&
                           /^[0-9A-Za-z]{6,16}$/.test(formState.username) &&
-                          /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/.test(formState.password) &&
-                          /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/.test(formState.confirmed) &&
+                          /^(?=.*\d)(?=.*[!@#$%^&_*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/.test(formState.password) &&
+                          /^(?=.*\d)(?=.*[!@#$%^&_*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/.test(formState.confirmed) &&
                           /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/.test(formState.email)) &&
                           !(dataq?.user) && !(dataqe?.getUserEmail) &&
                           (formState.confirmed === formState.password) &&

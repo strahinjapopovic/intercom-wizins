@@ -9,8 +9,8 @@ import DataParent from '../components/datarow/DataRowParent.jsx';
 import passIcon from '../assets/images/details-icon/pass-icon.png';
 import emailIcon from '../assets/images/details-icon/email-icon.png';
 import userIcon from '../assets/images/details-icon/usertbl-icon.png';
-import DelBtnComp from '../components/buttoncomp/DeleteUserAccountBtn.jsx';
 import createdAtIcon from '../assets/images/details-icon/account-icon.png';
+import DelBtnDialogBoxComp from '../components/dialogbox/deleteuserdialog.jsx';
 import UnautorisedAccessErrorMsg from '../components/error/errorUnauthorisedAccess.jsx';
 //-------------------------------------------------------------------------//
 import TitleMain from '../components/title/index.jsx';
@@ -42,7 +42,7 @@ const Details = () => {
                     <img src={userIcon}/><br />
                     <span id='first'>Welcome <span id='second'>{getUserData().user?.firstName + ' ' + getUserData().user?.lastName}</span></span><br />
                     Your details include<br />
-                    <span id='third'>{`{ ID, Email, Username and Date/Time when signed-up }`}</span>
+                    <span id='third'>{`( id, email, username and date/time when signed-up )`}</span>
                   </div>
                   <div id='user-data'>
                     <DataParent>
@@ -52,7 +52,7 @@ const Details = () => {
                       <DataChild imgsrc={createdAtIcon} data={createdat.toString()} />
                       <DataChild imgsrc={passIcon} data={`************`} link={(<a href='http://localhost:3000/forgot-password'>edit</a>)}/>
                     </DataParent>
-                    <DelBtnComp identifier={Auth.getProfile().data._id} deleteUser={deleteUser} loading={loading} />
+                    <DelBtnDialogBoxComp identifier={Auth.getProfile().data._id} deleteUser={deleteUser} loading={loading} />
                   </div>
                 </div>
               </div>

@@ -7,6 +7,7 @@
   --aqua: aqua;
   --dark: black;
   --light: white;
+  --attention: rgb(250, 34, 34);
   --error: rgb(202, 6, 6);
   --success: rgb(3, 102, 3);
   --gray: rgb(240, 240, 240);
@@ -903,6 +904,71 @@ div#user-sec div#user-subsec div#user-data button#del-btn {
   border: 2px solid var(--naval-blue);
 }
 /******** ------------------------------ End Details Page ------------------------------ ********/
+/*---*/
+/* ---------------------------------- Delete User Dialog Box ---------------------------------- */
+dialog#deleteUserDialogBox {
+  width: 50%;
+  text-align: center;
+  font-size: x-large;
+  font-weight: normal;
+  border-radius: 10px;
+  color: var(--naval-blue);
+  background-color: var(--gray);
+  border: 2px solid var(--naval-blue);
+}
+dialog#deleteUserDialogBox p#delMainTitle {
+  padding: 0;
+  font-size: 40px;
+  margin-top: 20px;
+  font-weight: bold;
+  color: var(--success);
+}
+dialog#deleteUserDialogBox div#dialogContainer {
+  width: 80%;
+  display: flex;
+  padding: 20px;
+  margin: 120px auto;
+  border-radius: 10px;
+  flex-direction: column;
+  background-color: var(--light);
+  border: 2px solid var(--attention);
+}
+dialog#deleteUserDialogBox div#dialogContainer p#smallMsg {
+  font-size: medium;
+  color: var(--error);
+}
+dialog#deleteUserDialogBox div#dialogContainer section#descDialog {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid var(--attention);
+}
+dialog#deleteUserDialogBox div#dialogContainer section#btnDialog {
+  display: flex;
+  flex-direction: row;
+}
+dialog#deleteUserDialogBox div#dialogContainer section#attentionSign img {
+  width: 100px;
+}
+dialog#deleteUserDialogBox div#dialogContainer section#descDialog p {
+  margin: 0;
+  padding: 20px 20px 20px 0;
+}
+dialog#deleteUserDialogBox div#dialogContainer section#btnDialog button#deleteUserBtn,
+dialog#deleteUserDialogBox div#dialogContainer section#btnDialog button#exitDialogBtn {
+  margin: 20px auto;
+  background-color: var(--naval-blue);
+}
+dialog#deleteUserDialogBox div#dialogContainer section#btnDialog button#deleteUserBtn {
+  color: var(--attention);
+  border: 2px solid var(--attention);
+}
+dialog#deleteUserDialogBox div#dialogContainer section#btnDialog button#exitDialogBtn {
+  color: greenyellow;
+  border: 2px solid greenyellow;
+}
+/******** --------------------------- End Dialog Box Section --------------------------- ********/
+/*---*/
+/* ------------------------------------------ Footer ------------------------------------------ */
 footer#bottom {
   height: auto;
   margin: 50px 0 0 0;
@@ -948,6 +1014,9 @@ footer#bottom p:nth-child(2) a {
   color: var(--aqua);
   text-decoration: none;
 }
+/******** ----------------------------- End Footer Section ----------------------------- ********/
+/*---*/
+/******** -------------------------------- Media section ------------------------------- ********/
 @media only screen and (max-width: 1700px) {
   div#top div#input-login-sec {
     width: 65%;

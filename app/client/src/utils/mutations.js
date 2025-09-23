@@ -25,6 +25,7 @@ export const ADD_USER = gql`
         lastName
         username
         email
+        password
       }
     }
   }
@@ -34,11 +35,8 @@ export const RESET_PASSWORD = gql`
   mutation resetPassword($email: String!, $password: String!) {
     resetPassword(email: $email, password: $password) {
       user {
-        _id
-        firstName
-        lastName
-        username
         email
+        password
       }
     }
   }

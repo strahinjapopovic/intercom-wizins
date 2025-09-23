@@ -47,11 +47,12 @@ const ForgotPassword = () => {
           setCheckEmail({
             checkEmail: 'successfully',
           });
-          console.log(`data is processed!\ndata: ${data.getUserEmail.username}`);
+          console.log(`data is processed!\nUsername: ${data.getUserEmail.username}`);
+          console.log(data.getUserEmail.email);
           //-----------------------------------------------------------------------------------//
           const codexID = verificationCodeKey(20);
           const codeyID = verificationCodeKey(21);
-          const resetAddressURI = `http://localhost:3000/reset-password?codexid=${codexID}&codeyid=${codeyID}`;
+          const resetAddressURI = `http://localhost:3000/reset-password?userEmail=${data.getUserEmail.email}&codexid=${codexID}&codeyid=${codeyID}`;
           console.log(`\n---\nCodeXID: ${codexID}\n---\nCodeYID: ${codeyID}\n---\nReset Address: ${resetAddressURI}`); 
           //-----------------------------------------------------------------------------------//
           let codexIdAlphaNumStr = bcrypt.hashSync(codexID, 10);
@@ -97,6 +98,7 @@ const ForgotPassword = () => {
           console.log(`Date Start: ${dateStart}\n---\nDate End: ${dateEnd}\n---\nDate Message: ${dateMsg}`);
           //-----------------------------------------------------------------------------------//
           let objData = {
+            userEmail: data.getUserEmail.email,
             codexID: codexIdAlphaNumStr,
             codeyID: codeyIdAlphaNumStr,
             dateStart: dateStart,
@@ -109,30 +111,30 @@ const ForgotPassword = () => {
             errorInputCheck: '',
           });
           //-----------------------------------------------------------------------------------//
-          // emailjs.send("service_jswizard","template_respas_jswizard",{
-          //  from_name: "JS Wizard Repo",
-          //  clientFirstName: data.getUserEmail.firstName,
-          //  resetPassURI: resetAddressURI,
-          //  messageExpires: `Verification code expires in 30 min on ${dateMsg}`,
-          //  reply_to: formStateEmail.email,
-          //  codexID: codexID,
-          //  codeyID: codeyID,
-          // }, 
-          //     { 
-          //         publicKey: 'P6E7ZMa50IU2wMlSt', 
-          //     }
-          //   )
-          //   .then(() => { 
-          //       console.log('Email sent successfully by using EmailJS services!'); 
-          //   }, 
-          //   (error) => { 
-          //       console.log(error);
-          //   },
-          // );
+          emailjs.send("emailjs_intercom_wizins","template_respas_intercom",{
+           from_name: "Intercom WizIns Repo",
+           clientFirstName: data.getUserEmail.firstName,
+           resetPassURI: resetAddressURI,
+           messageExpires: `Verification code expires in 30 min on ${dateMsg}`,
+           reply_to: formStateEmail.email,
+           codexID: codexID,
+           codeyID: codeyID,
+          }, 
+              { 
+                  publicKey: 'P6E7ZMa50IU2wMlSt', 
+              }
+            )
+            .then(() => { 
+                console.log('Email sent successfully by using EmailJS services!'); 
+            }, 
+            (error) => { 
+                console.log(error);
+            },
+          );
           //-----------------------------------------------------------------------------------//
-          setTimeout(() => {
-            window.location.assign('/login');
-          }, 8000);
+          // setTimeout(() => {
+          //   window.location.assign('/login');
+          // }, 8000);
           //-----------------------------------------------------------------------------------//
         } else {
           setErrorStateCheck({

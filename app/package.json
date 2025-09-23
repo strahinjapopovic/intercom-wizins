@@ -1,8 +1,8 @@
 {
   "name": "app",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "",
-  "main": "server/server.js",
+  "main": "",
   "scripts": {
     "start": "nodemon ./server/server.js",
     "dev": "concurrently \"cd ./server && npm run watch\" \"cd ./client && npm run dev\"",

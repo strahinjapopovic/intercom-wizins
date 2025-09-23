@@ -27,9 +27,11 @@ const resolvers = {
       try {
         const deleteUser = await User.deleteOne({ _id: id, },);
         if(deleteUser.acknowledged == true && deleteUser.deletedCount >= 1) {
-          console.log(`deleteUser:`);
           console.log(JSON.stringify(deleteUser, null, 2));
           return deleteUser;
+        }
+        else {
+          throw DeleteUserError;
         }
       } catch (err) {
         console.log(err);

@@ -17,10 +17,6 @@ export const GET_USER = gql`
 export const GET_USER_EMAIL = gql`
   query getUserEmail($email: String!) {
     getUserEmail(email: $email) {
-      _id
-      firstName
-      lastName
-      username
       email
     }
   }

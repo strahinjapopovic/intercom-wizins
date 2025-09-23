@@ -104,24 +104,24 @@ class ConfirmationDialogBox extends React.Component {
         };
         localStorage.setItem("data", JSON.stringify(objData));
         //-----------------------------------------------------------------------------------//
-        // emailjs.send("service_jswizard", "template_econf_jswizard",
-        //     {
-        //         clientFirstName: this.props.cFirstName,
-        //         verificationCodeString: verificationCodeStr,
-        //         messageExpires: `Verification code expires on ${dateMsg}`,
-        //         reply_to: this.props.cEmail,
-        //     },
-        //     {
-        //         publicKey: 'P6E7ZMa50IU2wMlSt',
-        //     }
-        // )
-        //     .then(() => {
-        //         console.log('Email sent successfully by using EmailJS services!');
-        //     },
-        //         (error) => {
-        //             console.log(error);
-        //         },
-        //     );
+        emailjs.send("emailjs_intercom_wizins", "template_econf_intercom",
+            {
+                clientFirstName: this.props.cFirstName,
+                verificationCodeString: verificationCodeStr,
+                messageExpires: `Verification code expires on ${dateMsg}`,
+                reply_to: this.props.cEmail,
+            },
+            {
+                publicKey: 'P6E7ZMa50IU2wMlSt',
+            }
+        )
+            .then(() => {
+                console.log('Email sent successfully by using EmailJS services!');
+            },
+                (error) => {
+                    console.log(error);
+                },
+            );
         //-----------------------------------------------------------------------------------//
         console.log(`Verification Code is: ${verificationCodeStr}`);
         if (this.dialogRef.current) this.dialogRef.current.showModal();

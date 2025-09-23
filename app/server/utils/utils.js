@@ -2,7 +2,7 @@ const { GraphQLError } = require('graphql');
 const jwt = require('jsonwebtoken');
 
 const secret = 'sicret.codex.development';
-const expiration = '2h';
+const expiration = '10h';
 
 module.exports = {
   AuthenticationError: new GraphQLError('Authentication failed: Your authentication information is incorrect. Please try again.', {
@@ -22,7 +22,7 @@ module.exports = {
   }),
   DeleteUserError: new GraphQLError(`Error Deleting User`, {
     extensions: {
-      code: `BAD_ID_WHEN_DELETE`,
+      code: `USER_NOT_DELETED`,
     }
   }),
   signToken: function ({ firstName, lastName, email, username, _id }) {

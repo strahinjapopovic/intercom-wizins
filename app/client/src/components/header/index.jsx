@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Auth from '../../utils/auth';
+import Auth from '../../utils/auth.js';
 import { useQuery } from '@apollo/client';
 import { NavLink } from 'react-router-dom';
 import { GET_USER } from '../../utils/queries';
@@ -90,7 +90,7 @@ const Header = function() {
       <div id="header" className={ Auth.loggedIn() ? 'isLoggedInGreetingMarginTop'  : '' } >
         <section id="header-main" className={ Auth.loggedIn() ? (isOpen ? 'isOpenMoveDownLoggedIn' : '') : (isOpen ? 'isOpenMoveDownHome' : '') } >
           <span id='greeting'>{ Auth.loggedIn() ? loggedIn() : `` }</span>
-          <p><FontAwesomeIcon icon={faJs} style={{color: "#012137", }} /> InterCom<br />WizIns<br /><span>Repo</span></p>
+          <p><FontAwesomeIcon icon={faJs} style={{color: "#012137", }} /> Intercom<br />WizIns<br /><span>Repo</span></p>
           <img id='mobileImgMain' src={iconMain} width={90} style={{margin: '10px calc((100% - 90px) / 2 )', }}/>
         </section>
       </div>

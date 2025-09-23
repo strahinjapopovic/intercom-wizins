@@ -3,7 +3,8 @@ const db = require("./connection");
 const userInfo  = require("../seeders/user-seeds.json");
 
 db.once("open", async () => {
-    console.log(`Database connection open...`);
+    console.log(`Database ${db.db.databaseName} connection open...`);
+    
     try {
         let userDropCheck = await db.db.listCollections({ name: "users" }).toArray();
         if(userDropCheck.length) {

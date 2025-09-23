@@ -25,7 +25,7 @@ const typeDefs = `
     users: [User]
     addUser(firstName: String!, lastName: String!, username: String!, email: String!, password: String!, confirmed: String!): Auth
     login(username: String!, email: String!, password: String!): Auth
-    resetPassword(email: String!, password: String!): User
+    resetPassword(email: String!, password: String!): Auth
     deleteUser(id: ID!): Auth
   }
 `;

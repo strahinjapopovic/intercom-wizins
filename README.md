@@ -1,6 +1,6 @@
-# inter-com-wizins
+# intercom-wizins
 
-## MERN Full-Stack Wizard Repository
+## Project MERN - Full Stack Repository
 
 ![node version](https://img.shields.io/npm/v/node?logo=nodedotjs&label=Node.js%20RTE%20npm) ![npm version](https://img.shields.io/npm/v/npm?logo=npm&label=Node%20Package%20Manager%20npm) ![react version](https://img.shields.io/npm/v/react?logo=react&label=React%20npm) ![express version](https://img.shields.io/npm/v/express?logo=express&label=Express.js&labelColor=grey&color=blue) ![mongodb version](https://img.shields.io/npm/v/mongodb?style=flat&logo=mongodb&label=MongoDB&color=green) ![mongoose version](https://img.shields.io/npm/v/mongoose?style=flat&logo=mongoose&label=mongoose&color=red) ![@apollo/server](https://img.shields.io/npm/v/%40apollo%2Fserver?logo=apollo&label=%F0%9F%9A%80%20%40apollo%2Fserver%20npm)
 
@@ -47,13 +47,134 @@ Altrnatively, use the "Table of Contents" menu on the top-right corner to explor
 <a id="description-info"></a>
 ## Description Info
 
-### Inter-Com Wizard Installer (ICWI) or inter-com-wizins repo application is build as client-server architecture that uses two layers, Apollo Server and Apollo Client layers with GraphQL as a single proxy API endpoint. The `client` directory includes all the contents of basic template react-vite files and folders (`public/`, `src/`, `index.html`, `.eslintrc.cjs`, `vite.config.js`) while `server` directory include all server-side config architecture necessary to build and establish connection with database, to provide DB seeding of testing data and maintain ongoing DB transactions ect., e.g. (`models/`, `schemas/`, `config/`, `utils/`, `seeders/`, `server.js`). The root dir is `~/app` directory. Rest of two main dirs are `~/app/server/` and `~/app/client/`. Because of use of Apollo Client-Server architecture and utility with GraphQL API endpoint usuall directory configuration and content which relied on classic Model-View-Controller (MVC) architecture have to be adjusted. At sever-side we would have e.g. `./schema.js` and `./resolvers.js` OR `schemas/typeDef.js` and `schemas/resolvers.js` like in our example. In typeDef.js we should define all types and their fields as a blueprint which is actuall basic sceleton of data types and their properties. At resolvers.js we define resolvers functions for each used type and field in typeDefs.js. Those are the basic steps in forming directory, files and folders structure. Later on we add more components, pages and utilities to the model.
+### Intercom Wizard Installer (ICWI) or intercom-wizins repo application is build as client-server architecture that uses two layers, Apollo Server and Apollo Client layers with GraphQL as a single proxy API endpoint. 
 
-[<img src="./screenshots/js-wizard-onrender-online-preview.png" alt="Insomnia screenshot." />](./screenshots/js-wizard-onrender-online-preview.png)
+### `Client` directory includes all the contents of basic template react-vite files and folders (`public/`, `src/`, `index.html`, `.eslintrc.cjs`, `vite.config.js`) that are pre-defined or built in after terminal command run `~/app/client> npm run build` taking actions script at `app/client/package.json.
+
+```bash
+intercom-wizins/
+├─ app/
+│  ├─ client/
+│  │  ├─ dev-dist/
+│  │  │  ├─ registerSW.js
+│  │  │  ├─ sw.js
+│  │  ├─ dist/
+│  │  │  ├─ assets/
+│  │  │  ├─ index.html
+│  │  │  ├─ logo-128x128.png
+│  │  │  ├─ logo-192x192.png
+│  │  │  ├─ logo-256x256.png
+│  │  │  ├─ logo-384x384.png
+│  │  │  ├─ logo-512x512.png
+│  │  │  ├─ logo-96x96.png
+│  │  │  ├─ manifest.webmanifest
+│  │  │  ├─ registerSW.js
+│  │  │  ├─ sw.js
+│  │  │  ├─ vite.svg
+│  │  │  └─ workbox-4b7ad3f1.js
+│  │  ├─ public/
+│  │  │  ├─ logo-128x128.png
+│  │  │  ├─ logo-192x192.png
+│  │  │  ├─ logo-256x256.png
+│  │  │  ├─ logo-384x384.png
+│  │  │  ├─ logo-512x512.png
+│  │  │  ├─ logo-96x96.png
+│  │  │  └─ vite.svg
+│  │  ├─ src/
+│  │  │  ├─ assets/
+│  │  │  │  ├─ images/
+│  │  │  │  │  ├─ background/
+│  │  │  │  │  ├─ details-icon/
+│  │  │  │  │  ├─ directory-icon/
+│  │  │  │  │  ├─ favicon/
+│  │  │  │  │  ├─ message-icon/
+│  │  │  │  │  ├─ profile-section-ico/
+│  │  │  │  │  └─ software-icon/
+│  │  │  │  └─ react.svg
+│  │  │  ├─ components/
+│  │  │  ├─ hooks/
+│  │  │  ├─ pages/
+│  │  │  │  ├─ Details.jsx
+│  │  │  │  ├─ Download.jsx
+│  │  │  │  ├─ ForgotPassword.jsx
+│  │  │  │  ├─ Home.jsx
+│  │  │  │  ├─ Login.jsx
+│  │  │  │  ├─ Profile.jsx
+│  │  │  │  ├─ ResetPassword.jsx
+│  │  │  │  ├─ RouteErrorPage.jsx
+│  │  │  │  ├─ Signup.jsx
+│  │  │  │  └─ SignupError.jsx
+│  │  │  ├─ utils/
+│  │  │  │  ├─ auth.js
+│  │  │  │  ├─ mutations.js
+│  │  │  │  ├─ queries.js
+│  │  │  │  ├─ verificationCodeAns.jsx
+│  │  │  │  └─ verificationCodeSpc.jsx
+│  │  │  ├─ App.css
+│  │  │  ├─ App.jsx
+│  │  │  └─ main.jsx
+│  │  ├─ .eslintrc.cjs
+│  │  ├─ index.html
+│  │  ├─ package-lock.json
+│  │  ├─ package.json
+│  │  └─ vite.config.js
+│  ├─ server/
+│  ├─ .env
+│  ├─ .env.Example
+│  ├─ package-lock.json
+│  └─ package.json
+├─ screenshots/
+├─ .gitignore
+├─ LICENSE
+└─ README.md
+
+
+```
+
+### `Server` directory include all server-side config architecture necessary to build and establish connection with database, to provide DB seeding of testing data and maintain ongoing DB transactions ect., e.g. (`models/`, `schemas/`, `config/`, `utils/`, `seeders/`, `server.js`). 
+
+```bash
+intercom-wizins/
+├─ app/
+│  ├─ client/
+|  ├─ node_modules/
+│  ├─ server/
+│  │  ├─ config/
+│  │  │  ├─ connection.js
+│  │  │  └─ seed.js
+│  │  ├─ models/
+│  │  │  ├─ index.js
+│  │  │  └─ User.js
+│  │  ├─ schemas/
+│  │  │  ├─ index.js
+│  │  │  ├─ resolvers.js
+│  │  │  └─ typeDefs.js
+│  │  ├─ seeders/
+│  │  │  └─ user-seeds.json
+│  │  ├─ utils/
+│  │  │  ├─ dateFormat.js
+│  │  │  └─ utils.js
+│  │  ├─ package-lock.json
+│  │  ├─ package.json
+│  │  └─ server.js
+│  ├─ .env
+│  ├─ .env.Example
+│  ├─ package-lock.json
+│  └─ package.json
+├─ screenshots/
+├─ .gitignore
+├─ LICENSE
+└─ README.md
+
+```
+
+### The root dir is `~/app` directory. Two main dirs are `~/app/server/` and `~/app/client/`. Because of use of Apollo Client-Server architecture and utility with GraphQL API endpoint usuall directory configuration and content which relied on classic Model-View-Controller (MVC) architecture have to be adjusted. At sever-side we would have e.g. `./schema.js` and `./resolvers.js` OR `schemas/typeDef.js` and `schemas/resolvers.js` like in our example. In typeDef.js we should define all types and their fields as a blueprint which is actuall basic sceleton of data types and their properties. At resolvers.js we define resolvers functions for each used type and field in typeDefs.js. Those are the basic steps in forming directory, files and folders structure. Later on we add more components, pages and utilities to the project. 
+
+[<img src="./screenshots/wizins-onrender-online-preview.png" alt="Online web presentation." />](./screenshots/wizins-onrender-online-preview.png)
 
 <a id="github-repository"></a>
 ## GitHub Repo Badge
-[![GitHub](https://img.shields.io/badge/logo-GitHub-white?style=flat&logo=github&logoColor=whitek&label=js-wizard&labelColor=gray&color=blue)](https://github.com/strahinjapopovic/js-wizard)
+[![GitHub](https://img.shields.io/badge/logo-GitHub-white?style=flat&logo=github&logoColor=whitek&label=inter-com-wizins&labelColor=gray&color=blue)](https://github.com/strahinjapopovic/inter-com-wizins)
 
 <a id="installation-process"></a>
 ## Installation Process
@@ -67,9 +188,9 @@ $ mongod
 ```
 If terminal shows something like image below it means MongoDB is set properly. Othrewise repeat process again.
 
-[<img src="./screenshots/js-wizard-mongodb-install.png" alt="Git Bash Terminal screenshot." />](./images/mongo-install-bord.PNG)
+[<img src="./screenshots/wizins-mongodb-install.png" alt="Git Bash Terminal screenshot." />](./screenshots/wizins-mongodb-install.png)
 
-After MongoDB is setup, npm packages should be installed at root dir of the application (`~/js-wizard/app>`):
+After MongoDB is setup, npm packages should be installed at root dir of the application (`~/inter-com-wizins/app>`):
 To initialize package.json and to install node_packages run
 ```bash
 $ npm init -y # initialize formating of package.json with answer "yes" to confirm init
@@ -96,7 +217,7 @@ Alternatively,
 $ npm run seed # automate executable shortcuts scripts at package.json from app/ dir
 ```
 ### Run seed output:
-[<img src="./screenshots/js-wizard-seed.png" alt="VS Code Image." />](./images/mongo-seed-bord.PNG)
+[<img src="./screenshots/wizins-seed.png" alt="VS Code Image." />](./screenshots/wizins-seed.png)
 
 <a id="usage-info"></a>
 ## Usage Info
@@ -109,7 +230,7 @@ Currentlly, at this stage there is no contributors but for more information any 
 <a id="test-instructions"></a>
 ## Test Instructions
 
-Application runs by invoking command `$ npm run dev` at `~/js-wizard/app>` directory. Before running application, download compressed repo from githaub and installl packages globaly or at application root directory from the section [Installation Process](#installation-process). 
+Application runs by invoking command `$ npm run dev` at `~/intercom-wizins/app>` directory. Before running application, download compressed repo from githaub and installl packages globaly or at application root directory from the section [Installation Process](#installation-process). 
 
 Install nodemon npm package globaly
 ```bash
@@ -140,7 +261,8 @@ If using scripts to start both ports
 $ npm run dev # it will start both server and client side ports at once (http://localhost:3000 AND http://localhost:3001/graphql)
 ```
 
-All automate executable scripts are stored at root directory `~/js-wizard/app>` in `package.json` file.
+All automate executable scripts that call server and client package.json scripts are stored at root directory `~/intercom-wizins/app>` in `package.json` file.
+`<app/package.json>`
 ```json
 "scripts": {
     "start": "nodemon ./server/server.js",
@@ -152,12 +274,31 @@ All automate executable scripts are stored at root directory `~/js-wizard/app>` 
   },
 ```
 
+`<app/server/package.json>`
+```json
+"scripts": {
+    "start": "node ./server.js",
+    "watch": "nodemon",
+    "seed": "node ./config/seed.js"
+  },
+```
+
+`<app/client/package.json>`
+```json
+"scripts": {
+    "dev": "vite serve",
+    "build": "vite build",
+    "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
+  },
+```
+
 <a id="live-on-render"></a>
 ## Live on [Render](https://js-wizard.onrender.com/)
 
 Live application can be visited [here](https://js-wizard.onrender.com/).
 
-[<img src="./screenshots/js-wizard-thumbnail-aqua.png" width="400" alt="Repo image as thumbnail for testing purpose on Render." />](https://js-wizard.onrender.com/)
+[<img src="./screenshots/wizins-thumbnail-aqua.png" width="400" alt="Repo image as thumbnail for testing purpose on Render." />](https://js-wizard.onrender.com/)
 
 ## License
 

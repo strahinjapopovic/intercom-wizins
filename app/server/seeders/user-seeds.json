@@ -3,7 +3,7 @@
     "firstName": "John",
     "lastName": "Doe",
     "username": "johndoe",
-    "email": "jdoe@domain.net",
+    "email": "jdoe@mediana.net",
     "password": "johnDoe@123",
     "confirmed": "jDoe@123"
   },
@@ -11,7 +11,7 @@
     "firstName": "Michael",
     "lastName": "Smith",
     "username": "msmith",
-    "email": "msmith@domain.com",
+    "email": "msmith@newilirion.com",
     "password": "michaelSmith@123",
     "confirmed": "mSmith@123"
   },
@@ -19,7 +19,7 @@
     "firstName": "Larry",
     "lastName": "Bird",
     "username": "larrybird",
-    "email": "lbird@domain.edu",
+    "email": "lbird@dariacenter.edu",
     "password": "larryBird@123",
     "confirmed": "lBird@123"
   },
@@ -27,7 +27,7 @@
     "firstName": "Michael",
     "lastName": "Jordan",
     "username": "michaeljordan",
-    "email": "mjordan@domain.biz",
+    "email": "mjordan@tracus.biz",
     "password": "michaelJordan@123",
     "confirmed": "mJordan@123"
   },
@@ -35,7 +35,7 @@
     "firstName": "David",
     "lastName": "Green",
     "username": "davidgreen",
-    "email": "dgreen@domain.co",
+    "email": "dgreen@dardanus.co",
     "password": "davidGreen@123",
     "confirmed": "dGreen@123"
   },
@@ -43,7 +43,7 @@
     "firstName": "Mira",
     "lastName": "Murati",
     "username": "miramurati",
-    "email": "miramurati@hotmail.com",
+    "email": "miramurati@tribalus.com",
     "password": "miraMurati@123",
     "confirmed": "miraMurati@123"
   }

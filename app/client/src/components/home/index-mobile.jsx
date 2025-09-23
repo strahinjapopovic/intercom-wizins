@@ -30,17 +30,17 @@ class HomeMobileComp extends React.Component {
                         JS Full Stack Wizard Repo ( <Link to='https://github.com/strahinjapopovic/js-wizard'>js-wizard</Link> )
                     </div>
                     <div style={{textAlign: 'justify', }}>
-                        Inter Company Wizard Installer (ICWI)
-                        or <Link to='https://github.com/strahinjapopovic/inter-com-wizins'>inter-com-wizins</Link> repo application, 
+                        Intercom Wizard Installer (ICWI)
+                        or <Link to='https://github.com/strahinjapopovic/intercom-wizins'>intercom-wizins</Link> repo application, 
                         has been developed as a part of MERN testing project by utilizing Vite server config-dev patterns with React main concepts through 
                         Client-Serveer architecture, Apollo Server, GraphQL and MongoDB. More about repository you can find 
-                        at <Link to='https://github.com/strahinjapopovic/inter-com-wizins'>GitHub</Link>.
+                        at <Link to='https://github.com/strahinjapopovic/intercom-wizins'>GitHub</Link>.
                         Main idea was to use this software to establish main utility repo-hub at individual private company server with specific adjustments in 
                         number of tools available, so everyone with company clearance can use it in everyday activities. 
                         Software is mainly developed for desktop devices but now it is available for 
                         mobile and tablet devices as well which improves user experience through all sizes.
                         As mentioned above, more about this application, you can find at GitHub repository
-                        <Link to='https://github.com/strahinjapopovic/inter-com-wizins'>here</Link>.
+                        <Link to='https://github.com/strahinjapopovic/intercom-wizins'>here</Link>.
                     </div>
                     {/*----------------------------------------------------------------------------------------------------------------------------------------------*/}
                 </section>

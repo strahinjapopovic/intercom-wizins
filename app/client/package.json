@@ -1,9 +1,9 @@
 {
-  "name": "client",
+  "name": "app-client",
   "type": "module",
-  "version": "0.0.0",
+  "version": "2.0.0",
   "description": "",
-  "main": "../server/server.js",
+  "main": "src/",
   "scripts": {
     "dev": "vite serve",
     "build": "vite build",
