@@ -9,6 +9,7 @@ import Profile from './pages/Profile';
 import Download from './pages/Download.jsx';
 import AccountDetails from './pages/Details.jsx';
 import SignupError from './pages/SignupError.jsx';
+import DisplayUserOnline from './pages/UserOnline.jsx';
 import ResetPassword from './pages/ResetPassword.jsx';
 import ForgotPassword from './pages/ForgotPassword.jsx';
 import RouteErrorPage from './pages/RouteErrorPage.jsx';
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
       {
         path: '/reset-password',
         element: <ResetPassword />
+      },
+      {
+        path: '/user-online',
+        element: <DisplayUserOnline />
       },
     ]
   },

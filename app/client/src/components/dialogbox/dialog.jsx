@@ -23,8 +23,10 @@ class ConfirmationDialogBox extends React.Component {
     }
     async mutateAddUser() {
         try {
+            console.log(`User count: ` + this.props.getAllUsr)
             const { data } = await this.props.addUser({
                 variables: {
+                    userID: `INTCOM_x01e_25` + this.props.getAllUsr,
                     email: this.props.cEmail,
                     confirmed: this.props.cConfirm,
                     username: this.props.cUsername,
@@ -36,7 +38,7 @@ class ConfirmationDialogBox extends React.Component {
             if (data) {
                 setTimeout(() => {
                     Auth.login(data.addUser.token);
-                }, 3000);
+                }, 10000);
             } else {
                 window.location.assign('/signup-error');
             }

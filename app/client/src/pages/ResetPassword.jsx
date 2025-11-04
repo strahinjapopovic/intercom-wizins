@@ -1,18 +1,18 @@
 import htmlEntity from 'he';
-import bcrypt from 'bcryptjs';
 import { useState } from 'react';
 import Auth from '../utils/auth.js';
 import { Link } from 'react-router-dom';
+import Util from '../../../utils/auth.js';
 import { useMutation } from '@apollo/client';
 import { RESET_PASSWORD } from '../utils/mutations.js';
-import getResPassParam from '../hooks/use-resetpass-params.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
+import tickSuccess from '../assets/images/message-icon/tick-mark-green.png';
 //--------------------------------------------//  
 const ResetPassword = () => {
 //--------------------------------------------//
-  const codexid = getResPassParam().codexid;
-  const codeyid = getResPassParam().codeyid;
+  const codexid = Util.getResPassParam().codexid;
+  const codeyid = Util.getResPassParam().codeyid;
 //--------------------------------------------//
   const [dateState, setDateState] = useState({ date: new Date(), });
   const [stateForm, setStateForm] = useState({ password: '', confirm: '', });
@@ -40,8 +40,10 @@ const ResetPassword = () => {
         //-----------------------------------------------------------------------------------//
         console.log(`SUCCESSFULL: Password can be processed for local storage`);
         console.log(`e:` + JSON.parse(localStorage.getItem('resetData')).userEmail, `x: ` + codexid, `y: ` + codeyid);
-        const matchX = await bcrypt.compare(codexid, JSON.parse(localStorage.getItem('resetData')).codexID);
-        const matchY = await bcrypt.compare(codeyid, JSON.parse(localStorage.getItem('resetData')).codeyID);
+        //-----------------------------------------------------------------------------------//
+        const matchX = await Util.bcryptCompareResetPassX(codexid, JSON.parse(localStorage.getItem('resetData')).codexID);
+        const matchY = await Util.bcryptCompareResetPassY(codeyid, JSON.parse(localStorage.getItem('resetData')).codeyID);
+        //-----------------------------------------------------------------------------------//
         if(matchX === true && matchY === true) {
           console.log(matchX, matchY, `SUCCESSFULL: Password can be fully processed`);
           console.log(`New password: ${stateForm.password}`);
@@ -53,7 +55,10 @@ const ResetPassword = () => {
           });
           if (data) {
             console.log(data);
-            console.log(`Password changed successfully!`)
+            console.log(`Password changed successfully!`);
+            //-----------------------------------------------------------------------------------//
+            localStorage.removeItem('resetData');
+            //-----------------------------------------------------------------------------------//
             setTimeout(() => {
               Auth.loggedIn() ? Auth.logout() : window.location.assign('/login');
             }, 8000);
@@ -90,26 +95,38 @@ const ResetPassword = () => {
               <form id='login' onSubmit={handleFormSubmit}>
                 <span id='title-main' style={{marginLeft: '10%', }}>JS</span>
                 <p id='titleMessage' style={{marginBottom: '20px', }}>Reset Your Password</p>
-                <label htmlFor="password">New Password <span>*</span></label>
-                  <input type="password" id="password" name="password" placeholder="Insert your password" value={stateForm.password} onChange={handleChange} />
-                  { 
-                    errorStateChack.errorInputCheck && !(stateForm.password) ? 
-                      (<div id="error-message-single">{`${htmlEntity.decode("&#9888;")} Insert new password `}</div>) : 
-                    errorStateChack.errorInputCheck && !(/^(?=.*\d)(?=.*[!@#$%^&_*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/.test(stateForm.password)) && 
-                      (<div id="error-message-single">{`${htmlEntity.decode("&#9888;")} Password not valid `}</div>)
-                  }
-                <label htmlFor="confirm">Confirm <span>*</span></label>
-                  <input type="password" id="confirm" name="confirm" placeholder="Confirm your password" value={stateForm.confirm} onChange={handleChange} />
-                  { 
-                    errorStateChack.errorInputCheck && !(stateForm.confirm) ? 
-                      (<div id="error-message-single">{`${htmlEntity.decode("&#9888;")} Confirm new password `}</div>) : 
-                    errorStateChack.errorInputCheck && (!(/^(?=.*\d)(?=.*[!@#$%^&_*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/.test(stateForm.confirm))) ? 
-                      (<div id="error-message-single">{`${htmlEntity.decode("&#9888;")} Confirm not valid `}</div>) :
-                    errorStateChack.errorInputCheck && ((/^(?=.*\d)(?=.*[!@#$%^&_*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/.test(stateForm.confirm)) &&
-                    stateForm.confirm !== stateForm.password) &&  
-                      (<div id="error-message-single">{`${htmlEntity.decode("&#9888;")} Passwords do not match `}</div>)
-                  }
-                <button type='submit' id="submit" name="submit"><FontAwesomeIcon icon={faCircleCheck} /> Send Instructions</button>
+                {
+                  data ? 
+                  (<div id='openDialogBoxMsg' style={{ marginTop: '40px', marginBottom: '40px', }}>
+                  <span><img src={tickSuccess} style={{ width: '20px', }}/> Email Change Successfully</span>
+                    <br />
+                    <br />Recover email processed <b>successfully!</b>
+                    <br />
+                    <br />Redirecting to <b>login</b> in seconds...
+                  </div>) :
+                  (<>
+                      <label htmlFor="password">New Password <span>*</span></label>
+                      <input type="password" id="password" name="password" placeholder="Insert your password" value={stateForm.password} onChange={handleChange} />
+                      { 
+                        errorStateChack.errorInputCheck && !(stateForm.password) ? 
+                          (<div id="error-message-single">{`${htmlEntity.decode("&#9888;")} Insert new password `}</div>) : 
+                        errorStateChack.errorInputCheck && !(/^(?=.*\d)(?=.*[!@#$%^&_*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/.test(stateForm.password)) && 
+                          (<div id="error-message-single">{`${htmlEntity.decode("&#9888;")} Password not valid `}</div>)
+                      }
+                      <label htmlFor="confirm">Confirm <span>*</span></label>
+                      <input type="password" id="confirm" name="confirm" placeholder="Confirm your password" value={stateForm.confirm} onChange={handleChange} />
+                      { 
+                        errorStateChack.errorInputCheck && !(stateForm.confirm) ? 
+                          (<div id="error-message-single">{`${htmlEntity.decode("&#9888;")} Confirm new password `}</div>) : 
+                        errorStateChack.errorInputCheck && (!(/^(?=.*\d)(?=.*[!@#$%^&_*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/.test(stateForm.confirm))) ? 
+                          (<div id="error-message-single">{`${htmlEntity.decode("&#9888;")} Confirm not valid `}</div>) :
+                        errorStateChack.errorInputCheck && ((/^(?=.*\d)(?=.*[!@#$%^&_*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/.test(stateForm.confirm)) &&
+                        stateForm.confirm !== stateForm.password) &&  
+                          (<div id="error-message-single">{`${htmlEntity.decode("&#9888;")} Passwords do not match `}</div>)
+                      }
+                      <button type='submit' id="submit" name="submit"><FontAwesomeIcon icon={faCircleCheck} /> Send Instructions</button>
+                  </>)
+                } 
               </form>
               <div id='newUserRegistrationBox'>
                 <div id='newSub'>

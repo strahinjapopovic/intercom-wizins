@@ -1,8 +1,9 @@
 import htmlEntity from 'he';
-import bcrypt from 'bcryptjs';
 import { useState } from 'react';
+import Auth from '../utils/auth.js';
 import emailjs from '@emailjs/browser';
 import { Link } from 'react-router-dom';
+import Util from '../../../utils/auth.js';
 import { useLazyQuery } from '@apollo/client';
 import { GET_USER_EMAIL } from '../utils/queries.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -55,9 +56,6 @@ const ForgotPassword = () => {
           const resetAddressURI = `http://localhost:3000/reset-password?userEmail=${data.getUserEmail.email}&codexid=${codexID}&codeyid=${codeyID}`;
           console.log(`\n---\nCodeXID: ${codexID}\n---\nCodeYID: ${codeyID}\n---\nReset Address: ${resetAddressURI}`); 
           //-----------------------------------------------------------------------------------//
-          let codexIdAlphaNumStr = bcrypt.hashSync(codexID, 10);
-          let codeyIdAlphaNumStr = bcrypt.hashSync(codeyID, 10);
-          //-----------------------------------------------------------------------------------//
           const arrMonth = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
           let dateStart = dateState.date.getTime();
           let dateEnd = dateStart + 1800000;
@@ -99,8 +97,8 @@ const ForgotPassword = () => {
           //-----------------------------------------------------------------------------------//
           let objData = {
             userEmail: data.getUserEmail.email,
-            codexID: codexIdAlphaNumStr,
-            codeyID: codeyIdAlphaNumStr,
+            codexID: Util.bcryptHashingForgotPassX(codexID),
+            codeyID: Util.bcryptHashingForgotPassY(codeyID),
             dateStart: dateStart,
             dateEnd: dateEnd,
             dateMsg: dateMsg,
@@ -132,9 +130,9 @@ const ForgotPassword = () => {
             },
           );
           //-----------------------------------------------------------------------------------//
-          // setTimeout(() => {
-          //   window.location.assign('/login');
-          // }, 8000);
+          setTimeout(() => {
+            Auth.loggedIn() ? Auth.logout() : window.location.assign('/login');
+          }, 8000);
           //-----------------------------------------------------------------------------------//
         } else {
           setErrorStateCheck({
@@ -186,8 +184,12 @@ const ForgotPassword = () => {
                     (formStateEmail.email !== '' || !(/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/.test(formStateEmail.email)))) ? 
                   (<>
                     <div id='openDialogBoxMsg' style={{ marginTop: '40px', marginBottom: '40px', }}>
-                    <span><img src={tickSuccess} style={{ width: '20px', }}/> Recover Email Send Successfully</span><br /><br />
-                      Recover email with instructions is sent successfully.<br />Please go to your email and follow the instructios provided.
+                    <span><img src={tickSuccess} style={{ width: '20px', }}/> Recover Email Send Successfully</span>
+                      <br />
+                      <br />Recover email with instructions is sent to <b>{JSON.parse(localStorage.getItem("resetData")).userEmail}</b>
+                      <br />Please go to your email and follow the instructios provided
+                      <br />
+                      <br />Redirecting in seconds...
                     </div>
                   </>) : 
                   (checkEmailUser.checkEmail === 'failed' && 

@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ADD_USER } from '../utils/mutations';
 import { useMutation, useQuery } from '@apollo/client';
-import { GET_USER, GET_USER_EMAIL } from '../utils/queries.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
 import SpinnerLoader from '../components/spinner/spinnerLoader.jsx';
@@ -12,6 +11,7 @@ import VerificationDialogBox from '../components/dialogbox/dialog.jsx';
 import okCheckIcon from '../assets/images/message-icon/ok-check-icon.png';
 import tickSuccess from '../assets/images/message-icon/tick-mark-green.png';
 import errorCheckIcon from '../assets/images/message-icon/err-check-icon.png';
+import { GET_ALL_USERS, GET_USER, GET_USER_EMAIL } from '../utils/queries.js';
 //--------------------------------------------//
 const Signup = () => {
   localStorage.removeItem('data');
@@ -32,10 +32,13 @@ const Signup = () => {
     const { data: dataq, loading: loadingq, error: errorq } = useQuery(GET_USER, {
       variables: { username: formState.username, },
     });
-  //--------------------------------------------//
-  const { data: dataqe, loading: loadingqe, error: errorqe } = useQuery(GET_USER_EMAIL, {
-    variables: { email: formState.email, },
-  });
+    const { data: dataqe, loading: loadingqe, error: errorqe } = useQuery(GET_USER_EMAIL, {
+      variables: { email: formState.email, },
+    });
+    const { data: dataAllUsr, loading: loadingAllUsr, error: errorAllUsr } = useQuery(GET_ALL_USERS);
+    if(dataAllUsr) {
+      console.log(`int_com_x01e_25${dataAllUsr.users.length+1}`);
+    }
   //--------------------------------------------//
   const handleFormSubmit = async function (event) {
     event.preventDefault();
@@ -260,6 +263,7 @@ const Signup = () => {
                             cPassword={formState.password}
                             cFirstName={formState.firstName}
                             addUser={addUser}
+                            getAllUsr={dataAllUsr.users.length+1}
                           />)
                         }
                       </td>

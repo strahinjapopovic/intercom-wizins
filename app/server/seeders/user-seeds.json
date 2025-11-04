@@ -1,50 +1,72 @@
 [
   {
+    "userID": "int_com_x01e251",
     "firstName": "John",
     "lastName": "Doe",
     "username": "johndoe",
     "email": "jdoe@mediana.net",
     "password": "johnDoe@123",
-    "confirmed": "jDoe@123"
+    "confirmed": "jDoe@123",
+    "online": "Test user"
   },
   {
+    "userID": "int_com_x01e252",
     "firstName": "Michael",
     "lastName": "Smith",
     "username": "msmith",
     "email": "msmith@newilirion.com",
     "password": "michaelSmith@123",
-    "confirmed": "mSmith@123"
+    "confirmed": "mSmith@123",
+    "online": "Test user"
   },
   {
+    "userID": "int_com_x01e253",
     "firstName": "Larry",
     "lastName": "Bird",
     "username": "larrybird",
     "email": "lbird@dariacenter.edu",
     "password": "larryBird@123",
-    "confirmed": "lBird@123"
+    "confirmed": "lBird@123",
+    "online": "Test user"
   },
   {
+    "userID": "int_com_x01e254",
     "firstName": "Michael",
     "lastName": "Jordan",
     "username": "michaeljordan",
     "email": "mjordan@tracus.biz",
     "password": "michaelJordan@123",
-    "confirmed": "mJordan@123"
+    "confirmed": "mJordan@123",
+    "online": "Test user"
   },
   {
+    "userID": "int_com_x01e255",
     "firstName": "David",
     "lastName": "Green",
     "username": "davidgreen",
     "email": "dgreen@dardanus.co",
     "password": "davidGreen@123",
-    "confirmed": "dGreen@123"
+    "confirmed": "dGreen@123",
+    "online": "Test user"
   },
   {
+    "userID": "int_com_x01e256",
     "firstName": "Mira",
     "lastName": "Murati",
     "username": "miramurati",
     "email": "miramurati@tribalus.com",
     "password": "miraMurati@123",
-    "confirmed": "miraMurati@123"
+    "confirmed": "miraMurati@123",
+    "online": "Test user"
+  },
+  {
+    "userID": "int_com_x01e257",
+    "firstName": "Stan",
+    "lastName": "Pope",
+    "username": "stanpope",
+    "email": "spope.mails@gmail.com",
+    "password": "Data@976",
+    "confirmed": "Data@976",
+    "online": "Yes"
   }
 ]

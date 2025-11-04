@@ -2,6 +2,12 @@ const bcrypt = require('bcryptjs');
 const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema({
+  userID: {
+    type: String,
+    require: false,
+    unique: true,
+    trim: true,
+  },
   first: {
     type: String,
     alias: 'firstName',
@@ -71,6 +77,11 @@ const userSchema = new mongoose.Schema({
   updatedAt: {
       type: Date,
       default: Date.now,
+  },
+  online: {
+    type: String,
+    enum: ['No', 'Yes', 'Test user'],
+    default: 'No',
   },
 },
 {

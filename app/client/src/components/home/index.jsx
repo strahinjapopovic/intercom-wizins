@@ -38,12 +38,12 @@ class HomeComponent extends React.Component {
                                 <tbody>
                                     <tr>
                                         <td id='title' style={{width: '100%', padding: '20px 20px', color: 'rgb(1, 33, 55)', }}>
-                                            JS Full Stack Wizard Repo ( <Link to='https://github.com/strahinjapopovic/intercom-wizins'>intercom-wizins</Link> )
+                                            JS Full Stack Wizard Repo ( <Link to='https://github.com/strahinjapopovic/intercom-wizins'>intcom-wizins</Link> )
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td id="desc" style={{padding: '20px 20px', }}>Intercom Wizard Installer (ICWI)
-                                            or <Link to='https://github.com/strahinjapopovic/intercom-wizins'>intercom-wizins</Link> repo application, 
+                                        <td id="desc" style={{padding: '20px 20px', }}>Intcom Wizard Installer (ICWI)
+                                            or <Link to='https://github.com/strahinjapopovic/intercom-wizins'>intcom-wizins</Link> repo application, 
                                             has been developed as a part of MERN testing project by utilizing Vite server config-dev patterns with React main concepts through 
                                             Client-Serveer architecture, Apollo Server, GraphQL and MongoDB. More about repository you can find 
                                             at <Link to='https://github.com/strahinjapopovic/intercom-wizins'>GitHub</Link>.

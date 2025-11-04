@@ -54,6 +54,7 @@ const Header = function() {
               (<div id='openNavLink'>
                 <div id='headerBtnDiv' className={isOpen ? 'isOpen' : ''} >
                   <NavLink id="Link" className="topBtn" onClick={handleInstallClick}>Install</NavLink>
+                  <NavLink id='Link' className={classNameIsActiveFunc} to="/user-online">Who's Online</NavLink>
                   <NavLink id="Link" className={classNameIsActiveFunc} to="/profile">Profile</NavLink>
                   <NavLink id="Link" className={classNameIsActiveFunc} to="/download">Download</NavLink>
                   <NavLink id="Link" className={classNameIsActiveFunc} to="/account-details">Account Details</NavLink>
@@ -90,7 +91,7 @@ const Header = function() {
       <div id="header" className={ Auth.loggedIn() ? 'isLoggedInGreetingMarginTop'  : '' } >
         <section id="header-main" className={ Auth.loggedIn() ? (isOpen ? 'isOpenMoveDownLoggedIn' : '') : (isOpen ? 'isOpenMoveDownHome' : '') } >
           <span id='greeting'>{ Auth.loggedIn() ? loggedIn() : `` }</span>
-          <p><FontAwesomeIcon icon={faJs} style={{color: "#012137", }} /> Intercom<br />WizIns<br /><span>Repo</span></p>
+          <p><FontAwesomeIcon icon={faJs} style={{color: "#012137", }} /> IntCom<br />WizIns<br /><span>Repo</span></p>
           <img id='mobileImgMain' src={iconMain} width={90} style={{margin: '10px calc((100% - 90px) / 2 )', }}/>
         </section>
       </div>

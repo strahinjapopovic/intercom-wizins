@@ -5,18 +5,24 @@ const { signToken, AuthenticationError, SignupError, DeleteUserError } = require
 const resolvers = {
   Query: {
     users: async () => {
-      return User.find();
+      return await User.find();
     },
     user: async (parent, { username }) => {
-      return User.findOne({ username });
+      return await User.findOne({ username });
     },
     getUserEmail: async (parent, { email }) => {
-      return User.findOne({ email });
+      return await User.findOne({ email });
     },
+    getOnlineUsers: async (_, { online }) => {
+      return await User.find({ $or: [{ online: 'Yes' }, { online: 'Test user' }] });
+    },
+    getAllUsrAndCount: async () => {
+      return await User.countDocuments({});
+    }
   },
   Mutation: {
-    addUser: async (parent, { firstName, lastName, username, email, password, confirmed }) => {
-      const user = await User.create({ firstName, lastName, username, email, password, confirmed });
+    addUser: async (parent, { userID, firstName, lastName, username, email, password, confirmed }) => {
+      const user = await User.create({ userID, firstName, lastName, username, email, password, confirmed });
       if(!user) {
         throw SignupError;
       }
