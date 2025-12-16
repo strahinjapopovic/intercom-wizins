@@ -5,7 +5,7 @@ import App from './App.jsx';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
-import Profile from './pages/Profile';
+import Dashboard from './pages/Profile';
 import Download from './pages/Download.jsx';
 import AccountDetails from './pages/Details.jsx';
 import SignupError from './pages/SignupError.jsx';
@@ -37,8 +37,8 @@ const router = createBrowserRouter([
         element: <Login />
       },
       {
-        path: '/profile',
-        element: <Profile />
+        path: '/dashboard',
+        element: <Dashboard />
       },
       {
         path: '/account-details',

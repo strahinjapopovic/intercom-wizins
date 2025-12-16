@@ -131,12 +131,12 @@ div#header {
   font-size: 24px;
   cursor: pointer;
   overflow: hidden;
+  font-weight: bold;
   border-radius: 5px;
   color: var(--aqua);
-  font-weight:  normal;
   background-color: none;
   text-decoration: underline;
-  border: 1px solid var(--aqua);
+  border: 2px solid var(--aqua);
   font-family: "Roboto", sans-serif;
 }
 
@@ -150,10 +150,13 @@ div#mainNavBarTop {
   height: 70px;
   z-index: 999;
   position: fixed;
+  background-size: cover;
   width: calc(100% - 2px);
+  background-repeat: no-repeat;
   border: 1px solid var(--aqua);
   background-color: var(--dark);
   border-bottom: 2px solid var(--aqua);
+  background-image: url('./assets/images/background/navbar-bcg1.jpg');
 }
 
 div#headerBtnDiv {
@@ -268,7 +271,7 @@ div#header section#header-main {
   background-size: 150px;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url('./assets/images/favicon/js-wizard-thumbnail-inverse.png');
+  background-image: url('./assets/images/favicon/starliner-1.png');
 }
 
 div.isLoggedInGreetingMarginTop  {
@@ -655,18 +658,18 @@ Link.topBtn {
   font-size: 24px;
   cursor: pointer;
   overflow: hidden;
+  font-weight: bold;
   border-radius: 5px;
   color: var(--aqua);
-  font-weight: normal;
   text-decoration: none;
   background-color: none;
-  border: 1px solid var(--aqua);
+  border: 2px solid var(--aqua);
   font-family: "Roboto", sans-serif;
 }
 
 .topBtn:hover {
   color: var(--electron-blue);
-  border: 1px solid var(--electron-darkblue);
+  border: 2px solid var(--electron-darkblue);
 }
 
 button#open {
@@ -978,6 +981,7 @@ div#onlineUser:nth-child(odd) {
   background-color: var(--gray);
 }
 /******** -------------------------- End Online Users Section -------------------------- ********/
+/*---*/
 /* ------------------------------------------ Footer ------------------------------------------ */
 footer#bottom {
   height: auto;
@@ -1102,16 +1106,16 @@ footer#bottom p:nth-child(2) a {
     background-size: 100px;
   }
   .isOpenTopHome {
-    height: 374px !important;
+    height: 384px !important;
   }
   .isOpenMoveDownHome {
-    margin-top: 356px !important;
+    margin-top: 386px !important;
   }
   .isOpenTopLoggedIn {
-    height: 437px !important;
+    height: 509px !important;
   }
   .isOpenMoveDownLoggedIn {
-    margin-top: 455px !important;
+    margin-top: 525px !important;
   }
   span#greeting {
     font-size: large;
@@ -1210,7 +1214,7 @@ footer#bottom p:nth-child(2) a {
   }
   div#user-sec div#user-subsec {
   width: 95%;
-}
+  }
   div#user-sec div#user-subsec div#user-data div#data-type {
     flex-direction: column;
   }
@@ -1260,7 +1264,7 @@ footer#bottom p:nth-child(2) a {
 }
 @media only screen and (max-width: 680px) {
   h1, h2, h3 {
-    font-size: 16px;
+    font-size: 21px;
     text-align: center;
   }
   h1 img#icrImg {

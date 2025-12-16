@@ -1,6 +1,6 @@
 import Auth from '../utils/auth';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Component } from 'react';
 //-------------------------------------------------------------------------//
 import TitleMain from '../components/title/index.jsx';
 import HomeComponent from '../components/home/index.jsx';
@@ -16,30 +16,35 @@ function ErrorMessage() {
     </code>
   );
 }
-class Home extends Component {
-  constructor(props) {
-    super(props);
-  }
-  render() {
-    return (
-      <div id="top">
-        <main>
-          <TitleMain />
-          <section id='table-section'>
-            {Auth.loggedIn() ? (
-              <>
-                <ErrorMessage />
-              </>
-            ) : (
-              <>
-                <HomeComponent />
-                <HomeMobileComponent />
-              </>
-            )}
-          </section>
-        </main>
-      </div>
-    );
-  }
+
+const Home = () => {
+  useEffect(() => {
+    let isAuthenticatedToken = localStorage.getItem('id_token');
+    if (isAuthenticatedToken && isAuthenticatedToken !== undefined) {
+      localStorage.removeItem('id_token');
+      window.location.assign('/');
+    }
+  }, []);
+
+  return (
+    <div id="top">
+      <main>
+        <TitleMain />
+        <section id='table-section'>
+          {Auth.loggedIn() ? (
+            <>
+              <ErrorMessage />
+            </>
+          ) : (
+            <>
+              <HomeComponent />
+              <HomeMobileComponent />
+            </>
+          )}
+        </section>
+      </main>
+    </div>
+  );
 }
+
 export default Home;

@@ -1,8 +1,14 @@
 import decode from 'jwt-decode';
 
 class AuthService {
+  
   getProfile() {
     return decode(this.getToken());
+  }
+
+  logout() {
+    localStorage.removeItem('online_status_change');
+    window.location.replace("/login");
   }
 
   loggedIn() {
@@ -29,12 +35,7 @@ class AuthService {
 
   login(idToken) {
     localStorage.setItem('id_token', idToken);
-    window.location.assign('/profile');
-  }
-
-  logout() {
-    localStorage.removeItem('id_token');
-    window.location.replace('/');
+    window.location.replace('/dashboard');
   }
 }
 

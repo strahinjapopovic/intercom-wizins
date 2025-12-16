@@ -14,7 +14,7 @@ const resolvers = {
       return await User.findOne({ email });
     },
     getOnlineUsers: async (_, { online }) => {
-      return await User.find({ $or: [{ online: 'Yes' }, { online: 'Test user' }] });
+      return await User.find({ $or: [{ online: 'Yes' }, { online: 'Yes (test user)' }] });
     },
     getAllUsrAndCount: async () => {
       return await User.countDocuments({});
@@ -63,9 +63,20 @@ const resolvers = {
         console.log(`---\n`, filter, `\n`, updateDocument, `\n`, changePass, `\n---`);
         return changePass;
       }else {
-        console.log(`password not changed!!!`);
+        console.log(`Error: Password not changed!`);
       }
-    }
+    },
+    updateOnlineStatus: async (_, { username, online }) => {
+      const filter = { username: username };
+      const updateDoc = { $set: { online: online }, };
+      const changeOnlineStatus = await User.findOneAndUpdate(filter, updateDoc, {new: true});
+      if(changeOnlineStatus) {
+        console.log(`---\n`, filter, `\n`, updateDoc, `\n`, changeOnlineStatus, `\n---`);
+        return changeOnlineStatus;
+      } else {
+        console.log(`Error: Online status not changed!`);
+      }
+    },
   },
 };
 

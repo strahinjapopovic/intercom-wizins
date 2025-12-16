@@ -1,22 +1,43 @@
 import { useState } from 'react';
 import Auth from '../../utils/auth.js';
-import { useQuery } from '@apollo/client';
 import { NavLink } from 'react-router-dom';
 import { GET_USER } from '../../utils/queries';
+import { useQuery, useMutation } from '@apollo/client';
+import { UPDATE_ONLINE_STATUS } from '../../utils/mutations.js';
 //-------------------------------------------------------------------------//
 import topBanner from '../../assets/react.svg';
 import { faJs } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import iconMain from '../../assets/images/favicon/js-wizard-thumbnail-inverse.png';
+import iconMain from '../../assets/images/favicon/starliner-1.png';
 //-------------------------------------------------------------------------//
-const Header = function() {
-  const logout = function (event) {
-    event.preventDefault();
-    Auth.logout();
-  };
+const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isActive, setIsActive] = useState(false);
   const [installable, setInstallable] = useState(false);
+  const [updateOnlineStatus, {data, loading, error}] = useMutation(UPDATE_ONLINE_STATUS);
+  //-------------------------------------------------------------------------//
+  const logout = async (event) => {
+    event.preventDefault();
+    try {
+      const { data } = await updateOnlineStatus({
+        variables: {
+          username: JSON.parse(localStorage.getItem('online_status_change')).username,
+          online: 'No',
+        }
+      });
+      data ? Auth.logout() : console.log(`Error updating status`);
+    } catch(error) {
+      console.log(error);
+    }
+  };
+  //-------------------------------------------------------------------------//
+  const loggedIn = function() {
+    const { data: dataq, loading: loadingq, error: errorq } = useQuery(GET_USER, {
+      variables: { username: Auth.getProfile().data.username, },
+    });
+    if(dataq)
+    { return `Hi ${dataq.user.firstName} ${dataq.user.lastName}!`; }
+  }
+  //-------------------------------------------------------------------------//
   window.addEventListener('beforeinstallprompt', (event) => {
     event.preventDefault();
     window.deferredPrompt = event;
@@ -34,15 +55,8 @@ const Header = function() {
     promptEvent.prompt();
     window.deferredPrompt = null;
   };
-  const loggedIn = function() {
-    const { data: dataq, loading: loadingq, error: errorq } = useQuery(GET_USER, {
-      variables: { username: Auth.getProfile().data.username, },
-    });
-    if(dataq)
-    { return `Hi ${dataq.user.firstName} ${dataq.user.lastName}!`; }
-  }
   //-------------------------------------------------------------------------//
-  const classNameIsActiveFunc = ({ isActive }) => { return ( isActive ? 'isActive'  : 'topBtn' )};
+  const classNameIsActiveFunc = ({ isActive }) => { return ( isActive ? 'isActive' : 'topBtn' )};
   //-------------------------------------------------------------------------//
   return (
     <>
@@ -55,11 +69,14 @@ const Header = function() {
                 <div id='headerBtnDiv' className={isOpen ? 'isOpen' : ''} >
                   <NavLink id="Link" className="topBtn" onClick={handleInstallClick}>Install</NavLink>
                   <NavLink id='Link' className={classNameIsActiveFunc} to="/user-online">Who's Online</NavLink>
-                  <NavLink id="Link" className={classNameIsActiveFunc} to="/profile">Profile</NavLink>
+                  <NavLink id="Link" className={classNameIsActiveFunc} to="/dashboard">Dashboard</NavLink>
                   <NavLink id="Link" className={classNameIsActiveFunc} to="/download">Download</NavLink>
                   <NavLink id="Link" className={classNameIsActiveFunc} to="/account-details">Account Details</NavLink>
                   <NavLink id="Link" className={classNameIsActiveFunc} to="/forgot-password">Reset Password</NavLink>
-                  <NavLink id="Link" className={classNameIsActiveFunc} onClick={logout} style={{textDecoration: 'none', }}>Logout</NavLink>
+                  <NavLink id="Link" className={classNameIsActiveFunc} onClick={logout} style={{
+                    textDecoration: 'none', backgroundColor: 'rgb(1, 33, 55)',
+                    color: 'aqua',
+                  }}>Logout</NavLink>
                 </div>
               </div>)
             }
@@ -91,8 +108,8 @@ const Header = function() {
       <div id="header" className={ Auth.loggedIn() ? 'isLoggedInGreetingMarginTop'  : '' } >
         <section id="header-main" className={ Auth.loggedIn() ? (isOpen ? 'isOpenMoveDownLoggedIn' : '') : (isOpen ? 'isOpenMoveDownHome' : '') } >
           <span id='greeting'>{ Auth.loggedIn() ? loggedIn() : `` }</span>
-          <p><FontAwesomeIcon icon={faJs} style={{color: "#012137", }} /> IntCom<br />WizIns<br /><span>Repo</span></p>
-          <img id='mobileImgMain' src={iconMain} width={90} style={{margin: '10px calc((100% - 90px) / 2 )', }}/>
+          <p><FontAwesomeIcon icon={faJs} style={{color: "#012137", }} /> Intercom<br />FS WizIns<br /><span>Repo</span></p>
+          <img id='mobileImgMain' src={iconMain} width={110} style={{margin: '10px calc((100% - 90px) / 2 )', }}/>
         </section>
       </div>
     </>

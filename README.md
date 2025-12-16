@@ -25,7 +25,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-aqua.svg?style=for-the-badge)](https://opensource.org/licenses/MIT) 
 
-## MERN Full-Stack JS Client-Serveer architecture application with `React-v18.3.1`, `Node.js v22.0.0`, `NPM-v10.5.1`, `Express.js-v4.17.2`, `MongoDB-v6.8.0`, `Mongoose-v8.7.2`, `@apollo/server-v4.7.1`, Vite, GraphQL, PWA, AWS S3, EmailJS and more ...
+## MERN Full-Stack JS Client-Serveer architecture application with React-v18.3.1, Node.js v22.0.0, NPM-v10.5.1, Express.js-v4.17.2, MongoDB-v6.8.0, Mongoose-v8.7.2, @apollo/server-v4.7.1, Vite, GraphQL, PWA, AWS S3, SCSS, EmailJS and more ...
 
 <a id="table-of-content"></a>
 ## Table of Content
@@ -47,9 +47,9 @@ Altrnatively, use the "Table of Contents" menu on the top-right corner to explor
 <a id="description-info"></a>
 ## Description Info
 
-### Intercom Wizard Installer (ICWI) or intercom-wizins repo application is build as client-server architecture that uses two layers, Apollo Server and Apollo Client layers with GraphQL as a single proxy API endpoint. 
+Intercom Wizard Installer or intercom-wizins repo application is build as a client-server architecture that uses Apollo Server as a comprehensive GraphQL Server/ Client configuration engine formed of two layers server/ and client/ while using GraphQL as a single proxy API endpoint. 
 
-### `Client` directory includes all the contents of basic template react-vite files and folders (`public/`, `src/`, `index.html`, `.eslintrc.cjs`, `vite.config.js`) that are pre-defined or built in after terminal command run `~/app/client> npm run build` taking actions script at `app/client/package.json.
+`Client` layer uses queries and mutations and performs all GraphQL transactions at proxy level localhost:3001 while server normaly operates at oprt localhost:3000. Directory client/ includes all the contents of basic template react-vite files and folders (public/, src/, index.html, .eslintrc.cjs, vite.config.js) that are pre-defined or built in after terminal command run ~/app/client> npm run build taking actions script at app/client/package.json. Queries and mutations are part of utilities at client layer but execution ocurred at server level and sending back to client at single API endpoint actual GraphQL proxy gateway. See file tree below (Grouping by file type approach is used). 
 
 ```bash
 intercom-wizins/
@@ -131,7 +131,7 @@ intercom-wizins/
 
 ```
 
-### `Server` directory include all server-side config architecture necessary to build and establish connection with database, to provide DB seeding of testing data and maintain ongoing DB transactions ect., e.g. (`models/`, `schemas/`, `config/`, `utils/`, `seeders/`, `server.js`). 
+`Server.js` utilise express.js framework, apollo server, apollo express middleware, static files, assigning type definitions and resolvers to apollo server and GraphQL, opening connection with DB over GraphQL and turning on apollo server. Directory server/ include all server-side config architecture necessary to build and establish connection with database, to provide DB seeding of testing data and maintain ongoing DB transactions ect., e.g. (models/, schemas/, config/, utils/, seeders/, server.js). 
 
 ```bash
 intercom-wizins/
@@ -168,9 +168,9 @@ intercom-wizins/
 
 ```
 
-### The root dir is `~/app` directory. Two main dirs are `~/app/server/` and `~/app/client/`. Because of use of Apollo Client-Server architecture and utility with GraphQL API endpoint usuall directory configuration and content which relied on classic Model-View-Controller (MVC) architecture have to be adjusted. At sever-side we would have e.g. `./schema.js` and `./resolvers.js` OR `schemas/typeDef.js` and `schemas/resolvers.js` like in our example. In typeDef.js we should define all types and their fields as a blueprint which is actuall basic sceleton of data types and their properties. At resolvers.js we define resolvers functions for each used type and field in typeDefs.js. Those are the basic steps in forming directory, files and folders structure. Later on we add more components, pages and utilities to the project. 
+The root dir is `app/` directory. Two main dirs are ~/app/server/ and ~/app/client/. Because of use of Apollo Client-Server architecture and utility with GraphQL API endpoint usuall directory configuration and content which relied on classic Model-View-Controller (MVC) architecture have to be adjusted. At sever-side we would have e.g. ./schema.js and ./resolvers.js OR schemas/typeDef.js and schemas/resolvers.js like in our example. In typeDef.js we should define all types and their fields as a blueprint which is actuall basic sceleton of data types and their properties. At resolvers.js we define resolvers functions for each used type and field in typeDefs.js. Those are the basic steps in forming directory, files and folders structure. Later on we add more components, pages and utilities to the project. 
 
-[<img src="./screenshots/wizins-onrender-online-preview.png" alt="Online web presentation." />](./screenshots/wizins-onrender-online-preview.png)
+[<img src="./screenshots/intercom-wizins-download-preview.png" alt="Online web presentation." />](./screenshots/intercom-wizins-download-preview.png)
 
 <a id="github-repository"></a>
 ## GitHub Repo Badge
@@ -188,7 +188,7 @@ $ mongod
 ```
 If terminal shows something like image below it means MongoDB is set properly. Othrewise repeat process again.
 
-[<img src="./screenshots/wizins-mongodb-install.png" alt="Git Bash Terminal screenshot." />](./screenshots/wizins-mongodb-install.png)
+[<img src="./screenshots/intercom-wizins-seed-preview.png" alt="Git Bash Terminal screenshot." />](./screenshots/intercom-wizins-seed-preview.png)
 
 After MongoDB is setup, npm packages should be installed at root dir of the application (`~/inter-com-wizins/app>`):
 To initialize package.json and to install node_packages run
@@ -298,7 +298,7 @@ All automate executable scripts that call server and client package.json scripts
 
 Live application can be visited [here](https://js-wizard.onrender.com/).
 
-[<img src="./screenshots/wizins-thumbnail-aqua.png" width="400" alt="Repo image as thumbnail for testing purpose on Render." />](https://js-wizard.onrender.com/)
+[<img src="./screenshots/wizins-favicon-wLogo.png" width="400" alt="Repo image as thumbnail for testing purpose on Render." />](https://js-wizard.onrender.com/)
 
 ## License
 

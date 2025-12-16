@@ -38,12 +38,12 @@ class HomeComponent extends React.Component {
                                 <tbody>
                                     <tr>
                                         <td id='title' style={{width: '100%', padding: '20px 20px', color: 'rgb(1, 33, 55)', }}>
-                                            JS Full Stack Wizard Repo ( <Link to='https://github.com/strahinjapopovic/intercom-wizins'>intcom-wizins</Link> )
+                                            JS Full Stack Wizard Repo ( <Link to='https://github.com/strahinjapopovic/intercom-wizins'>intercom-wizins</Link> )
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td id="desc" style={{padding: '20px 20px', }}>Intcom Wizard Installer (ICWI)
-                                            or <Link to='https://github.com/strahinjapopovic/intercom-wizins'>intcom-wizins</Link> repo application, 
+                                        <td id="desc" style={{padding: '20px 20px', }}>Intercom Wizard Installer (ICWI)
+                                            or <Link to='https://github.com/strahinjapopovic/intercom-wizins'>intercom-wizins</Link> repo application, 
                                             has been developed as a part of MERN testing project by utilizing Vite server config-dev patterns with React main concepts through 
                                             Client-Serveer architecture, Apollo Server, GraphQL and MongoDB. More about repository you can find 
                                             at <Link to='https://github.com/strahinjapopovic/intercom-wizins'>GitHub</Link>.
@@ -51,8 +51,8 @@ class HomeComponent extends React.Component {
                                             number of tools available, so everyone with company clearance can use it in everyday activities. 
                                             Software is mainly developed for desktop devices but now it is available for 
                                             mobile and tablet devices as well which improves user experience through all sizes.
-                                            As mentioned above, more about this application, you can find at GitHub repository
-                                            <Link to='https://github.com/strahinjapopovic/intercom-wizins'>here</Link>.
+                                            As mentioned above, more about this application, you can find at GitHub repository <Link 
+                                            to='https://github.com/strahinjapopovic/intercom-wizins'>here</Link>.
                                         </td>
                                     </tr>
                                 </tbody>
@@ -119,8 +119,8 @@ class HomeComponent extends React.Component {
                                     <tr>
                                         <td id="desc" style={{paddingLeft: '20px', }}><strong>PostgreSQL</strong> is a powerful, open source object-relational
                                             database system, also known as Postgres. It is a free and open-source relational database management system emphasizing extensibility and SQL
-                                            compliance. For more information click here for <a href='https://www.postgresql.org/download/windows/'>Windows OS</a> and here for
-                                            <a href='https://www.enterprisedb.com/downloads/postgres-postgresql-downloads'> Mac OS X</a>.
+                                            compliance. For more information click here for <a href='https://www.postgresql.org/download/windows/'>Windows OS</a> and here for <a 
+                                            href='https://www.enterprisedb.com/downloads/postgres-postgresql-downloads'>Mac OS X</a>.
                                         </td>
                                     </tr>
                                 </tbody>
@@ -143,9 +143,9 @@ class HomeComponent extends React.Component {
                                         <td id="desc" style={{paddingLeft: '20px', }}><strong>MongoDB</strong> is a source-available, cross-platform,
                                             document-oriented database program. Classified as a NoSQL database product, MongoDB utilizes JSON-like documents with optional schemas.
                                             MongoDB is developed by MongoDB Inc. and current versions are licensed under the Server Side Public License. For more information
-                                            click here for <a href='https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-windows/'>Windows OS</a> and here for
-                                            <a href='https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-os-x/'> Mac OSX</a>. To visit official MongoDB download center click
-                                            <a href='https://www.mongodb.com/try/download/community'> here</a>.
+                                            click here for <a href='https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-windows/'>Windows OS</a> and here for <a 
+                                            href='https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-os-x/'>Mac OSX</a>. To visit official MongoDB download center click <a 
+                                            href='https://www.mongodb.com/try/download/community'>here</a>.
                                         </td>
                                     </tr>
                                 </tbody>
@@ -168,9 +168,9 @@ class HomeComponent extends React.Component {
                                         <td id="desc" style={{paddingLeft: '20px', }}><strong>The MongoDB Shell or mongosh</strong>, is a JavaScript and Node.js REPL
                                             (Read Eval Print Loop) environment for interacting with MongoDB deployments in Atlas  , locally, or on another remote host.
                                             Use the MongoDB Shell to test queries and interact with the data in your MongoDB database. For more information
-                                            click here for <a href='https://www.mongodb.com/docs/mongodb-shell/install/'>installation </a>guide, also for
-                                            <a href='https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-os-x/'> downloads</a> and for additional
-                                            <a href='https://www.mongodb.com/docs/mongodb-shell/'> info</a>.
+                                            click here for <a href='https://www.mongodb.com/docs/mongodb-shell/install/'>installation </a>guide, also for <a 
+                                            href='https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-os-x/'>downloads</a> and for additional <a 
+                                            href='https://www.mongodb.com/docs/mongodb-shell/'>info</a>.
                                         </td>
                                     </tr>
                                 </tbody>
@@ -194,9 +194,9 @@ class HomeComponent extends React.Component {
                                             platform that makes it easy to build high-quality APIs — without the bloat and clutter of other tools. It is an application
                                             that takes the pain out of interacting with and designing, debugging, and testing APIs. Insomnia combines an easy-to-use interface with advanced
                                             functionality like authentication helpers, code generation, and environment variables. For more information
-                                            click here for <a href='https://docs.insomnia.rest/insomnia/install'>installation </a>guide, also for
-                                            <a href='https://insomnia.rest/download'> downloads</a> and for all available downloads at
-                                            <a href='https://github.com/Kong/insomnia/releases/tag/core@9.3.2'> GitHub</a>.
+                                            click here for <a href='https://docs.insomnia.rest/insomnia/install'>installation</a> guide, also for <a 
+                                            href='https://insomnia.rest/download'>downloads</a> and for all available downloads at <a 
+                                            href='https://github.com/Kong/insomnia/releases/tag/core@9.3.2'>GitHub</a>.
                                         </td>
                                     </tr>
                                 </tbody>

@@ -52,3 +52,15 @@ export const DELETE_USER = gql`
     }
   }
 `;
+
+export const UPDATE_ONLINE_STATUS = gql`
+  mutation updateOnlineStatus($username: String!, $online: String!) {
+    updateOnlineStatus(username: $username, online: $online) {
+      user {
+        _id
+        online
+        username
+      }
+    }
+  }
+`;

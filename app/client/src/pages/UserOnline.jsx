@@ -26,9 +26,9 @@ const DetailsOnlineUsers = () => {
                   </div>
                   <div id='user-data'>
                     <div id='onlineUserTbl' style={{display: 'flex', flexDirection: 'column', }} >
-                        { (error) ? <p style={{ paddingLeft: '10px', }}> Error: {error.message}</p> :
+                        { (error) ? <div style={{ paddingLeft: '10px', }}> Error: {error.message}</div> :
                           (
-                            (loading) ? <p style={{margin: '20px 5px 0 5px', }}><SpinnerLoader /></p> :
+                            (loading) ? <div style={{margin: '20px 5px 0 5px', }}><SpinnerLoader /></div> :
                             (data) && data.getOnlineUsers.map(user => (
                             <div id='onlineUser' key={user._id} style={{display: 'flex', flexDirection: 'row', }} >
                               <div id='usrImg' style={{margin: '0 auto', width: '100%', borderBottom: '1px solid navy', }} >

@@ -10,7 +10,7 @@ class TitleMain extends React.Component {
         return(
             <>
                 <h2><span id='title-main'>JS</span> Full-Stack Software Repository</h2>
-                <h1><img id='icrImg' src={dirIcon} /> Intcom Wizard Installer (IntCom WizIns)</h1>
+                <h1><img id='icrImg' src={dirIcon} /> Intercom Wizard Installer</h1>
             </>
         );
     }

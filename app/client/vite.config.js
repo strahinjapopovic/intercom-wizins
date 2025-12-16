@@ -8,8 +8,8 @@ export default defineConfig({
     react(),
     VitePWA({
       manifest: {
-        name: "JavaScript Full-Stack Wizard Repository",
-        short_name: "JS-FSWizPepro",
+        name: "Intercom FS Wizard Installation Repository",
+        short_name: "IC-FSWizInsRepo",
         description: "JavaScript, React, Vite and Progressive Web Application (PWA) for better performance.",
         background_color: '#225ca3',
         theme_color: '#225ca3',
@@ -54,23 +54,24 @@ export default defineConfig({
         ],
         screenshots : [
           {
-            src: "./install-icon-1721x833.png",
+            src: "./install-icon-wide-1500x728.png",
             type: "image/png",
-            sizes: "1721x833",
+            sizes: "1500x728",
             form_factor: "wide"
           },
           {
-              src: "./install-icon-narrow-324x663.png",
+              src: "./install-icon-narrow-355x684.png",
               type: "image/png",
-              sizes: "324x663",
+              sizes: "355x684",
               form_factor: "narrow"
           },
         ],
         display: "standalone",
         protocol_handlers: [
           {
-            protocol: "web+signup",
-            url: "./signup?type=%s"
+            protocol: "web+accountdetails",
+            name: "Open user account details",
+            url: "/account-details?type=%s"
           },
         ],
         display_override: ["window-controls-overlay"],

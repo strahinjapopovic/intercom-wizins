@@ -17,7 +17,7 @@ class HomeMobileComp extends React.Component {
     render() {
         return (
             <div id='mainDownloadMobile' style={{border: '1px solid rgb(1, 33, 55)', padding: '0 20px 20px 20px', 
-            backgroundColor: 'rgb(240, 240, 240)', borderRadius: '3px', }}>
+            backgroundColor: 'rgb(240, 240, 240)', borderRadius: '3px', lineHeight: '1.6', }}>
                 {/*----------------------------------------------------------------------------------------------------------------------------------------------*/}
                 <section id='mainTitleHome' 
                     style={{fontWeight: 'bold', padding: '30px 0', fontSize: '20px', color: 'rgb(1, 33, 55)', textAlign:'center', }}>
@@ -27,7 +27,7 @@ class HomeMobileComp extends React.Component {
                 <section style={{border: '1px solid rgb(1, 33, 55)', fontSize: '12px', padding: '30px 20px', 
                     borderRadius: '3px', marginBottom: '20px', backgroundColor: 'white', }}>
                     <div id='title' style={{fontWeight: 'bold', fontSize: '14px', color: 'rgba(1, 33, 55)', paddingBottom: '10px', textAlign: 'center', }}>
-                        JS Full Stack Wizard Repo ( <Link to='https://github.com/strahinjapopovic/js-wizard'>js-wizard</Link> )
+                        Intercom Wizard Installer Repo (<Link to='https://github.com/strahinjapopovic/intercom-wizins'>intercom-wizins</Link>)
                     </div>
                     <div style={{textAlign: 'justify', }}>
                         Intercom Wizard Installer (ICWI)

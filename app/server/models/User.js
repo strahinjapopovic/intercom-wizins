@@ -80,7 +80,7 @@ const userSchema = new mongoose.Schema({
   },
   online: {
     type: String,
-    enum: ['No', 'Yes', 'Test user'],
+    enum: ['No', 'Yes', 'Yes (test user)'],
     default: 'No',
   },
 },

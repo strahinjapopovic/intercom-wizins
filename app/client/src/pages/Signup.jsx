@@ -1,6 +1,6 @@
 import htmlEntity from 'he';
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import { ADD_USER } from '../utils/mutations';
 import { useMutation, useQuery } from '@apollo/client';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -14,6 +14,13 @@ import errorCheckIcon from '../assets/images/message-icon/err-check-icon.png';
 import { GET_ALL_USERS, GET_USER, GET_USER_EMAIL } from '../utils/queries.js';
 //--------------------------------------------//
 const Signup = () => {
+  useEffect(() => {
+    let isAuthenticatedToken = localStorage.getItem('id_token');
+    if (isAuthenticatedToken && isAuthenticatedToken !== undefined) {
+      localStorage.removeItem('id_token');
+      window.location.assign('/');
+    }
+  }, []);
   localStorage.removeItem('data');
   const [formState, setFormState] = useState({ firstName: '', lastName: '', username: '', email: '', password: '', confirmed: '', });
   //--------------------------------------------//
@@ -27,7 +34,6 @@ const Signup = () => {
       [name]: value,
     });
   };
-  //(formState.password === formState.confirmed) ? console.log(`confirmed successfull`) : console.log(`passwords not same`);
   //--------------------------------------------//
     const { data: dataq, loading: loadingq, error: errorq } = useQuery(GET_USER, {
       variables: { username: formState.username, },
@@ -36,9 +42,6 @@ const Signup = () => {
       variables: { email: formState.email, },
     });
     const { data: dataAllUsr, loading: loadingAllUsr, error: errorAllUsr } = useQuery(GET_ALL_USERS);
-    if(dataAllUsr) {
-      console.log(`int_com_x01e_25${dataAllUsr.users.length+1}`);
-    }
   //--------------------------------------------//
   const handleFormSubmit = async function (event) {
     event.preventDefault();
@@ -55,26 +58,9 @@ const Signup = () => {
         /^(?=.*\d)(?=.*[!@#$%^&_*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/.test(formState.confirmed))) {
           const { data } = await addUser({ variables: { ...formState }, });
         }
-      // console.log(formState.email); 
-      // console.log(verificationCodeStr);
-      // const { data } = await addUser({
-      //   variables: { ...formState },
-      // });
-      // Auth.login(data.addUser.token);
     } catch (error) {
       console.error(error);
     }
-    //--------------------------------------------//
-    // clear form values
-    // setFormState({
-    //   firstName: '',
-    //   lastName: '',
-    //   username: '',
-    //   email: '',
-    //   password: '',
-    //   confirmed: '',
-    // });
-  //--------------------------------------------//
   };
   //--------------------------------------------//
   return (

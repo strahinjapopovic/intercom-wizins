@@ -26,7 +26,7 @@ class ConfirmationDialogBox extends React.Component {
             console.log(`User count: ` + this.props.getAllUsr)
             const { data } = await this.props.addUser({
                 variables: {
-                    userID: `INTCOM_x01e_25` + this.props.getAllUsr,
+                    userID: `intercom-x01e1025` + this.props.getAllUsr,
                     email: this.props.cEmail,
                     confirmed: this.props.cConfirm,
                     username: this.props.cUsername,
@@ -183,7 +183,7 @@ class ConfirmationDialogBox extends React.Component {
                             <div id='container'>
                                 <section id='desc'>
                                     <div id='dialogLabel'><img id='dialogOkLogo' src={okCheckIcon} /></div>
-                                    <span id='dialogTitle'>Email Confirmation Box</span>
+                                    <span id='dialogTitle'>Email Confirmation Dialog</span>
                                     <div id='mainDesc'>
                                         <label htmlFor="verificationCodeStr">To verify email address:</label>
                                         <span id='infoNumbers'>
