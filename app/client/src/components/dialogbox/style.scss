@@ -32,30 +32,36 @@ $breakpoint-mobile: 768px;
   --electron-blue: #{$electron-blue};
   --light-web-blue: #{$light-web-blue};
 }
+
 body {
   $font-stack: list.append($font-stack, sans-serif);
   font: $font-stack;
 }
+
 button#open {
   width: auto;
   line-height: 1.6;
   margin-left: 10%;
+
   @media (max-width: $breakpoint-mobile) {
     margin-left: 0;
     font-size: 18px;
   }
 }
+
 div#dialogContainer {
   flex-direction: column;
+
   dialog#dialog {
-  width: 40%;
-  padding: 10px;
-  position: fixed;
-  border-radius: 10px;
-  flex-direction: column;
-  color: var(--naval-blue);
-  border: 2px solid var(--aqua);
-  background-color: var(--dark);
+    width: 40%;
+    padding: 50px;
+    position: fixed;
+    border-radius: 10px;
+    flex-direction: column;
+    color: var(--naval-blue);
+    border: 2px solid var(--aqua);
+    background-color: var(--dark);
+
     div#container {
       padding: 40px;
       margin: 40px auto;
@@ -63,45 +69,54 @@ div#dialogContainer {
       width: calc(100% - 160px);
       border: 2px solid var(--aqua);
       background-color: var(--light);
-        section#desc {
-          display: flex;
-          flex-direction: column;
-          span#dialogTitle {
-            margin: 0;
-            font-weight: bold;
-            text-align: center;
-            padding: 0 0 40px 0;
-            font-size: xx-large;
-            color: var(--naval-blue);
+
+      section#desc {
+        display: flex;
+        flex-direction: column;
+
+        span#dialogTitle {
+          margin: 0;
+          font-weight: bold;
+          text-align: center;
+          padding: 0 0 40px 0;
+          font-size: xx-large;
+          color: var(--naval-blue);
+        }
+
+        div#dialogLabel {
+          margin: 20px auto;
+
+          img#dialogOkLogo {
+            width: auto;
           }
-          div#dialogLabel {
-            margin: 20px auto;
-            img#dialogOkLogo {
-              width: auto;
-            }
-          }
-          div#mainDesc {
+        }
+
+        div#mainDesc {
           display: flex;
           margin: 0 auto;
           flex-direction: column;
           border: 0px solid var(--naval-blue);
+
           span#info {
             font-size: 14px;
             font-weight: bold;
             color: var(--error);
             margin-bottom: 30px;
           }
+
           label[for=verificationCodeStr] {
             margin: 0;
             font-size: 20px;
             font-weight: bold;
             color: var(--naval-blue);
           }
+
           span#infoNumbers {
             margin: 20px 0;
             font-size: 18px;
             color: var(--dark);
           }
+
           input[type=text] {
             width: 100%;
             height: 40px;
@@ -110,12 +125,14 @@ div#dialogContainer {
             margin: 0 0 10px 0;
             color: var(--naval-blue);
             border: 1px solid var(--naval-blue);
+
             @media (max-width: $breakpoint-mobile) {
               width: calc(100% - 14px);
             }
           }
         }
       }
+
       section#buttonSec {
         width: 100%;
         display: flex;
@@ -124,18 +141,31 @@ div#dialogContainer {
         column-gap: 20px;
         justify-content: center;
       }
+
       @media (max-width: $breakpoint-mobile) {
         padding: 20px;
         margin: 10px auto;
         width: calc(100% - 50px);
       }
     }
+
+    @media (max-width: 1700px) {
+      width: 60%;
+    }
+
+    @media (max-width: 1200px) {
+      width: 80%;
+      padding: 30px;
+    }
+
     @media (max-width: $breakpoint-mobile) {
       width: 100%;
+      padding: 10px;
       border-radius: 5px;
     }
   }
 }
+
 button {
   width: auto;
   height: auto;
@@ -150,9 +180,11 @@ button {
   text-decoration: none;
   background-color: var(--dark);
   border: 2px solid var(--aqua);
+
   &:hover {
     color: var(--light-web-blue);
   }
 }
+
 // @debug $font-stack;
 // @debug $naval-blue;

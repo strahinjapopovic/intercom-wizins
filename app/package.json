@@ -1,10 +1,10 @@
 {
   "name": "app",
-  "version": "2.0.0",
+  "type": "module",
+  "version": "1.0.0",
   "description": "",
-  "main": "",
   "scripts": {
-    "start": "nodemon ./server/server.js",
+    "start": "nodemon ./server/server.ts",
     "dev": "concurrently \"cd ./server && npm run watch\" \"cd ./client && npm run dev\"",
     "build": "concurrently \"cd ./server && npm run watch\" \"cd ./client && npm run build\"",
     "install": "cd ./server && npm install && cd ../client && npm install",
@@ -18,10 +18,18 @@
     "concurrently": "^8.2.2"
   },
   "dependencies": {
+    "@types/jest": "^30.0.0",
+    "@types/node": "^25.5.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^4.3.1",
     "bcryptjs": "^3.0.2",
-    "react-icons": "^5.5.0",
+    "nodemon": "^3.1.14",
+    "react-icons": "^5.4.0",
     "react-router-dom": "^7.9.1",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3",
     "vite-plugin-html": "^3.2.2"
   }
 }

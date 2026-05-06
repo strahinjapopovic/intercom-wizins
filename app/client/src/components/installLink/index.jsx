@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 //-------------------------------------------------------------------------//
-import installSecIcon from '../../../src/assets/images/profile-section-ico/installIcon.png';
+import { faGear } from '@fortawesome/free-solid-svg-icons'; import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 //-------------------------------------------------------------------------//
 const InstallLink = () => {
   const [installable, setInstallable] = useState(false);
@@ -16,8 +17,8 @@ const InstallLink = () => {
   const handleInstallClick = function (event) {
     event.preventDefault();
     const promptEvent = window.deferredPrompt;
-    if(!promptEvent) {
-        return;
+    if (!promptEvent) {
+      return;
     }
     promptEvent.prompt();
     window.deferredPrompt = null;
@@ -25,8 +26,10 @@ const InstallLink = () => {
   return (
     <>
       <div id='profileSection'>
-        <Link onClick={handleInstallClick}><img src={installSecIcon} /></Link><br />
-        <Link onClick={handleInstallClick}>-:|:- Install</Link>
+        <div id='innerWindow'>
+          <Link onClick={handleInstallClick}><FontAwesomeIcon id='profileFontAwesome' icon={faGear} /></Link><br />
+          <Link onClick={handleInstallClick}>install</Link>
+        </div>
       </div>
     </>
   );

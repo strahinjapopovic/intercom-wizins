@@ -1,19 +1,23 @@
 import { useState } from 'react';
-import Auth from '../../utils/auth.js';
 import { NavLink } from 'react-router-dom';
-import { GET_USER } from '../../utils/queries';
 import { useQuery, useMutation } from '@apollo/client';
-import { UPDATE_ONLINE_STATUS } from '../../utils/mutations.js';
+import { GET_USER } from '../../utils/graphql/queries.ts';
+import { UPDATE_ONLINE_STATUS } from '../../utils/graphql/mutations.ts';
+import { Logout, LoggedIn, getProfile} from '../../utils/authent.ts';
 //-------------------------------------------------------------------------//
 import topBanner from '../../assets/react.svg';
 import { faJs } from '@fortawesome/free-brands-svg-icons';
+import iconMain from '../../assets/images/favicon/wLogo.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import iconMain from '../../assets/images/favicon/starliner-1.png';
+import {
+  faRightToBracket, faHouse, faGear, faPersonCirclePlus, faLock,
+  faCube, faUser, faDownload, faUsersViewfinder, faRightFromBracket
+} from '@fortawesome/free-solid-svg-icons';
 //-------------------------------------------------------------------------//
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [installable, setInstallable] = useState(false);
-  const [updateOnlineStatus, {data, loading, error}] = useMutation(UPDATE_ONLINE_STATUS);
+  const [updateOnlineStatus, { data, loading, error }] = useMutation(UPDATE_ONLINE_STATUS);
   //-------------------------------------------------------------------------//
   const logout = async (event) => {
     event.preventDefault();
@@ -24,18 +28,17 @@ const Header = () => {
           online: 'No',
         }
       });
-      data ? Auth.logout() : console.log(`Error updating status`);
-    } catch(error) {
+      data ? Logout() : console.log(`Error updating status`);
+    } catch (error) {
       console.log(error);
     }
   };
   //-------------------------------------------------------------------------//
-  const loggedIn = function() {
+  const loggedIn = function () {
     const { data: dataq, loading: loadingq, error: errorq } = useQuery(GET_USER, {
-      variables: { username: Auth.getProfile().data.username, },
+      variables: { username: getProfile().data.username, },
     });
-    if(dataq)
-    { return `Hi ${dataq.user.firstName} ${dataq.user.lastName}!`; }
+    if (dataq) { return `Hi ${dataq.user.firstName} ${dataq.user.lastName}!`; }
   }
   //-------------------------------------------------------------------------//
   window.addEventListener('beforeinstallprompt', (event) => {
@@ -49,34 +52,35 @@ const Header = () => {
   const handleInstallClick = function (event) {
     event.preventDefault();
     const promptEvent = window.deferredPrompt;
-    if(!promptEvent) {
-        return;
+    if (!promptEvent) {
+      return;
     }
     promptEvent.prompt();
     window.deferredPrompt = null;
   };
   //-------------------------------------------------------------------------//
-  const classNameIsActiveFunc = ({ isActive }) => { return ( isActive ? 'isActive' : 'topBtn' )};
+  const classNameIsActiveFunc = ({ isActive }) => { return (isActive ? 'isActive' : 'topBtn') };
   //-------------------------------------------------------------------------//
   return (
     <>
-      <div id='mainNavBarTop' className={ Auth.loggedIn() ? (isOpen ? 'isOpenTopLoggedIn' : '') : (isOpen ? 'isOpenTopHome' : '') }>
-        <img src={topBanner} style={{height: '60px', paddingTop: '5px', marginLeft: '10px', }} />
-        { Auth.loggedIn() ? ( 
+      <div id='mainNavBarTop' className={LoggedIn() ? (isOpen ? 'isOpenTopLoggedIn' : '') : (isOpen ? 'isOpenTopHome' : '')}>
+        <img src={topBanner} style={{ height: '60px', paddingTop: '5px', marginLeft: '10px', }} />
+        {LoggedIn() ? (
           <>
             {isOpen &&
               (<div id='openNavLink'>
                 <div id='headerBtnDiv' className={isOpen ? 'isOpen' : ''} >
-                  <NavLink id="Link" className="topBtn" onClick={handleInstallClick}>Install</NavLink>
-                  <NavLink id='Link' className={classNameIsActiveFunc} to="/user-online">Who's Online</NavLink>
-                  <NavLink id="Link" className={classNameIsActiveFunc} to="/dashboard">Dashboard</NavLink>
-                  <NavLink id="Link" className={classNameIsActiveFunc} to="/download">Download</NavLink>
-                  <NavLink id="Link" className={classNameIsActiveFunc} to="/account-details">Account Details</NavLink>
-                  <NavLink id="Link" className={classNameIsActiveFunc} to="/forgot-password">Reset Password</NavLink>
+                  <NavLink id="Link" className="topBtn" onClick={handleInstallClick}><FontAwesomeIcon id='solidIcon' icon={faGear} /></NavLink>
+                  <NavLink id="Link" className={classNameIsActiveFunc} to="/dashboard"><FontAwesomeIcon id='solidIcon' icon={faCube} /></NavLink>
+                  <NavLink id="Link" className={classNameIsActiveFunc} to="/download"><FontAwesomeIcon id='solidIcon' icon={faDownload} /></NavLink>
+                  <NavLink id='Link' className={classNameIsActiveFunc} to="/user-online"><FontAwesomeIcon id='solidIcon' icon={faUsersViewfinder} /></NavLink>
+                  <NavLink id="Link" className={classNameIsActiveFunc} to="/account-details"><FontAwesomeIcon id='solidIcon' icon={faUser} /></NavLink>
+                  <NavLink id="Link" className={classNameIsActiveFunc} to="/change-password"><FontAwesomeIcon id='solidIcon' icon={faLock} /></NavLink>
                   <NavLink id="Link" className={classNameIsActiveFunc} onClick={logout} style={{
-                    textDecoration: 'none', backgroundColor: 'rgb(1, 33, 55)',
+                    textDecoration: 'none',
+                    backgroundColor: 'rgb(1, 33, 55)',
                     color: 'aqua',
-                  }}>Logout</NavLink>
+                  }}><FontAwesomeIcon id='solidIcon' icon={faRightFromBracket} /></NavLink>
                 </div>
               </div>)
             }
@@ -86,11 +90,11 @@ const Header = () => {
             {isOpen &&
               (<div id='openNavLink'>
                 <div id='headerBtnDiv' className={isOpen ? 'isOpen' : ''}>
-                    <NavLink id="Link" className="topBtn" onClick={handleInstallClick}>Install</NavLink>
-                    <NavLink id="Link" className={classNameIsActiveFunc} to="/">Home</NavLink>
-                    <NavLink id="Link" className={classNameIsActiveFunc} to="/login">Login</NavLink>
-                    <NavLink id="Link" className={classNameIsActiveFunc} to="/signup">Sign up</NavLink>
-                    <NavLink id="Link" className={classNameIsActiveFunc} to="/forgot-password">Forgot Password</NavLink>
+                  <NavLink id="Link" className="topBtn" onClick={handleInstallClick}><FontAwesomeIcon id='solidIcon' icon={faGear} /></NavLink>
+                  <NavLink id="Link" className={classNameIsActiveFunc} to="/"><FontAwesomeIcon id='solidIcon' icon={faHouse} /></NavLink>
+                  <NavLink id="Link" className={classNameIsActiveFunc} to="/login"><FontAwesomeIcon id='solidIcon' icon={faRightToBracket} /></NavLink>
+                  <NavLink id="Link" className={classNameIsActiveFunc} to="/signup"><FontAwesomeIcon id='solidIcon' icon={faPersonCirclePlus} /></NavLink>
+                  <NavLink id="Link" className={classNameIsActiveFunc} to="/forgot-password"><FontAwesomeIcon id='solidIcon' icon={faLock} /></NavLink>
                 </div>
               </div>)
             }
@@ -105,11 +109,11 @@ const Header = () => {
           <span></span>
         </div>
       </button>
-      <div id="header" className={ Auth.loggedIn() ? 'isLoggedInGreetingMarginTop'  : '' } >
-        <section id="header-main" className={ Auth.loggedIn() ? (isOpen ? 'isOpenMoveDownLoggedIn' : '') : (isOpen ? 'isOpenMoveDownHome' : '') } >
-          <span id='greeting'>{ Auth.loggedIn() ? loggedIn() : `` }</span>
-          <p><FontAwesomeIcon icon={faJs} style={{color: "#012137", }} /> Intercom<br />FS WizIns<br /><span>Repo</span></p>
-          <img id='mobileImgMain' src={iconMain} width={110} style={{margin: '10px calc((100% - 90px) / 2 )', }}/>
+      <div id="header" className={LoggedIn() ? 'isLoggedInGreetingMarginTop' : ''} >
+        <section id="header-main" className={LoggedIn() ? (isOpen ? 'isOpenMoveDownLoggedIn' : '') : (isOpen ? 'isOpenMoveDownHome' : '')} >
+          <span id='greeting'>{LoggedIn() ? loggedIn() : ``}</span>
+          <p><FontAwesomeIcon icon={faJs} style={{ color: "#012137", }} /> Intercom<br />FS WizIns<br /><span>Repo</span></p>
+          <img id='mobileImgMain' src={iconMain} width={90} style={{ margin: '10px calc((100% - 90px) / 2 )', }} />
         </section>
       </div>
     </>

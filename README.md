@@ -53,124 +53,173 @@ Intercom Wizard Installer or intercom-wizins repo application is build as a clie
 
 ```bash
 intercom-wizins/
+├─ .vscode/
+│  └─ settings.json
 ├─ app/
 │  ├─ client/
 │  │  ├─ dev-dist/
 │  │  │  ├─ registerSW.js
 │  │  │  ├─ sw.js
+│  │  │  ├─ workbox-9637eeee.js
+│  │  │  └─ workbox-a9fe0588.js
 │  │  ├─ dist/
 │  │  │  ├─ assets/
-│  │  │  ├─ index.html
-│  │  │  ├─ logo-128x128.png
-│  │  │  ├─ logo-192x192.png
-│  │  │  ├─ logo-256x256.png
-│  │  │  ├─ logo-384x384.png
-│  │  │  ├─ logo-512x512.png
-│  │  │  ├─ logo-96x96.png
 │  │  │  ├─ manifest.webmanifest
 │  │  │  ├─ registerSW.js
 │  │  │  ├─ sw.js
 │  │  │  ├─ vite.svg
 │  │  │  └─ workbox-4b7ad3f1.js
 │  │  ├─ public/
-│  │  │  ├─ logo-128x128.png
-│  │  │  ├─ logo-192x192.png
-│  │  │  ├─ logo-256x256.png
-│  │  │  ├─ logo-384x384.png
-│  │  │  ├─ logo-512x512.png
-│  │  │  ├─ logo-96x96.png
-│  │  │  └─ vite.svg
 │  │  ├─ src/
 │  │  │  ├─ assets/
 │  │  │  │  ├─ images/
-│  │  │  │  │  ├─ background/
-│  │  │  │  │  ├─ details-icon/
-│  │  │  │  │  ├─ directory-icon/
-│  │  │  │  │  ├─ favicon/
-│  │  │  │  │  ├─ message-icon/
-│  │  │  │  │  ├─ profile-section-ico/
-│  │  │  │  │  └─ software-icon/
 │  │  │  │  └─ react.svg
 │  │  │  ├─ components/
-│  │  │  ├─ hooks/
+│  │  │  │  ├─ checkbox/
+│  │  │  │  │  └─ index.jsx
+│  │  │  │  ├─ dashboard/
+│  │  │  │  │  ├─ children/
+│  │  │  │  │  │  ├─ DashLink.jsx
+│  │  │  │  │  │  ├─ DetailsLink.jsx
+│  │  │  │  │  │  ├─ DownloadLink.jsx
+│  │  │  │  │  │  ├─ ResetPassLink.jsx
+│  │  │  │  │  │  └─ UserOnline.jsx
+│  │  │  │  │  ├─ parent/
+│  │  │  │  │  │  └─ ProfileParent.jsx
+│  │  │  │  │  └─ skeletoncomp/
+│  │  │  │  │     └─ DashSkeleton.jsx
+│  │  │  │  ├─ datarow/
+│  │  │  │  │  ├─ DataRowChild.jsx
+│  │  │  │  │  └─ DataRowParent.jsx
+│  │  │  │  ├─ dialogbox/
+│  │  │  │  │  ├─ deleteuserdialog.jsx
+│  │  │  │  │  ├─ dialog.jsx
+│  │  │  │  │  └─ style.scss
+│  │  │  │  ├─ download/
+│  │  │  │  │  ├─ index-mobile.jsx
+│  │  │  │  │  └─ index.jsx
+│  │  │  │  ├─ error/
+│  │  │  │  │  ├─ errorSignup.jsx
+│  │  │  │  │  └─ errorUnauthorisedAccess.jsx
+│  │  │  │  ├─ footer/
+│  │  │  │  │  └─ index.jsx
+│  │  │  │  ├─ header/
+│  │  │  │  │  └─ index.jsx
+│  │  │  │  ├─ home/
+│  │  │  │  │  ├─ index-mobile.jsx
+│  │  │  │  │  └─ index.jsx
+│  │  │  │  ├─ installLink/
+│  │  │  │  │  └─ index.jsx
+│  │  │  │  ├─ spinner/
+│  │  │  │  │  └─ spinnerLoader.jsx
+│  │  │  │  ├─ title/
+│  │  │  │  │  └─ index.jsx
+│  │  │  │  └─ updateuserstatus/
+│  │  │  │     ├─ useronlinestatus.tsx
+│  │  │  │     └─ useronlinestatusclone.tsx
 │  │  │  ├─ pages/
-│  │  │  │  ├─ Details.jsx
-│  │  │  │  ├─ Download.jsx
-│  │  │  │  ├─ ForgotPassword.jsx
-│  │  │  │  ├─ Home.jsx
-│  │  │  │  ├─ Login.jsx
-│  │  │  │  ├─ Profile.jsx
-│  │  │  │  ├─ ResetPassword.jsx
-│  │  │  │  ├─ RouteErrorPage.jsx
-│  │  │  │  ├─ Signup.jsx
-│  │  │  │  └─ SignupError.jsx
+│  │  │  │  ├─ Details.tsx
+│  │  │  │  ├─ Download.tsx
+│  │  │  │  ├─ ForgotPassword.tsx
+│  │  │  │  ├─ ForgotPasswordClone.tsx
+│  │  │  │  ├─ Home.tsx
+│  │  │  │  ├─ Login.tsx
+│  │  │  │  ├─ Profile.tsx
+│  │  │  │  ├─ ResetPassword.tsx
+│  │  │  │  ├─ RouteErrorPage.tsx
+│  │  │  │  ├─ Signup.tsx
+│  │  │  │  ├─ SignupError.tsx
+│  │  │  │  └─ UserOnline.tsx
 │  │  │  ├─ utils/
-│  │  │  │  ├─ auth.js
-│  │  │  │  ├─ mutations.js
-│  │  │  │  ├─ queries.js
-│  │  │  │  ├─ verificationCodeAns.jsx
-│  │  │  │  └─ verificationCodeSpc.jsx
+│  │  │  │  ├─ graphql/
+│  │  │  │  │  ├─ mutations.ts
+│  │  │  │  │  └─ queries.ts
+│  │  │  │  ├─ alphaNumStr.ts
+│  │  │  │  ├─ authent.ts
+│  │  │  │  └─ specCharStr.ts
 │  │  │  ├─ App.css
 │  │  │  ├─ App.jsx
+│  │  │  ├─ custom.d.ts
 │  │  │  └─ main.jsx
+│  │  ├─ types/
+│  │  │  └─ types.ts
 │  │  ├─ .eslintrc.cjs
 │  │  ├─ index.html
 │  │  ├─ package-lock.json
 │  │  ├─ package.json
+│  │  ├─ tsconfig.json
 │  │  └─ vite.config.js
-│  ├─ server/
+│  ├─ utils/
+│  │  └─ auth.ts
 │  ├─ .env
 │  ├─ .env.Example
 │  ├─ package-lock.json
-│  └─ package.json
-├─ screenshots/
+│  ├─ package.json
+│  └─ tsconfig.json
+├─ images/
+│  ├─ intercom-wizins-download-preview.png
+│  ├─ intercom-wizins-seed-preview.png
+│  ├─ wizard-small-favicon.png
+│  ├─ wizins-favicon-wLogo.png
+│  ├─ wizins-js-logo-aqua.png
+│  └─ wizins-mongodb-install.png
 ├─ .gitignore
 ├─ LICENSE
 └─ README.md
-
-
 ```
 
-`Server.js` utilise express.js framework, apollo server, apollo express middleware, static files, assigning type definitions and resolvers to apollo server and GraphQL, opening connection with DB over GraphQL and turning on apollo server. Directory server/ include all server-side config architecture necessary to build and establish connection with database, to provide DB seeding of testing data and maintain ongoing DB transactions ect., e.g. (models/, schemas/, config/, utils/, seeders/, server.js). 
+`Server` utilise express.js framework, apollo server, apollo express middleware, static files, assigning type definitions and resolvers to apollo server and GraphQL, releasing connection with DB over GraphQL and turning on apollo server. Directory server/ include all server-side config architecture necessary to build and establish connection with database, to provide DB seeding of testing data and maintain ongoing DB transactions ect., e.g. (models/, schemas/, config/, utils/, seeders/, server.js). 
 
 ```bash
 intercom-wizins/
+├─ .vscode/
+│  └─ settings.json
 ├─ app/
-│  ├─ client/
-|  ├─ node_modules/
 │  ├─ server/
 │  │  ├─ config/
-│  │  │  ├─ connection.js
-│  │  │  └─ seed.js
+│  │  │  ├─ connection.ts
+│  │  │  └─ seed.ts
 │  │  ├─ models/
-│  │  │  ├─ index.js
-│  │  │  └─ User.js
+│  │  │  └─ User.ts
 │  │  ├─ schemas/
-│  │  │  ├─ index.js
-│  │  │  ├─ resolvers.js
-│  │  │  └─ typeDefs.js
+│  │  │  ├─ resolvers.ts
+│  │  │  ├─ schema.graphql
+│  │  │  └─ typeDefs.ts
 │  │  ├─ seeders/
 │  │  │  └─ user-seeds.json
+│  │  ├─ src/
+│  │  │  └─ __generated__/
+│  │  │     └─ resolvers-types.ts
 │  │  ├─ utils/
-│  │  │  ├─ dateFormat.js
-│  │  │  └─ utils.js
+│  │  │  └─ utils.ts
+│  │  ├─ codegen.ts
 │  │  ├─ package-lock.json
 │  │  ├─ package.json
-│  │  └─ server.js
+│  │  ├─ server.ts
+│  │  ├─ tsconfig.json
+│  │  └─ tsconfig.tsbuildinfo
+│  ├─ utils/
+│  │  └─ auth.ts
 │  ├─ .env
 │  ├─ .env.Example
 │  ├─ package-lock.json
-│  └─ package.json
-├─ screenshots/
+│  ├─ package.json
+│  └─ tsconfig.json
+├─ images/
+│  ├─ intercom-wizins-download-preview.png
+│  ├─ intercom-wizins-seed-preview.png
+│  ├─ wizard-small-favicon.png
+│  ├─ wizins-favicon-wLogo.png
+│  ├─ wizins-js-logo-aqua.png
+│  └─ wizins-mongodb-install.png
 ├─ .gitignore
 ├─ LICENSE
 └─ README.md
-
 ```
 
 The root dir is `app/` directory. Two main dirs are ~/app/server/ and ~/app/client/. Because of use of Apollo Client-Server architecture and utility with GraphQL API endpoint usuall directory configuration and content which relied on classic Model-View-Controller (MVC) architecture have to be adjusted. At sever-side we would have e.g. ./schema.js and ./resolvers.js OR schemas/typeDef.js and schemas/resolvers.js like in our example. In typeDef.js we should define all types and their fields as a blueprint which is actuall basic sceleton of data types and their properties. At resolvers.js we define resolvers functions for each used type and field in typeDefs.js. Those are the basic steps in forming directory, files and folders structure. Later on we add more components, pages and utilities to the project. 
 
-[<img src="./screenshots/intercom-wizins-download-preview.png" alt="Online web presentation." />](./screenshots/intercom-wizins-download-preview.png)
+[<img src="./images/intercom-wizins-download-preview.png" alt="Online web presentation." />](./images/intercom-wizins-download-preview.png)
 
 <a id="github-repository"></a>
 ## GitHub Repo Badge
@@ -188,9 +237,9 @@ $ mongod
 ```
 If terminal shows something like image below it means MongoDB is set properly. Othrewise repeat process again.
 
-[<img src="./screenshots/intercom-wizins-seed-preview.png" alt="Git Bash Terminal screenshot." />](./screenshots/intercom-wizins-seed-preview.png)
+[<img src="./images/wizins-mongodb-install.png" alt="Git Bash Terminal screenshot." />](./images/wizins-mongodb-install.png)
 
-After MongoDB is setup, npm packages should be installed at root dir of the application (`~/inter-com-wizins/app>`):
+After MongoDB is setup, npm packages should be installed at root dir of the application (`inter-com-wizins/app`):
 To initialize package.json and to install node_packages run
 ```bash
 $ npm init -y # initialize formating of package.json with answer "yes" to confirm init
@@ -208,7 +257,7 @@ $ npm install mongoose
 ```
 
 ### Populate database with testing data
-Seed data are stored in `user-seeds.json` file (`~/app/server/seeders/user-seeds.json`) and you can execute it from `app/server/config/seed.js` as follows:
+Seed data are stored in `user-seeds.json` file (`app/server/seeders/user-seeds.json`) and you can execute it from `app/server/config/seed.js` as follows:
 ```bash
 $ node ./config/seed.js # execute from server/ dir
 ```
@@ -217,7 +266,7 @@ Alternatively,
 $ npm run seed # automate executable shortcuts scripts at package.json from app/ dir
 ```
 ### Run seed output:
-[<img src="./screenshots/wizins-seed.png" alt="VS Code Image." />](./screenshots/wizins-seed.png)
+[<img src="./images/intercom-wizins-seed-preview.png" alt="VS Code Image." />](./images/intercom-wizins-seed-preview.png)
 
 <a id="usage-info"></a>
 ## Usage Info
@@ -230,42 +279,41 @@ Currentlly, at this stage there is no contributors but for more information any 
 <a id="test-instructions"></a>
 ## Test Instructions
 
-Application runs by invoking command `$ npm run dev` at `~/intercom-wizins/app>` directory. Before running application, download compressed repo from githaub and installl packages globaly or at application root directory from the section [Installation Process](#installation-process). 
+Application runs by invoking command `$ npm run dev` from root `intercom-wizins/app>` directory if you using scripts at package.json. Before running application, download compressed repo from githaub and installl packages globaly or at application root directory from the section [Installation Process](#installation-process). 
 
-Install nodemon npm package globaly
+Install TypeScript, TypeScript Execute and Concurrently packages at once
 ```bash
-$ npm install -g nodemon
+$ npm install --save-dev typescript tsx concurrently # under packages of npm you would have npx runner and under typescript you should have tsc compiler automatically installed.
 ```
 
-To start server from root directory at http://localhost:3001/graphql
+## Starting server from terminal without scripts
+To start GraphQL server from root directory at http://localhost:3001/graphql
 ```bash
-$ nodemon ./server/server.js # OR node ./server/server.js 
+$ npx watch ./server/server.ts # OR node ./server/server.js 
 ```
-
-To start client-side from root dir at http://localhost:3000
+To start Client-side from root dir at http://localhost:3000
 ```bash
 $ cd client && npm run dev
 ```
-
-Alternatively, install concurrently npm package globaly
+Start server and client at once by using concurrently with no scripts
 ```bash
-$ npm i -g concurrently
+$ concurrently "cd ./server && npx tsx watch server.ts" "cd ./client && npx vite"
 ```
-Start server and client ports at once
+Install nodemon is optional
 ```bash
-$ concurrently "cd ./server && npm run watch" "cd ./client && npm run dev"
+$ npm install --save-dev nodemon # nodemon runs "start" script at first run
 ```
 
-If using scripts to start both ports
+## Starting server on scripts
+If using scripts from root dir
 ```bash
 $ npm run dev # it will start both server and client side ports at once (http://localhost:3000 AND http://localhost:3001/graphql)
 ```
-
-All automate executable scripts that call server and client package.json scripts are stored at root directory `~/intercom-wizins/app>` in `package.json` file.
-`<app/package.json>`
+All automate executable scripts that call server and client package.json scripts are stored at root directory `intercom-wizins/app/` in `package.json` file.
+intercom-wizins/app/package.json
 ```json
 "scripts": {
-    "start": "nodemon ./server/server.js",
+    "start": "nodemon ./server/server.ts",
     "dev": "concurrently \"cd ./server && npm run watch\" \"cd ./client && npm run dev\"",
     "build": "concurrently \"cd ./server && npm run watch\" \"cd ./client && npm run build\"",
     "install": "cd ./server && npm install && cd ../client && npm install",
@@ -273,17 +321,17 @@ All automate executable scripts that call server and client package.json scripts
     "cbuild": "cd ./client && npm run build"
   },
 ```
-
-`<app/server/package.json>`
+intercom-wizins/app/server/package.json
 ```json
 "scripts": {
-    "start": "node ./server.js",
-    "watch": "nodemon",
-    "seed": "node ./config/seed.js"
+    "seed": "npx tsx ./config/seed.ts",
+    "codegen": "graphql-codegen --config codegen.ts",
+    "compile": "npm run codegen && tsc",
+    "start": "npm run compile && npx tsx ./server.ts",
+    "watch": "nodemon"
   },
 ```
-
-`<app/client/package.json>`
+intercom-wizins/app/client/package.json
 ```json
 "scripts": {
     "dev": "vite serve",
@@ -292,13 +340,12 @@ All automate executable scripts that call server and client package.json scripts
     "preview": "vite preview"
   },
 ```
-
 <a id="live-on-render"></a>
 ## Live on [Render](https://js-wizard.onrender.com/)
 
 Live application can be visited [here](https://js-wizard.onrender.com/).
 
-[<img src="./screenshots/wizins-favicon-wLogo.png" width="400" alt="Repo image as thumbnail for testing purpose on Render." />](https://js-wizard.onrender.com/)
+[<img src="./images/wizard-small-favicon.png" width="400" alt="Repo image as thumbnail for testing purpose on Render." />](https://js-wizard.onrender.com/)
 
 ## License
 

@@ -17,7 +17,8 @@ class DeleteUserDialogBox extends React.Component {
             if(dataResult) {
                 console.log(`Function data message: ` + this.props.data);
                 console.log(JSON.stringify(dataResult, null, 2));
-                window.location.assign("/");
+                localStorage.removeItem('id_token');
+                window.location.replace("/");
                 return dataResult;
             }            
         } catch (err) {

@@ -1,9 +1,9 @@
 import './style.scss';
 import bcrypt from 'bcryptjs';
 import * as React from 'react';
-import Auth from '../../utils/auth';
 import emailjs from '@emailjs/browser';
-import verificationCodeKey from '../../utils/verificationCodeSpc.jsx';
+import { login } from '../../utils/authent.ts';
+import verificationCodeKey from '../../utils/specCharStr.ts';
 import okCheckIcon from '../../assets/images/message-icon/ok-check-icon.png';
 import errorCheckIcon from '../../assets/images/message-icon/err-check-icon.png';
 
@@ -24,9 +24,17 @@ class ConfirmationDialogBox extends React.Component {
     async mutateAddUser() {
         try {
             console.log(`User count: ` + this.props.getAllUsr)
+            const num = parseInt(this.props.getAllUsr, 10);
+            const newNum = num * 100;
+            const currDate = this.state?.date;
+            console.log(`Current Date:` + currDate);
+            const currYear = currDate.getFullYear();
+            console.log(`Current Year: ` + currYear);
+            const yearStr = currYear.toString(16).toUpperCase();
+            console.log(`Year String HEX in Upercase: ` + yearStr);
             const { data } = await this.props.addUser({
                 variables: {
-                    userID: `intercom-x01e1025` + this.props.getAllUsr,
+                    userID: `intercom-` + yearStr + `-0x` + newNum.toString(16).toUpperCase(),
                     email: this.props.cEmail,
                     confirmed: this.props.cConfirm,
                     username: this.props.cUsername,
@@ -37,7 +45,7 @@ class ConfirmationDialogBox extends React.Component {
             });
             if (data) {
                 setTimeout(() => {
-                    Auth.login(data.addUser.token);
+                    login(data.addUser.token);
                 }, 10000);
             } else {
                 window.location.assign('/signup-error');
@@ -111,14 +119,15 @@ class ConfirmationDialogBox extends React.Component {
                 clientFirstName: this.props.cFirstName,
                 verificationCodeString: verificationCodeStr,
                 messageExpires: `Verification code expires on ${dateMsg}`,
-                reply_to: this.props.cEmail,
+                to_email: this.props.cEmail,
+                reply_to: `js.wizard.info@gmail.com`,
             },
             {
                 publicKey: 'P6E7ZMa50IU2wMlSt',
             }
         )
             .then(() => {
-                console.log('Email sent successfully by using EmailJS services!');
+                console.log(`Email sent successfully to ${this.props.cEmail} by using EmailJS services!`);
             },
                 (error) => {
                     console.log(error);

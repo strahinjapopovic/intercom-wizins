@@ -2,17 +2,18 @@ import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 //-------------------------------------------------------------------------//
 import App from './App.jsx';
-import Home from './pages/Home';
-import Login from './pages/Login';
-import Signup from './pages/Signup';
-import Dashboard from './pages/Profile';
-import Download from './pages/Download.jsx';
-import AccountDetails from './pages/Details.jsx';
-import SignupError from './pages/SignupError.jsx';
-import DisplayUserOnline from './pages/UserOnline.jsx';
-import ResetPassword from './pages/ResetPassword.jsx';
-import ForgotPassword from './pages/ForgotPassword.jsx';
-import RouteErrorPage from './pages/RouteErrorPage.jsx';
+import Home from './pages/Home.tsx';
+import Login from './pages/Login.tsx';
+import Signup from './pages/Signup.tsx';
+import Dashboard from './pages/Profile.tsx';
+import Download from './pages/Download.tsx';
+import AccountDetails from './pages/Details.tsx';
+import SignupError from './pages/SignupError.tsx';
+import ResetPassword from './pages/ResetPassword.tsx';
+import DisplayUserOnline from './pages/UserOnline.tsx';
+import ForgotPassword from './pages/ForgotPassword.tsx';
+import RouteErrorPage from './pages/RouteErrorPage.tsx';
+import ForgotPasswordClone from './pages/ForgotPasswordClone.tsx';
 //-------------------------------------------------------------------------//
 const router = createBrowserRouter([
   {
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
       {
         path: '/forgot-password',
         element: <ForgotPassword />
+      },
+      {
+        path: '/change-password',
+        element: <ForgotPasswordClone />
       },
       {
         path: '/reset-password',

@@ -1,17 +1,29 @@
 import './App.css';
-import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink, } from '@apollo/client';
-import { setContext } from '@apollo/client/link/context';
-import { Outlet } from 'react-router-dom';
 import Header from './components/header';
 import Footer from './components/footer';
+import { Outlet } from 'react-router-dom';
+import { onError } from '@apollo/client/link/error';
+import { setContext } from '@apollo/client/link/context';
+import { ApolloClient, InMemoryCache, ApolloProvider, HttpLink, from } from '@apollo/client';
 //-------------------------------------------------------------------------//
 // Construct our main GraphQL API endpoint
-const httpLink = createHttpLink({ uri: '/graphql', });
+const httpLink = new HttpLink({ uri: '/graphql', });
+//-------------------------------------------------------------------------//
+const errorLink = onError(({ graphQLErrors, networkError }) => {
+  if (graphQLErrors) {
+    graphQLErrors.forEach(({ message, locations, path }) =>
+      console.log(`[GraphQL error]: Message: ${message}, Path: ${path}`)
+    );
+  }
+  if (networkError) {
+    console.log(`[Network error]: ${networkError}`);
+  }
+});
 //-------------------------------------------------------------------------//
 // Construct request middleware that will attach the JWT token to every request as an `authorization` header
-const authLink = setContext( (_, { headers }) => {
-// get the authentication token from local storage if it exists
-const token = localStorage.getItem('id_token');
+const authLink = setContext((_, { headers }) => {
+  // get the authentication token from local storage if it exists
+  const token = localStorage.getItem('id_token');
   // return the headers to the context so httpLink can read them
   return {
     headers: {
@@ -23,7 +35,7 @@ const token = localStorage.getItem('id_token');
 //-------------------------------------------------------------------------//
 const client = new ApolloClient({
   // Set up our client to execute the `authLink` middleware prior to making the request to our GraphQL API
-  link: authLink.concat(httpLink),
+  link: from([errorLink, authLink, httpLink]),
   cache: new InMemoryCache(),
 });
 //-------------------------------------------------------------------------//

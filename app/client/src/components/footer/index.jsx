@@ -13,7 +13,7 @@ class Footer extends React.Component {
   render() {
     return (
       <footer id="bottom">
-        <p><FontAwesomeIcon icon={faJs} style={{color: "aqua", }} /><span> IC-FSWizInsRepo</span></p>
+        <p><FontAwesomeIcon icon={faJs} style={{color: "aqua", }} /><span> InterCom-FullStackWizInsRepo</span></p>
         <p>Copyright &copy; { this.state.date.getFullYear() } <Link to={"https://github.com/strahinjapopovic/js-wizard"}>strahinjapopovic@github</Link><br />
         All rights reserved.</p>
       </footer>
