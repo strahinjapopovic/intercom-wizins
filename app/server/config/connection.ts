@@ -11,10 +11,16 @@ const dbConnect = async () => {
   try {
     const MONGO_URI = process.env.MONGODB_URI;
     if (!MONGO_URI) {
-      throw new Error("Please define the MONGODB_URI environmental variable");
+      throw new Error("❌ Please define the MONGODB_URI environmental variable");
     } else {
       const con = await mongoose.connect(MONGO_URI);
-      console.log(`\n✅ MongoDB Connected Successfully!\n\nDBNAME: <mongodbName>,\nHOST: <hostName>\n`);
+      console.log(`
+---
+✅ Database connected!
+📦 MongoDB connection established successfully!
+MONGODBNAME: ${con.connection.db?.databaseName},
+HOST: ${con.connection.host}
+---\n`);
     }
   } catch (error) {
     console.error('❌ MongoDB connection error:', error);

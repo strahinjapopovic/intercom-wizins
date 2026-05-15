@@ -8,7 +8,6 @@
     "codegen": "graphql-codegen --config codegen.ts",
     "compile": "npm run codegen && tsc",
     "start": "npm run compile && npx tsx ./server.ts",
-    "dev:server": "node --trace-deprecation node_modules/.bin/tsx watch server.ts",
     "watch": "nodemon"
   },
   "keywords": [],
@@ -28,7 +27,9 @@
     "dotenv": "^16.4.5",
     "express": "^5.2.1",
     "graphql": "^16.13.2",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.3",
+    "jwa": "^2.0.1",
+    "jws": "^4.0.1",
     "mongodb": "^6.8.0",
     "mongoose": "^9.6.0",
     "react-router-dom": "^7.9.1",

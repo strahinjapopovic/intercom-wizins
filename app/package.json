@@ -2,10 +2,16 @@
   "name": "app",
   "type": "module",
   "version": "1.0.0",
+  "workspaces": [
+    "client",
+    "server"
+  ],
   "description": "",
   "scripts": {
     "start": "nodemon ./server/server.ts",
-    "dev": "concurrently \"cd ./server && npm run watch\" \"cd ./client && npm run dev\"",
+    "dev": "set NODE_OPTIONS=--no-warnings&& concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:server": "cd ./server &&  set NODE_OPTIONS=--no-deprecation --no-warnings&& npm run watch",
+    "dev:client": "cd ./client && set BROWSERSLIST_IGNORE_OLD_DATA=true&& npm run dev",
     "build": "concurrently \"cd ./server && npm run watch\" \"cd ./client && npm run build\"",
     "install": "cd ./server && npm install && cd ../client && npm install",
     "seed": "cd ./server && npm run seed",
@@ -15,7 +21,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "concurrently": "^8.2.2"
+    "concurrently": "^8.2.2",
+    "typescript": "^6.0.3"
   },
   "dependencies": {
     "@types/jest": "^30.0.0",
@@ -25,11 +32,11 @@
     "@vitejs/plugin-react": "^4.3.1",
     "bcryptjs": "^3.0.2",
     "nodemon": "^3.1.14",
+    "npm": "^11.13.0",
     "react-icons": "^5.4.0",
     "react-router-dom": "^7.9.1",
     "ts-node": "^10.9.2",
     "tsx": "^4.21.0",
-    "typescript": "^5.9.3",
     "vite-plugin-html": "^3.2.2"
   }
 }

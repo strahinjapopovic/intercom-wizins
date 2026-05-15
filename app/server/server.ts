@@ -1,3 +1,10 @@
+import dns from 'node:dns';
+// Render automatically sets process.env.NODE_ENV to 'production'
+// This ensures the DNS override ONLY runs on your local machine
+if (process.env.NODE_ENV !== 'production') {
+  dns.setServers(['1.1.1.1', '8.8.8.8']);
+  console.log('🔄 Local development: DNS servers overridden to bypass Node/Windows bug.');
+}
 import express from 'express';
 import { ApolloServer } from '@apollo/server';
 import { typeDefs } from './schemas/typeDefs.ts';

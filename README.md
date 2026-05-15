@@ -25,7 +25,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-aqua.svg?style=for-the-badge)](https://opensource.org/licenses/MIT) 
 
-## MERN Full-Stack JS Client-Serveer architecture application with React-v18.3.1, Node.js v22.0.0, NPM-v10.5.1, Express.js-v4.17.2, MongoDB-v6.8.0, Mongoose-v8.7.2, @apollo/server-v4.7.1, Vite, GraphQL, PWA, AWS S3, SCSS, EmailJS and more ...
+### MERN Full-Stack JS Client-Serveer architecture application in  with React-v19.2.5, Node.js v26.0.0, NPM-v11.12.1, Express.js-v5.2.1, MongoDB-v7.2.0, Mongoose-v9.6.1, @apollo/server-v5.5.1, TypeScript-v5.9.3, Vite, GraphQL, PWA, AWS S3, SCSS, EmailJS and more ...
 
 <a id="table-of-content"></a>
 ## Table of Content
