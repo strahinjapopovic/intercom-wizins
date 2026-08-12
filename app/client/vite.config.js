@@ -99,8 +99,8 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      '@utils': path.resolve(__dirname, '../utils'), 
-      '@gql': path.resolve(__dirname, './gql/__generated__'),
+      '@utils': path.resolve(import.meta.dirname, '../utils'), 
+      '@gql': path.resolve(import.meta.dirname, './gql/__generated__'),
     },
   },
   server: {
