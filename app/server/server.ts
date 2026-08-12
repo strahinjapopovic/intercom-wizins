@@ -17,7 +17,7 @@ import cors from 'cors';
 import { prototype } from 'node:module';
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 const server = new ApolloServer({
   typeDefs,
   resolvers,
@@ -47,9 +47,9 @@ const startServer = async () => {
     });
   }
 
-  app.listen(PORT, '0.0.0.0', () => {
+  app.listen(3000, '0.0.0.0', () => {
     console.log(`🚀 API Client running on port ${PORT}!`);
-    console.log(`🚀 GraphQL Server running at http://localhost:${PORT}/graphql`);
+    console.log(`🚀 GraphQL API Server running at http://localhost:${PORT}/graphql`);
   });
 }
 startServer();

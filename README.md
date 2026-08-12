@@ -1,9 +1,6 @@
 <div align="center">
-
-$$\color{orange}{\Huge{\mathsf{intercom-wizins}}}$$
-
-$$\color{orange}{\Large{\mathsf{ MERN\ Project\ -\ Full\ Stack\ Repository\ }}}$$
-
+  <h3>intercom-wizins</h3>
+  <h3>🚀 MERN Project - Full Stack Repository</h3>
 </div>
 
 <p align="center">
@@ -11,8 +8,9 @@ $$\color{orange}{\Large{\mathsf{ MERN\ Project\ -\ Full\ Stack\ Repository\ }}}$
 </p>
 
 <p align="center">
-    <img src="https://img.shields.io/github/languages/top/strahinjapopovic/intercom-wizins?style=flat&color=blue" />
-    <img src="https://img.shields.io/badge/typescript-17.4%25-blue" />
+    <img src="https://img.shields.io/github/languages/top/strahinjapopovic/intercom-wizins?style=flat&color=blue&label=JavaScript" />
+    <img src="https://img.shields.io/badge/TypeScript-23.0%25-blue" />
+    <img src="https://img.shields.io/badge/CSS-7.9%25-blue" />
     <img src="https://img.shields.io/github/repo-size/strahinjapopovic/intercom-wizins?style=flat&color=blue" />
     <img src="https://img.shields.io/github/issues/strahinjapopovic/intercom-wizins?style=flat&color=blue" />
     <img src="https://img.shields.io/github/last-commit/strahinjapopovic/intercom-wizins?style=flat&color=blue" >
@@ -36,10 +34,10 @@ $$\color{orange}{\Large{\mathsf{ MERN\ Project\ -\ Full\ Stack\ Repository\ }}}$
     <img src="https://img.shields.io/badge/JavaScript-ES2026-blue?logo=javascript" />
   </a>
   <a href="https://docs.npmjs.com/about-npm#getting-started">
-    <img src="https://img.shields.io/npm/v/npm?logo=npm&label=NPM" />
+    <img src="https://img.shields.io/npm/v/npm?logo=npm&label=npm" />
   </a>
   <a href="https://www.npmjs.com/package/json5">
-    <img src="https://img.shields.io/badge/JSON5-v1-blue?logo=json" />
+    <img src="https://img.shields.io/badge/json5-v1-blue?logo=json" />
   </a>
 </p>
 
@@ -74,7 +72,7 @@ $$\color{orange}{\Large{\mathsf{ MERN\ Project\ -\ Full\ Stack\ Repository\ }}}$
 
 ## MERN Project - Full Stack Repository
 
-### MERN Full-Stack TS Client-Serveer Monolitic Repository (Monorepo) architecture application with React-v19.2.6, ReactRouter-v7.15.1, Node.js v26.0.0, NPM-v11.12.1, Express.js-v5.2.1, MongoDB-v7.2.0, Mongoose-v9.6.1, ApolloServer-v5.5.1, TypeScript-v6.0.3, Vite-v8.0.13, GraphQL-16.13.1, PWA, AWS S3, SCSS, EmailJS and more ...
+### MERN Project, a full-stack, client-serveer monolitic repository (monorepo) and application with Node.js v26.0.0, NPM-v11.12.1, React-v19.2.6, Vite-v8.0.13,ApolloServer-v5.5.1, GraphQL-16.13.1, TypeScript-v6.0.3, ReactRouter-v7.15.1, Express.js-v5.2.1, MongoDB-npm-driver-library-v7.2.0, Mongoose-v9.6.1, PWA, AWS S3, SCSS, EmailJS and more ...
 
 <a id="table-of-content"></a>
 ## Table of Content
@@ -89,9 +87,9 @@ $$\color{orange}{\Large{\mathsf{ MERN\ Project\ -\ Full\ Stack\ Repository\ }}}$
 - [License](#license)
 - [Questions and Contacts](#questions-and-contacts)
 
-<img src="https://user-images.githubusercontent.com/11247099/112722104-819b8a80-8f42-11eb-82f5-dfc2dd5d8a77.png" height="32" />
 
-Altrnatively, use the "Table of Contents" menu on the top-right corner to explore the list.
+
+Altrnatively, use the "Table of Contents" menu on the top-right corner to explore the list. <img src="https://user-images.githubusercontent.com/11247099/112722104-819b8a80-8f42-11eb-82f5-dfc2dd5d8a77.png" height="32" />
 
 <a id="description-info"></a>
 ## Description Info
@@ -274,7 +272,7 @@ The root dir is `app/` directory. Two main dirs are app/server/ and app/client/.
 
 <a id="github-repository"></a>
 ## GitHub Repo Badge
-[![GitHub](https://img.shields.io/badge/logo-GitHub-white?style=flat&logo=github&logoColor=whitek&label=inter-com-wizins&labelColor=gray&color=blue)](https://github.com/strahinjapopovic/inter-com-wizins)
+[![GitHub](https://img.shields.io/badge/logo-GitHub-white?style=flat&logo=github&logoColor=whitek&label=intercom-wizins&labelColor=gray&color=blue)](https://github.com/strahinjapopovic/intercom-wizins)
 
 <a id="installation-process"></a>
 ## Installation Process
