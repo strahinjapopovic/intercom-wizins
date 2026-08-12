@@ -29,7 +29,9 @@
   <a href="https://nodejs.org/en">
     <img src="https://img.shields.io/npm/v/node?logo=nodedotjs&label=Node" />
   </a>
-  <img src="https://img.shields.io/npm/v/typescript?logo=typescript&label=TypeScript" />
+  <a href="https://nodejs.org/en">
+    <img src="https://img.shields.io/npm/v/typescript?logo=typescript&label=TypeScript" />
+  </a>
   <a href="">
     <img src="https://img.shields.io/badge/JavaScript-ES2026-blue?logo=javascript" />
   </a>
@@ -52,19 +54,23 @@
 </p>
 
 <p align="center">
-    <a href="https://twitter.com/stanpopovic">
-      <img alt="Twitter: stanpopovic" src="https://img.shields.io/twitter/follow/stanpopovic.svg?style=social" target="_blank" />
-    </a>
-    <a href="https://www.youtube.com/@strahinja-popovic-ch">
-      <img alt="Youtube: strahinja-popovic-ch" src="https://img.shields.io/badge/YouTube-red?&logo=youtube&style=social" target="_blank" />
-    </a>
-</p>
-
-<p align="center">
   <a href="https://opensource.org/licenses/MIT">
     <img src="https://img.shields.io/badge/License-MIT-aqua.svg?style=for-the-badge" />
   </a> 
-</a>
+</p>
+
+<div align="center">
+  <p>
+    <a href="https://twitter.com/stanpopovic">
+      <img alt="Twitter: stanpopovic" src="https://img.shields.io/twitter/follow/stanpopovic.svg?style=social" target="_blank" />
+    </a>
+  </p>
+  <p>
+    <a href="https://www.youtube.com/@strahinja-popovic-ch">
+      <img alt="Youtube: strahinja-popovic-ch" src="https://img.shields.io/badge/YouTube-red?&logo=youtube&style=social" target="_blank" />
+    </a>
+  </p>
+</div>
 
 # intercom-wizins
 
@@ -89,16 +95,17 @@
 
 
 
-Altrnatively, use the "Table of Contents" menu on the top-right corner to explore the list. <img src="https://user-images.githubusercontent.com/11247099/112722104-819b8a80-8f42-11eb-82f5-dfc2dd5d8a77.png" height="32" />
+<img src="https://user-images.githubusercontent.com/11247099/112722104-819b8a80-8f42-11eb-82f5-dfc2dd5d8a77.png" height="32" /> Altrnatively, use the "Table of Contents" menu on the top-right corner to explore the list. 
 
 <a id="description-info"></a>
 ## Description Info
 
 Intercom Wizard Installer or intercom-wizins repo application is build as a client-server architecture that uses Apollo Server as a comprehensive GraphQL Server/ Client configuration engine formed of two layers server/ and client/ while using GraphQL as a single proxy API endpoint. 
 
-`Client` layer uses queries and mutations and performs all GraphQL transactions at proxy level localhost:3001 while server normaly operates at oprt localhost:3000. Directory client/ includes all the contents of basic template react-vite files and folders (public/, src/, index.html, .eslintrc.cjs, vite.config.js) that are pre-defined or built in after terminal command run ~/app/client> npm run build taking actions script at app/client/package.json. Queries and mutations are part of utilities at client layer but execution ocurred at server level and sending back to client at single API endpoint actual GraphQL proxy gateway. See file tree below (Grouping by file type approach is used). 
+`Client` layer uses queries and mutations and performs all GraphQL transactions at proxy port 3001 while server normaly operates at port 3000, in our example. Directory client/ includes all the contents of basic template react-vite files and folders (public/, src/, index.html, .eslintrc.cjs, vite.config.js) that are pre-defined by running cmd `npm run dev` for development or running cmd `npm run build` for production built and all that by executing actions script at app/client/package.json file. Queries and mutations are part of utilities at client layer but execution ocurred at server level and sending back to client at single API endpoint actual GraphQL proxy gateway. See file tree below (Grouping by file type approach is used). 
 
-### `intercom-wizins/app/client/`
+>intercom-wizins/app/client/
+
 ```bash
 intercom-wizins/
 ├─ .vscode/
@@ -218,7 +225,8 @@ intercom-wizins/
 
 `Server` utilise express.js framework, apollo server, apollo express middleware, static files, assigning type definitions and resolvers to apollo server and GraphQL, releasing connection with DB over GraphQL and turning on apollo server. Directory server/ include all server-side config architecture necessary to build and establish connection with database, to provide DB seeding of testing data and maintain ongoing DB transactions ect., e.g. (models/, schemas/, config/, utils/, seeders/, server.js). 
 
-### `intercom-wizins/app/server/`
+>intercom-wizins/app/server/
+
 ```bash
 intercom-wizins/
 ├─ .vscode/
@@ -266,7 +274,34 @@ intercom-wizins/
 └─ README.md
 ```
 
-The root dir is `app/` directory. Two main dirs are app/server/ and app/client/. Because of use of Apollo Client-Server architecture and utility with GraphQL API endpoint usuall directory configuration and content which relied on classic Model-View-Controller (MVC) architecture have to be adjusted. At sever-side we would have e.g. ./schema.js and ./resolvers.js OR schemas/typeDef.js and schemas/resolvers.js like in our example. In typeDef.js we should define all types and their fields as a blueprint which is actuall basic sceleton of data types and their properties. At resolvers.js we define resolvers functions for each used type and field in typeDefs.js. Those are the basic steps in forming directory, files and folders structure. Later on we add more components, pages and utilities to the project. 
+The root dir is `intercom-wizins/` directory which is our project name directory. Then, we have `app/` directory inside and again inside app/ we have two main folders which are `server/` and `client/`. Because of use of Apollo client-server architecture and utility as GraphQL API endpoint, usuall directory configuration and content which relied on classic Model-View-Controller (MVC) architecture have to be adjusted. At sever-side we would have e.g. server/schema.js and server/resolvers.js OR server/schemas/typeDef.js and server/schemas/resolvers.js like in our example. In typeDef.js we should define all types and their fields as a blueprint which is actuall basic sceleton of data types and their properties. At resolvers.js we define resolvers functions for each used type and field in typeDefs.js. Those are the basic steps in forming directory, files and folders structure. Later on we add more components, pages and utilities to the project. 
+
+>intercom-wizins/app/
+
+```bash
+intercom-wizins/
+├─ .vscode/
+│  └─ settings.json
+├─ app/
+│  ├─ client/
+│  ├─ server/
+│  ├─ utils/
+│  ├─ .env
+│  ├─ .env.Example
+│  ├─ .nvmrc
+│  ├─ eslint.config.js
+│  ├─ package-lock.json
+│  ├─ package.json
+│  └─ tsconfig.json
+├─ images/
+├─ .gitignore
+├─ LICENSE
+└─ README.md
+```
+
+File tree abow describes general wiev of project's root directory with main files like server/ and client/.
+
+### Application overview in production at dashboard location
 
 [<img src="./images/intercom-wizins-dash-preview.png" alt="Online web presentation." />](./images/intercom-wizins-dash-preview.png)
 
