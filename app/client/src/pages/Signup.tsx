@@ -2,8 +2,8 @@ import htmlEntity from 'he';
 import * as React from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useMutation, useQuery } from '@apollo/client';
 import { ADD_USER } from '../utils/graphql/mutations.ts';
+import { useMutation, useQuery } from '@apollo/client/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
 import SpinnerLoader from '../components/spinner/spinnerLoader.jsx';
@@ -73,6 +73,7 @@ const Signup = () => {
     }
   };
   //--------------------------------------------//
+  const nextUserCount = (dataAllUsr?.users?.length ?? 0) + 1;
   return (
     <>
       {data ?
@@ -99,7 +100,7 @@ const Signup = () => {
                             /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/.test(formState.email))) ?
                           (<div id="error-message">
                             <span><img src={alertSign} style={{ width: '23px', }} /> {`${error.name}`}</span><br /><br />
-                            {`${error.graphQLErrors[0]?.message}`}<br /><br />
+                            {`⚠️ ${error.message}`}<br /><br />
                             {`( * ) - Insert all required fields`}
                           </div>) :
                           ((formState.firstName &&
@@ -259,7 +260,7 @@ const Signup = () => {
                             cPassword={formState.password}
                             cFirstName={formState.firstName}
                             addUser={addUser}
-                            getAllUsr={dataAllUsr.users.length + 1}
+                            getAllUsr={nextUserCount}
                           />)
                         }
                       </td>

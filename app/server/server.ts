@@ -3,7 +3,7 @@ import dns from 'node:dns';
 // This ensures the DNS override ONLY runs on your local machine
 if (process.env.NODE_ENV !== 'production') {
   dns.setServers(['1.1.1.1', '8.8.8.8']);
-  console.log('🔄 Local development: DNS servers overridden to bypass Node/Windows bug.');
+  console.log(`\n---\n🔄 Local development: DNS servers overridden with Cloudflare and Google DNS resolvers.\n---`);
 }
 import express from 'express';
 import { ApolloServer } from '@apollo/server';
@@ -14,6 +14,7 @@ import { expressMiddleware } from '@as-integrations/express5';
 import dbConnect from './config/connection.ts';
 import path from 'path';
 import cors from 'cors';
+import { prototype } from 'node:module';
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -46,9 +47,9 @@ const startServer = async () => {
     });
   }
 
-  app.listen(PORT, () => {
+  app.listen(PORT, '0.0.0.0', () => {
     console.log(`🚀 API Client running on port ${PORT}!`);
-    console.log(`🚀 Server GraphQL running at http://localhost:${PORT}/graphql`);
+    console.log(`🚀 GraphQL Server running at http://localhost:${PORT}/graphql`);
   });
 }
 startServer();

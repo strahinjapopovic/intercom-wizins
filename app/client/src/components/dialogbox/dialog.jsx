@@ -46,7 +46,7 @@ class ConfirmationDialogBox extends React.Component {
             if (data) {
                 setTimeout(() => {
                     login(data.addUser.token);
-                }, 10000);
+                }, 1000);
             } else {
                 window.location.assign('/signup-error');
             }

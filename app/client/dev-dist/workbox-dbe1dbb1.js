@@ -2,7 +2,7 @@ define(['exports'], (function (exports) { 'use strict';
 
     // @ts-ignore
     try {
-      self['workbox:core:7.0.0'] && _();
+      self['workbox:core:7.4.0'] && _();
     } catch (e) {}
 
     /*
@@ -455,7 +455,7 @@ define(['exports'], (function (exports) { 'use strict';
 
     // @ts-ignore
     try {
-      self['workbox:routing:7.0.0'] && _();
+      self['workbox:routing:7.4.0'] && _();
     } catch (e) {}
 
     /*
@@ -1184,7 +1184,7 @@ define(['exports'], (function (exports) { 'use strict';
 
     // @ts-ignore
     try {
-      self['workbox:cacheable-response:7.0.0'] && _();
+      self['workbox:cacheable-response:7.4.0'] && _();
     } catch (e) {}
 
     /*
@@ -1527,7 +1527,7 @@ define(['exports'], (function (exports) { 'use strict';
 
     // @ts-ignore
     try {
-      self['workbox:strategies:7.0.0'] && _();
+      self['workbox:strategies:7.4.0'] && _();
     } catch (e) {}
 
     /*
@@ -1541,7 +1541,7 @@ define(['exports'], (function (exports) { 'use strict';
       return typeof input === 'string' ? new Request(input) : input;
     }
     /**
-     * A class created every time a Strategy instance instance calls
+     * A class created every time a Strategy instance calls
      * {@link workbox-strategies.Strategy~handle} or
      * {@link workbox-strategies.Strategy~handleAll} that wraps all fetch and
      * cache actions around plugin callbacks and keeps track of when the strategy
@@ -1730,8 +1730,8 @@ define(['exports'], (function (exports) { 'use strict';
        * defined on the strategy object.
        *
        * The following plugin lifecycle methods are invoked when using this method:
-       * - cacheKeyWillByUsed()
-       * - cachedResponseWillByUsed()
+       * - cacheKeyWillBeUsed()
+       * - cachedResponseWillBeUsed()
        *
        * @param {Request|string} key The Request or URL to use as the cache key.
        * @return {Promise<Response|undefined>} A matching response, if found.
@@ -1772,7 +1772,7 @@ define(['exports'], (function (exports) { 'use strict';
        * the strategy object.
        *
        * The following plugin lifecycle methods are invoked when using this method:
-       * - cacheKeyWillByUsed()
+       * - cacheKeyWillBeUsed()
        * - cacheWillUpdate()
        * - cacheDidUpdate()
        *
@@ -1945,7 +1945,7 @@ define(['exports'], (function (exports) { 'use strict';
       /**
        * Adds a promise to the
        * [extend lifetime promises]{@link https://w3c.github.io/ServiceWorker/#extendableevent-extend-lifetime-promises}
-       * of the event event associated with the request being handled (usually a
+       * of the event associated with the request being handled (usually a
        * `FetchEvent`).
        *
        * Note: you can await
@@ -1966,13 +1966,17 @@ define(['exports'], (function (exports) { 'use strict';
        *
        * Note: any work done after `doneWaiting()` settles should be manually
        * passed to an event's `waitUntil()` method (not this handler's
-       * `waitUntil()` method), otherwise the service worker thread my be killed
+       * `waitUntil()` method), otherwise the service worker thread may be killed
        * prior to your work completing.
        */
       async doneWaiting() {
-        let promise;
-        while (promise = this._extendLifetimePromises.shift()) {
-          await promise;
+        while (this._extendLifetimePromises.length) {
+          const promises = this._extendLifetimePromises.splice(0);
+          const result = await Promise.allSettled(promises);
+          const firstRejection = result.find(i => i.status === 'rejected');
+          if (firstRejection) {
+            throw firstRejection.reason;
+          }
         }
       }
       /**
@@ -2358,6 +2362,23 @@ define(['exports'], (function (exports) { 'use strict';
     }
 
     /*
+      Copyright 2019 Google LLC
+
+      Use of this source code is governed by an MIT-style
+      license that can be found in the LICENSE file or at
+      https://opensource.org/licenses/MIT.
+    */
+    /**
+     * Claim any currently available clients once the service worker
+     * becomes active. This is normally used in conjunction with `skipWaiting()`.
+     *
+     * @memberof workbox-core
+     */
+    function clientsClaim() {
+      self.addEventListener('activate', () => self.clients.claim());
+    }
+
+    /*
       Copyright 2020 Google LLC
       Use of this source code is governed by an MIT-style
       license that can be found in the LICENSE file or at
@@ -2380,7 +2401,7 @@ define(['exports'], (function (exports) { 'use strict';
 
     // @ts-ignore
     try {
-      self['workbox:precaching:7.0.0'] && _();
+      self['workbox:precaching:7.4.0'] && _();
     } catch (e) {}
 
     /*
@@ -2684,7 +2705,7 @@ define(['exports'], (function (exports) { 'use strict';
         statusText: clonedResponse.statusText
       };
       // Apply any user modifications.
-      const modifiedResponseInit = modifier ? modifier(responseInit) : responseInit;
+      const modifiedResponseInit = responseInit;
       // Create the new response from the body stream and `ResponseInit`
       // modifications. Note: not all browsers support the Response.body stream,
       // so fall back to reading the entire body into memory as a blob.
@@ -3633,6 +3654,7 @@ define(['exports'], (function (exports) { 'use strict';
     exports.CacheableResponsePlugin = CacheableResponsePlugin;
     exports.NavigationRoute = NavigationRoute;
     exports.cleanupOutdatedCaches = cleanupOutdatedCaches;
+    exports.clientsClaim = clientsClaim;
     exports.createHandlerBoundToURL = createHandlerBoundToURL;
     exports.precacheAndRoute = precacheAndRoute;
     exports.registerRoute = registerRoute;

@@ -1,12 +1,16 @@
+import path from 'path';
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { VitePWA } from "vite-plugin-pwa";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
-    react(),
+  plugins: [react(),
     VitePWA({
+      registerType: 'autoUpdate',
+      devOptions: {
+          enabled: true
+      },
       manifest: {
         name: "Intercom FS Wizard Installation Repository",
         short_name: "IC-FSWizInsRepo",
@@ -91,17 +95,20 @@ export default defineConfig({
             }
         }],
       },
-      devOptions: {
-          enabled: true
-      },
     }),
   ],
+  resolve: {
+    alias: {
+      '@utils': path.resolve(__dirname, '../utils'), 
+      '@gql': path.resolve(__dirname, './gql/__generated__'),
+    },
+  },
   server: {
     port: 3000,
     open: true,
     proxy: {
       '/graphql': {
-        target: 'http://localhost:3001',
+        target: 'http://127.0.0.1:3001',
         changeOrigin: true,
         secure: false,
       }

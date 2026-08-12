@@ -3,7 +3,7 @@ import htmlEntity from 'he';
 import { useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { Link } from 'react-router-dom';
-import { useLazyQuery } from '@apollo/client';
+import { useLazyQuery } from '@apollo/client/react';
 import { LoggedIn, Logout } from '../utils/authent.js';
 import verificationCodeKey from '../utils/alphaNumStr.ts';
 import { GET_USER_EMAIL } from '../utils/graphql/queries.ts';
@@ -12,7 +12,7 @@ import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
 import xErrorMsg from '../assets/images/message-icon/xmark-red.png';
 import alertSign from '../assets/images/message-icon/alert-sign.png';
 import tickSuccess from '../assets/images/message-icon/tick-mark-green.png';
-import { BcryptHashingForgotPassX, BcryptHashingForgotPassY } from '../../../utils/auth.ts';
+import { BcryptHashingForgotPassX, BcryptHashingForgotPassY } from '@utils/auth';
 //--------------------------------------------//  
 const ForgotPasswordClone = () => {
 //--------------------------------------------//
@@ -46,16 +46,16 @@ const ForgotPasswordClone = () => {
           variables: { email: formStateEmail.email, },
         });
         //-----------------------------------------------------------------------------------//
-        if(data.getUserEmail !== null) {
+        if(data?.getUserEmail !== null) {
           setCheckEmail({
             checkEmail: 'successfully',
           });
-          console.log(`data is processed!\nUsername: ${data.getUserEmail.username}`);
-          console.log(data.getUserEmail.email);
+          console.log(`data is processed!\nUsername: ${data?.getUserEmail?.username}`);
+          console.log(data?.getUserEmail?.email);
           //-----------------------------------------------------------------------------------//
           const codexID = verificationCodeKey(20);
           const codeyID = verificationCodeKey(21);
-          const resetAddressURI = `http://localhost:3000/reset-password?userEmail=${data.getUserEmail.email}&codexid=${codexID}&codeyid=${codeyID}`;
+          const resetAddressURI = `http://localhost:3000/reset-password?userEmail=${data?.getUserEmail?.email}&codexid=${codexID}&codeyid=${codeyID}`;
           console.log(`\n---\nCodeXID: ${codexID}\n---\nCodeYID: ${codeyID}\n---\nReset Address: ${resetAddressURI}`); 
           //-----------------------------------------------------------------------------------//
           const arrMonth = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
@@ -104,7 +104,7 @@ const ForgotPasswordClone = () => {
           console.log(`Date Start: ${dateStart}\n---\nDate End: ${dateEnd}\n---\nDate Message: ${dateMsg}`);
           //-----------------------------------------------------------------------------------//
           let objData = {
-            userEmail: data.getUserEmail.email,
+            userEmail: data?.getUserEmail?.email,
             codexID: BcryptHashingForgotPassX(codexID),
             codeyID: BcryptHashingForgotPassY(codeyID),
             dateStart: dateStart,
@@ -119,7 +119,7 @@ const ForgotPasswordClone = () => {
           //-----------------------------------------------------------------------------------//
           emailjs.send("emailjs_intercom_wizins","template_respas_intercom",{
            from_name: "Intercom WizIns Repo",
-           clientFirstName: data.getUserEmail.firstName,
+           clientFirstName: data?.getUserEmail?.firstName,
            resetPassURI: resetAddressURI,
            messageExpires: `Verification code expires in 30 min on ${dateMsg}`,
            to_email: formStateEmail.email,
@@ -151,21 +151,12 @@ const ForgotPasswordClone = () => {
             checkEmail: 'failed',
           });
           console.log(`data is undefined!\ndata: ${data}`);
-          // window.location.assign('/login');
         }
         //-----------------------------------------------------------------------------------//
       }
     } catch (error) {
       console.error(error);
-      setFormStateEmail({
-        email: '',
-      });
     }
-  //--------------------------------------------//
-    // clear form values
-    setFormStateEmail({
-      email: '',
-    });
   };
   //--------------------------------------------//
   console.log(checkEmailUser.checkEmail);

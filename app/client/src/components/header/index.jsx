@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { useQuery, useMutation } from '@apollo/client';
 import { GET_USER } from '../../utils/graphql/queries.ts';
-import { UPDATE_ONLINE_STATUS } from '../../utils/graphql/mutations.ts';
+import { useQuery, useMutation } from '@apollo/client/react';
 import { Logout, LoggedIn, getProfile} from '../../utils/authent.ts';
+import { UPDATE_ONLINE_STATUS } from '../../utils/graphql/mutations.ts';
 //-------------------------------------------------------------------------//
 import topBanner from '../../assets/react.svg';
 import { faJs } from '@fortawesome/free-brands-svg-icons';

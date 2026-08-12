@@ -10,19 +10,28 @@
   "scripts": {
     "start": "nodemon ./server/server.ts",
     "dev": "set NODE_OPTIONS=--no-warnings&& concurrently \"npm run dev:server\" \"npm run dev:client\"",
-    "dev:server": "cd ./server &&  set NODE_OPTIONS=--no-deprecation --no-warnings&& npm run watch",
-    "dev:client": "cd ./client && set BROWSERSLIST_IGNORE_OLD_DATA=true&& npm run dev",
-    "build": "concurrently \"cd ./server && npm run watch\" \"cd ./client && npm run build\"",
-    "install": "cd ./server && npm install && cd ../client && npm install",
+    "dev:server": "cd ./server && set NODE_OPTIONS=--no-deprecation --no-warnings&& npm run watch",
+    "dev:client": "cd ./client && set BROWSERSLIST_IGNORE_OLD_DATA=true&& concurrently \"npm run codegen:watch\" \"npm run dev\"",
+    "build": "cd ./client && npm run build",
     "seed": "cd ./server && npm run seed",
-    "cbuild": "cd ./client && npm run build"
+    "codegen:client": "npm run codegen:watch -w client",
+    "lint": "eslint .",
+    "preview": "cd ./client && npm run preview"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@eslint/js": "^9.39.4",
     "concurrently": "^8.2.2",
-    "typescript": "^6.0.3"
+    "eslint": "^9.39.4",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "eslint-plugin-react-refresh": "^0.5.2",
+    "globals": "^17.6.0",
+    "tsx": "^4.23.7",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.59.4"
   },
   "dependencies": {
     "@types/jest": "^30.0.0",
@@ -34,9 +43,7 @@
     "nodemon": "^3.1.14",
     "npm": "^11.13.0",
     "react-icons": "^5.4.0",
-    "react-router-dom": "^7.9.1",
     "ts-node": "^10.9.2",
-    "tsx": "^4.21.0",
     "vite-plugin-html": "^3.2.2"
   }
 }

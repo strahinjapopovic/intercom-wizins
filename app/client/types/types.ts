@@ -53,14 +53,19 @@ export interface MyToken {
     exp: number;
 }
 export interface InterfUser {
-  userID: string;
-  firstName: string;
-  lastName: string;
-  username: string;
-  email: string;
-  password: string;
-  confirmed: string;
-  createdAt: Date;
-  updatedAt: Date;
-  online: string;
+    userID: string;
+    firstName: string;
+    lastName: string;
+    username: string;
+    email: string;
+    password: string;
+    confirmed: string;
+    createdAt: Date;
+    updatedAt: Date;
+    online: string;
+}
+export interface CheckboxProps {
+    label: string;
+    checked: boolean;
+    onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }

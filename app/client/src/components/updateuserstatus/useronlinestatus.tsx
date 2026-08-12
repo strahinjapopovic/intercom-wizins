@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useMutation } from '@apollo/client';
+import { useMutation } from '@apollo/client/react';
 import { UPDATE_ONLINE_STATUS } from '../../utils/graphql/mutations.ts';
 import type { LocalStorageOnlineStatus } from '../../../types/types.js';
 //-------------------------------------------------------------------------//
@@ -16,7 +16,7 @@ const UpdateOnlineStatusChange = () => {
                 const usrStatus = parsedLocalStorageData.onlineStatus;
                 setUsername(user);
                 setOnlineUserStatus(usrStatus);
-                if (onlineUserStatus === "Yes") {
+                if (username && onlineUserStatus === "Yes") {
                     try {
                         const updateStatus = async () => {
                             const { data } = await updateOnlineStatus({

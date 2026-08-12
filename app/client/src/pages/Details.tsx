@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { GET_USER } from '../utils/graphql/queries.ts';
-import { useQuery, useMutation } from '@apollo/client';
 import { DELETE_USER } from '../utils/graphql/mutations.ts';
 import idIcon from '../assets/images/details-icon/id-icon.png';
 import DataChild from '../components/datarow/DataRowChild.jsx';
@@ -10,6 +9,7 @@ import passIcon from '../assets/images/details-icon/pass-icon.png';
 import SpinnerLoader from '../components/spinner/spinnerLoader.jsx';
 import emailIcon from '../assets/images/details-icon/email-icon.png';
 import userIcon from '../assets/images/details-icon/usertbl-icon.png';
+import { skipToken, useQuery, useMutation } from '@apollo/client/react';
 import { LoggedIn, getProfile, IsTokenExpired } from '../utils/authent.js';
 import createdAtIcon from '../assets/images/details-icon/account-icon.png';
 import DelBtnDialogBoxComp from '../components/dialogbox/deleteuserdialog.jsx';
@@ -46,11 +46,23 @@ const Details = () => {
   }, []);
   //--------------------------------------------//
   const getUserData = () => {
-    const { data, loading, error } = useQuery(GET_USER, {
-      variables: { username: usernameState, },
-      skip: !usernameState,
-    });
-    let createdat = new Date(parseInt(data?.user.createdAt));
+    const { data, loading, error } = useQuery(
+      GET_USER,
+      usernameState
+        ? { variables: { username: usernameState } }
+        : skipToken
+    );
+    useEffect(() => {
+      if (data) {
+        console.log("Data loaded successfully!", data);
+      }
+    }, [data]);
+    useEffect(() => {
+      if (error) {
+        console.error("Query failed:", error);
+      }
+    }, [error]);
+    let createdat = new Date(parseInt(data?.user?.createdAt ?? "0"));
     return (
       <>
         {(error) ? <p style={{ paddingLeft: '10px', }}> Error: {error.message}</p> :
@@ -59,9 +71,9 @@ const Details = () => {
               (data) &&
               (<div id='user-data'>
                 <DataParent>
-                  <DataChild imgsrc={idIcon} data={data?.user.userID} />
-                  <DataChild imgsrc={emailIcon} data={data?.user.email} />
-                  <DataChild imgsrc={userIcon} data={data?.user.username} />
+                  <DataChild imgsrc={idIcon} data={data?.user?.userID} />
+                  <DataChild imgsrc={emailIcon} data={data?.user?.email} />
+                  <DataChild imgsrc={userIcon} data={data?.user?.username} />
                   <DataChild imgsrc={createdAtIcon} data={createdat.toString()} />
                   <DataChild imgsrc={passIcon} data={`************`} link={(<a href='http://localhost:3000/forgot-password'>edit</a>)} />
                 </DataParent>

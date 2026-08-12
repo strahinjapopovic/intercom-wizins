@@ -1,4 +1,4 @@
-import decode from 'jwt-decode';
+import { jwtDecode } from 'jwt-decode';
 import type { MyToken } from '../../types/types.ts';
 // Return token from localStorage
 export const getToken = () => {
@@ -8,7 +8,7 @@ export const getToken = () => {
 // Return decoded token from localStorage
 export const getProfile = () => {
   const token = getToken();
-  return token ? decode(token) : null;
+  return token ? jwtDecode(token) : null;
 }
 export const Logout = () => {
   window.location.replace("/");
@@ -17,7 +17,7 @@ export const Logout = () => {
 // Return boolean
 export const IsTokenExpired = (token: string) => {
   // Decode token to get its expiration time set by the server
-  const decoded = decode(token) as MyToken;
+  const decoded = jwtDecode(token) as MyToken;
   // If expiration time is less than the current time (in seconds) the token is expired and return true
   if (decoded.exp < Date.now() / 1000) {
     localStorage.removeItem('id_token');

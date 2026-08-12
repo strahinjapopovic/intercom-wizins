@@ -1,6 +1,7 @@
-import { gql } from '@apollo/client';
+// import { gql } from '@apollo/client'; <- old qraphql template
+import { graphql } from '@gql'; // <- Modern preset: 'client' plugins with Apollo Client 4
 
-export const GET_ALL_USERS = gql`
+export const GET_ALL_USERS = graphql(`
   query getAllUsers {
     users {
       _id
@@ -11,9 +12,9 @@ export const GET_ALL_USERS = gql`
       online
     }
   }
-`;
+`);
 
-export const GET_USER = gql`
+export const GET_USER = graphql(`
   query user($username: String!) {
     user(username: $username) {
       _id
@@ -26,9 +27,9 @@ export const GET_USER = gql`
       updatedAt
     }
   }
-`;
+`);
 
-export const GET_USER_EMAIL = gql`
+export const GET_USER_EMAIL = graphql(`
   query getUserEmail($email: String!) {
     getUserEmail(email: $email) {
       _id
@@ -38,9 +39,9 @@ export const GET_USER_EMAIL = gql`
       email
     }
   }
-`;
+`);
 
-export const GET_ONLINE_USERS = gql`
+export const GET_ONLINE_USERS = graphql(`
   query getOnlineUsers {
     getOnlineUsers {
       _id
@@ -51,14 +52,14 @@ export const GET_ONLINE_USERS = gql`
       online
     }
   }
-`;
+`);
 
-export const GET_USERS_AND_COUNT = gql`
+export const GET_USERS_AND_COUNT = graphql(`
   query getAllUsrAndCount{
-    getAndCount {
+    getAllUsrAndCount {
       _id
       userID
       username
     }
   }
-`;
+`);

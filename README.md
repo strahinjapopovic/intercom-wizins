@@ -1,31 +1,80 @@
+<div align="center">
+
+$$\color{orange}{\Huge{\mathsf{intercom-wizins}}}$$
+
+$$\color{orange}{\Large{\mathsf{ MERN\ Project\ -\ Full\ Stack\ Repository\ }}}$$
+
+</div>
+
+<p align="center">
+  <img src="./images/awesome-ico.png" width=600 align="center" alt="Awesome sungass image." />
+</p>
+
+<p align="center">
+    <img src="https://img.shields.io/github/languages/top/strahinjapopovic/intercom-wizins?style=flat&color=blue" />
+    <img src="https://img.shields.io/badge/typescript-17.4%25-blue" />
+    <img src="https://img.shields.io/github/repo-size/strahinjapopovic/intercom-wizins?style=flat&color=blue" />
+    <img src="https://img.shields.io/github/issues/strahinjapopovic/intercom-wizins?style=flat&color=blue" />
+    <img src="https://img.shields.io/github/last-commit/strahinjapopovic/intercom-wizins?style=flat&color=blue" >
+</p>
+
+<p align="center">
+  <a href="">
+    <img src="https://img.shields.io/npm/v/mongodb?style=flat&logo=mongodb&label=MongoDB&color=green" />
+  </a>
+  <a href="">
+    <img src="https://img.shields.io/npm/v/express?logo=express&label=Express&labelColor=grey&color=blue" />
+  </a>
+  <a href="">
+    <img src="https://img.shields.io/npm/v/react?logo=react&label=React" />
+  </a>
+  <a href="https://nodejs.org/en">
+    <img src="https://img.shields.io/npm/v/node?logo=nodedotjs&label=Node" />
+  </a>
+  <img src="https://img.shields.io/npm/v/typescript?logo=typescript&label=TypeScript" />
+  <a href="">
+    <img src="https://img.shields.io/badge/JavaScript-ES2026-blue?logo=javascript" />
+  </a>
+  <a href="https://docs.npmjs.com/about-npm#getting-started">
+    <img src="https://img.shields.io/npm/v/npm?logo=npm&label=NPM" />
+  </a>
+  <a href="https://www.npmjs.com/package/json5">
+    <img src="https://img.shields.io/badge/JSON5-v1-blue?logo=json" />
+  </a>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/npm/v/node?logo=nodedotjs&label=Node.js%20RTE" /> 
+  <img src="https://img.shields.io/npm/v/npm?logo=npm&label=Node%20Package%20Manager" />
+  <img src="https://img.shields.io/npm/v/react?logo=react&label=React%20npm" /> 
+  <img src="https://img.shields.io/npm/v/express?logo=express&label=Express.js&labelColor=grey&color=blue" /> 
+  <img src="https://img.shields.io/npm/v/mongodb?style=flat&logo=mongodb&label=MongoDB%20npm%20client%20library%20driver&color=green" /> 
+  <img src="https://img.shields.io/npm/v/mongoose?style=flat&logo=mongoose&label=mongoose&color=red" /> 
+  <imga src="https://img.shields.io/npm/v/%40apollo%2Fserver?logo=apollo&label=%F0%9F%9A%80%20%40apollo%2Fserver%20npm" />
+</p>
+
+<p align="center">
+    <a href="https://twitter.com/stanpopovic">
+      <img alt="Twitter: stanpopovic" src="https://img.shields.io/twitter/follow/stanpopovic.svg?style=social" target="_blank" />
+    </a>
+    <a href="https://www.youtube.com/@strahinja-popovic-ch">
+      <img alt="Youtube: strahinja-popovic-ch" src="https://img.shields.io/badge/YouTube-red?&logo=youtube&style=social" target="_blank" />
+    </a>
+</p>
+
+<p align="center">
+  <a href="https://opensource.org/licenses/MIT">
+    <img src="https://img.shields.io/badge/License-MIT-aqua.svg?style=for-the-badge" />
+  </a> 
+</a>
+
 # intercom-wizins
 
-## Project MERN - Full Stack Repository
+![Language Stats](https://raw.githubusercontent.com/tbwcjw/languages-badge/refs/heads/main/badges/Languages_strahinjapopovic_intercom-wizins_blue.svg)
 
-![node version](https://img.shields.io/npm/v/node?logo=nodedotjs&label=Node.js%20RTE%20npm) ![npm version](https://img.shields.io/npm/v/npm?logo=npm&label=Node%20Package%20Manager%20npm) ![react version](https://img.shields.io/npm/v/react?logo=react&label=React%20npm) ![express version](https://img.shields.io/npm/v/express?logo=express&label=Express.js&labelColor=grey&color=blue) ![mongodb version](https://img.shields.io/npm/v/mongodb?style=flat&logo=mongodb&label=MongoDB&color=green) ![mongoose version](https://img.shields.io/npm/v/mongoose?style=flat&logo=mongoose&label=mongoose&color=red) ![@apollo/server](https://img.shields.io/npm/v/%40apollo%2Fserver?logo=apollo&label=%F0%9F%9A%80%20%40apollo%2Fserver%20npm)
+## MERN Project - Full Stack Repository
 
-<p align="left">
-    <img src="https://img.shields.io/github/languages/top/strahinjapopovic/node-gen-readme?style=flat&color=blue" />
-    <img src="https://img.shields.io/github/repo-size/strahinjapopovic/node-gen-readme?style=flat&color=blue" />
-    <img src="https://img.shields.io/github/issues/strahinjapopovic/node-gen-readme?style=flat&color=blue" />
-    <img src="https://img.shields.io/github/last-commit/strahinjapopovic/node-gen-readme?style=flat&color=blue" >
-</p>
-    
-<p align="left">
-    <a href="https://gist.github.com/Julien-Marcou/156b19aea4704e1d2f48adafc6e2acbf"><img src="https://img.shields.io/badge/es2023-javascript-blue?logo=javascript" /></a>
-    <a href="https://nodejs.org/en"><img src="https://img.shields.io/badge/v22-node-blue?logo=nodedotjs" /></a>
-    <a href="https://docs.npmjs.com/about-npm#getting-started"><img src="https://img.shields.io/badge/v10-npm-blue?logo=npm" /></a>
-    <a href="https://www.npmjs.com/package/json5"><img src="https://img.shields.io/badge/v2-json5-blue?logo=npm" /></a>
-</p>
-
-<p align="left">
-    <a href="https://twitter.com/stanpopovic"><img alt="Twitter: stanpopovic" src="https://img.shields.io/twitter/follow/stanpopovic.svg?style=social" target="_blank" /></a>
-    <a href="https://www.youtube.com/@strahinja-popovic-ch"><img alt="Youtube: strahinja-popovic-ch" src="https://img.shields.io/badge/YouTube-red?&logo=youtube&style=social" target="_blank" /></a>
-</p>
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-aqua.svg?style=for-the-badge)](https://opensource.org/licenses/MIT) 
-
-### MERN Full-Stack JS Client-Serveer architecture application in  with React-v19.2.5, Node.js v26.0.0, NPM-v11.12.1, Express.js-v5.2.1, MongoDB-v7.2.0, Mongoose-v9.6.1, @apollo/server-v5.5.1, TypeScript-v5.9.3, Vite, GraphQL, PWA, AWS S3, SCSS, EmailJS and more ...
+### MERN Full-Stack TS Client-Serveer Monolitic Repository (Monorepo) architecture application with React-v19.2.6, ReactRouter-v7.15.1, Node.js v26.0.0, NPM-v11.12.1, Express.js-v5.2.1, MongoDB-v7.2.0, Mongoose-v9.6.1, ApolloServer-v5.5.1, TypeScript-v6.0.3, Vite-v8.0.13, GraphQL-16.13.1, PWA, AWS S3, SCSS, EmailJS and more ...
 
 <a id="table-of-content"></a>
 ## Table of Content
@@ -51,6 +100,7 @@ Intercom Wizard Installer or intercom-wizins repo application is build as a clie
 
 `Client` layer uses queries and mutations and performs all GraphQL transactions at proxy level localhost:3001 while server normaly operates at oprt localhost:3000. Directory client/ includes all the contents of basic template react-vite files and folders (public/, src/, index.html, .eslintrc.cjs, vite.config.js) that are pre-defined or built in after terminal command run ~/app/client> npm run build taking actions script at app/client/package.json. Queries and mutations are part of utilities at client layer but execution ocurred at server level and sending back to client at single API endpoint actual GraphQL proxy gateway. See file tree below (Grouping by file type approach is used). 
 
+### `intercom-wizins/app/client/`
 ```bash
 intercom-wizins/
 ├─ .vscode/
@@ -76,7 +126,7 @@ intercom-wizins/
 │  │  │  │  └─ react.svg
 │  │  │  ├─ components/
 │  │  │  │  ├─ checkbox/
-│  │  │  │  │  └─ index.jsx
+│  │  │  │  │  └─ index.tsx
 │  │  │  │  ├─ dashboard/
 │  │  │  │  │  ├─ children/
 │  │  │  │  │  │  ├─ DashLink.jsx
@@ -170,6 +220,7 @@ intercom-wizins/
 
 `Server` utilise express.js framework, apollo server, apollo express middleware, static files, assigning type definitions and resolvers to apollo server and GraphQL, releasing connection with DB over GraphQL and turning on apollo server. Directory server/ include all server-side config architecture necessary to build and establish connection with database, to provide DB seeding of testing data and maintain ongoing DB transactions ect., e.g. (models/, schemas/, config/, utils/, seeders/, server.js). 
 
+### `intercom-wizins/app/server/`
 ```bash
 intercom-wizins/
 ├─ .vscode/
@@ -217,9 +268,9 @@ intercom-wizins/
 └─ README.md
 ```
 
-The root dir is `app/` directory. Two main dirs are ~/app/server/ and ~/app/client/. Because of use of Apollo Client-Server architecture and utility with GraphQL API endpoint usuall directory configuration and content which relied on classic Model-View-Controller (MVC) architecture have to be adjusted. At sever-side we would have e.g. ./schema.js and ./resolvers.js OR schemas/typeDef.js and schemas/resolvers.js like in our example. In typeDef.js we should define all types and their fields as a blueprint which is actuall basic sceleton of data types and their properties. At resolvers.js we define resolvers functions for each used type and field in typeDefs.js. Those are the basic steps in forming directory, files and folders structure. Later on we add more components, pages and utilities to the project. 
+The root dir is `app/` directory. Two main dirs are app/server/ and app/client/. Because of use of Apollo Client-Server architecture and utility with GraphQL API endpoint usuall directory configuration and content which relied on classic Model-View-Controller (MVC) architecture have to be adjusted. At sever-side we would have e.g. ./schema.js and ./resolvers.js OR schemas/typeDef.js and schemas/resolvers.js like in our example. In typeDef.js we should define all types and their fields as a blueprint which is actuall basic sceleton of data types and their properties. At resolvers.js we define resolvers functions for each used type and field in typeDefs.js. Those are the basic steps in forming directory, files and folders structure. Later on we add more components, pages and utilities to the project. 
 
-[<img src="./images/intercom-wizins-download-preview.png" alt="Online web presentation." />](./images/intercom-wizins-download-preview.png)
+[<img src="./images/intercom-wizins-dash-preview.png" alt="Online web presentation." />](./images/intercom-wizins-dash-preview.png)
 
 <a id="github-repository"></a>
 ## GitHub Repo Badge
@@ -237,7 +288,7 @@ $ mongod
 ```
 If terminal shows something like image below it means MongoDB is set properly. Othrewise repeat process again.
 
-[<img src="./images/wizins-mongodb-install.png" alt="Git Bash Terminal screenshot." />](./images/wizins-mongodb-install.png)
+[<img src="./images/wizins-mongodb-install.png" width="700" alt="Git Bash Terminal screenshot." />](./images/wizins-mongodb-install.png)
 
 After MongoDB is setup, npm packages should be installed at root dir of the application (`inter-com-wizins/app`):
 To initialize package.json and to install node_packages run
@@ -265,8 +316,14 @@ Alternatively,
 ```bash
 $ npm run seed # automate executable shortcuts scripts at package.json from app/ dir
 ```
-### Run seed output:
-[<img src="./images/intercom-wizins-seed-preview.png" alt="VS Code Image." />](./images/intercom-wizins-seed-preview.png)
+## Seed output:
+>npm run seed
+
+### IMG-1 
+[<img src="./images/intercom-wizins-seed-preview.png" alt="VS Code Output Screenshot." />](./images/intercom-wizins-seed-preview.png)
+
+### IMG-2 
+[<img src="./images/intercom-wizins-seed-preview-2.png" alt="VS Code Output Screenshot." />](./images/intercom-wizins-seed-preview-2.png)
 
 <a id="usage-info"></a>
 ## Usage Info
@@ -309,35 +366,51 @@ If using scripts from root dir
 ```bash
 $ npm run dev # it will start both server and client side ports at once (http://localhost:3000 AND http://localhost:3001/graphql)
 ```
-All automate executable scripts that call server and client package.json scripts are stored at root directory `intercom-wizins/app/` in `package.json` file.
-intercom-wizins/app/package.json
+
+## Server dev output: 
+>npm run dev
+
+### IMG-1
+[<img src="./images/server-start-npm-run-dev.png" alt="VS Code Output Screenshot." />](./images/server-start-npm-run-dev.png)
+
+All automate executable scripts that call server's and client's package.json scripts are stored at root directory `intercom-wizins/app/` in `package.json` file.
+>intercom-wizins/app/package.json
+
 ```json
 "scripts": {
     "start": "nodemon ./server/server.ts",
-    "dev": "concurrently \"cd ./server && npm run watch\" \"cd ./client && npm run dev\"",
-    "build": "concurrently \"cd ./server && npm run watch\" \"cd ./client && npm run build\"",
-    "install": "cd ./server && npm install && cd ../client && npm install",
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:server": "cd ./server && npm run watch",
+    "dev:client": "cd ./client && concurrently \"npm run codegen:watch\" \"npm run dev\"",
+    "build": "cd ./client && npm run build",
     "seed": "cd ./server && npm run seed",
-    "cbuild": "cd ./client && npm run build"
+    "codegen:client": "npm run codegen:watch -w client",
+    "lint": "eslint .",
+    "preview": "cd ./client && npm run preview"
   },
 ```
-intercom-wizins/app/server/package.json
+>intercom-wizins/app/server/package.json
+
+By executing scripts `"watch": "nodemon"` from `server/package.json` file we actually turning on all "scripts" under it, excluding "seed". This executes our `server.ts` file with all middleware backend utilities and generates `src/_generated__/resolvers-types.ts` file as a main type file to be used at resolvers.ts.
 ```json
 "scripts": {
     "seed": "npx tsx ./config/seed.ts",
     "codegen": "graphql-codegen --config codegen.ts",
     "compile": "npm run codegen && tsc",
-    "start": "npm run compile && npx tsx ./server.ts",
+    "start": "npm run compile && tsx ./server.ts",
     "watch": "nodemon"
   },
 ```
-intercom-wizins/app/client/package.json
+>intercom-wizins/app/client/package.json
+
+By executing scripts `"codegen:watch": "graphql-codegen --watch"` from `client/package.json` 
 ```json
 "scripts": {
-    "dev": "vite serve",
-    "build": "vite build",
-    "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "dev": "vite",
+    "build": "tsc --build && vite build",
+    "preview": "vite preview",
+    "compile": "graphql-codegen",
+    "codegen:watch": "graphql-codegen --watch"
   },
 ```
 <a id="live-on-render"></a>
@@ -345,7 +418,7 @@ intercom-wizins/app/client/package.json
 
 Live application can be visited [here](https://js-wizard.onrender.com/).
 
-[<img src="./images/wizard-small-favicon.png" width="400" alt="Repo image as thumbnail for testing purpose on Render." />](https://js-wizard.onrender.com/)
+[<img src="./images/wizard-small-favicon.png" width="200" alt="Repo image as thumbnail for testing purpose on Render." />](https://js-wizard.onrender.com/)
 
 ## License
 

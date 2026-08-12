@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { login } from '../utils/authent.js';
-import { useMutation } from '@apollo/client';
-import { LOGIN_USER } from '../utils/graphql/mutations.ts';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
-import { Checkbox } from '../components/checkbox/index.jsx';
+import { useMutation } from '@apollo/client/react';
+import { LOGIN_USER } from '../utils/graphql/mutations.ts';
+import { Checkbox } from '../components/checkbox/index.tsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import SpinnerLoader from '../components/spinner/spinnerLoader.jsx';
 import { faRightToBracket } from '@fortawesome/free-solid-svg-icons';
@@ -25,7 +25,7 @@ const Login = () => {
   updateUserStatus();
   //--------------------------------------------//
   const [checked, setChecked] = useState(true);
-  const onHandleChange = () => {
+  const onHandleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setChecked(!checked);
   }
   //--------------------------------------------//
@@ -33,6 +33,7 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [iconShowPass, setIconShowPass] = useState(<FaEyeSlash />);
   const [logins, { data, loading, error }] = useMutation(LOGIN_USER);
+  if (loading) return <SpinnerLoader />;
   //--------------------------------------------//
   const handleShowPasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -48,28 +49,23 @@ const Login = () => {
   };
   //--------------------------------------------//
   const handleFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault(); 
+    event.preventDefault();
     try {
       const { data } = await logins({
         variables: { ...formState },
       });
-      if (loading) return <SpinnerLoader/>;
-      if (error) return <p>{error.message}</p>;
-      if (data) {
+
+      const token = data?.login?.token;
+
+      if (token) {
         setTimeout(() => {
-          login(data.login.token);
+          login(token);
+          setFormState({ email: '', username: '', password: '' });
         }, 2000);
       }
     } catch (error) {
-      console.log(error);
+      console.error("Login failed:", error);
     }
-    //--------------------------------------------//
-    // clear form values
-    setFormState({
-      email: '',
-      username: '',
-      password: '',
-    });
   };
   //--------------------------------------------//
   return (
@@ -82,7 +78,12 @@ const Login = () => {
               <form id='login' onSubmit={handleFormSubmit}>
                 <span id='title-main' style={{ marginLeft: '10%', }}>JS</span>
                 <p id='titleMessage' style={{ marginBottom: '20px', }}>Profile Login</p>
-                {error && (<div id="error-message"><span><img src={alertSign} style={{ width: '23px', }} /> {`${error.name}`}</span><br /><br />{`${error.message}`}</div>)}
+                {error && (
+                  <div id="error-message">
+                    <span><img src={alertSign} style={{ width: '23px', }} /> {`${error.name}` || 'Error'}</span>
+                    <br /><br />
+                    {`${error.message}`}
+                  </div>)}
                 {checked ?
                   (<>
                     <label htmlFor="email">Email <span>*</span></label>
@@ -116,7 +117,7 @@ const Login = () => {
                     {showPassword ? <FaEye /> : <FaEyeSlash />}
                   </span>
                 </div>
-                <Checkbox label="Uncheck to use an username to login" value={checked} onChange={onHandleChange} /><br />
+                <Checkbox label="Uncheck to use an username to login" checked={checked} onChange={onHandleChange} /><br />
                 <p><Link id='forgot-password' to='/forgot-password'>Forgot your password?</Link></p>
                 <button type="submit" id="submit" name="submit"><FontAwesomeIcon icon={faRightToBracket} /> Login</button>
               </form>

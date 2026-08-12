@@ -18,7 +18,7 @@ const dbConnect = async () => {
 ---
 ✅ Database connected!
 📦 MongoDB connection established successfully!
-MONGODBNAME: ${con.connection.db?.databaseName},
+\nMONGODBNAME: ${con.connection.db?.databaseName},
 HOST: ${con.connection.host}
 ---\n`);
     }

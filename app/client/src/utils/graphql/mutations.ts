@@ -1,6 +1,6 @@
-import { gql } from '@apollo/client';
+import { graphql } from '@gql';
 
-export const LOGIN_USER = gql`
+export const LOGIN_USER = graphql(`
   mutation login($username: String!, $email: String!, $password: String!) {
     login(username: $username, email: $email, password: $password) {
       token
@@ -13,9 +13,9 @@ export const LOGIN_USER = gql`
       }
     }
   }
-`;
+`);
 
-export const ADD_USER = gql`
+export const ADD_USER = graphql(`
   mutation addUser($userID: String, $firstName: String!, $lastName: String!, $username: String!, $email: String!, $password: String!, $confirmed: String!) {
     addUser(userID: $userID, firstName: $firstName, lastName: $lastName, username: $username, email: $email, password: $password, confirmed: $confirmed) {
       token
@@ -30,9 +30,9 @@ export const ADD_USER = gql`
       }
     }
   }
-`;
+`);
 
-export const RESET_PASSWORD = gql`
+export const RESET_PASSWORD = graphql(`
   mutation resetPassword($email: String!, $password: String!) {
     resetPassword(email: $email, password: $password) {
       user {
@@ -41,9 +41,9 @@ export const RESET_PASSWORD = gql`
       }
     }
   }
-`;
+`);
 
-export const DELETE_USER = gql`
+export const DELETE_USER = graphql(`
   mutation deleteUser($id: ID!) {
     deleteUser(id: $id) {
       user {
@@ -51,9 +51,9 @@ export const DELETE_USER = gql`
       }
     }
   }
-`;
+`);
 
-export const UPDATE_ONLINE_STATUS = gql`
+export const UPDATE_ONLINE_STATUS = graphql(`
   mutation updateOnlineStatus($username: String!, $online: String!) {
     updateOnlineStatus(username: $username, online: $online) {
       user {
@@ -63,6 +63,6 @@ export const UPDATE_ONLINE_STATUS = gql`
       }
     }
   }
-`;
+`);
 
 

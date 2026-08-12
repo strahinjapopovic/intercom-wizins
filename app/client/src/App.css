@@ -13,6 +13,7 @@
   --gray-dark: rgb(23, 23, 23);
   --naval-blue: rgb(1, 33, 55);
   --attention: rgb(250, 34, 34);
+  --custom-gray: rgb(184, 183, 183);
   --electron-blue: rgb(8, 115, 187);
   --custom-gray: rgb(175, 191, 207);
   --light-web-blue: rgb(12, 209, 235);
@@ -785,7 +786,7 @@ div#openDialogBoxMsg {
   border: 2px solid var(--success);
   border-left: 9px solid var(--success);
 }
-
+/* ------------------------------ Profile/ Dashboard Page ------------------------------ */
 div#profileMain {
   display: flex;
   padding: 20px;
@@ -793,8 +794,8 @@ div#profileMain {
   flex-wrap: wrap;
   border-radius: 10px;
   width: calc(75% - 40px);
-  background-color: var(--gray);
-  border: 3px solid var(--naval-blue);
+  /* background-color: var(--gray);
+  border: 03px solid var(--naval-blue); */
 }
 
 div#profileSection {
@@ -838,7 +839,8 @@ div#profileSection a {
   font-size: xx-large;
   text-decoration: none;
 }
-
+/******** ------------------------------ End Details Page ------------------------------ ********/
+/*---*/
 /* ------------------------------ Details Page ( User Data CSS ) ------------------------------ */
 div#user-sec {
   width: 70%;
@@ -856,7 +858,7 @@ div#user-sec div#user-subsec {
   border-radius: 5px;
   flex-direction: column;
   background-color: var(--light);
-  border: 0px solid var(--naval-blue);
+  border: 1px solid var(--naval-blue);
 }
 
 div#user-sec div#user-subsec div#user-data-titlemain span#first,
@@ -895,9 +897,6 @@ div#user-sec div#user-subsec div#user-data {
   margin: 0 auto;
   flex-direction: column;
   width: calc(100% - 2px);
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-  border: 1px solid var(--naval-blue);
 }
 
 div#user-sec div#user-subsec div#user-data div#data-type {
@@ -1025,8 +1024,115 @@ dialog#deleteUserDialogBox div#dialogContainer section#btnDialog button#exitDial
 /******** --------------------------- End Dialog Box Section --------------------------- ********/
 /*---*/
 /******** --------------------------- Online Users Section ----------------------------- ********/
+
+div#user-data div#onlineUserTbl div#onlineUsersHeader {
+  display: flex;
+  padding-left: 80px;
+  flex-direction: row;
+  width: calc(100% - 80px);
+  background-color: var(--aqua);
+}
+
+div#user-data div#onlineUserTbl div#onlineUsersHeader div {
+  padding: 5px;
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--dark);
+  width: calc(100% / 4);
+  border: 0px solid var(--naval-blue);
+}
+
+div#user-data div#onlineUserTbl div#helperBorder {
+  width: 100%;
+  border-top: 1px solid var(--naval-blue);
+}
+
+/* --- */
+
+div#onlineUser {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid var(--naval-blue);
+}
+
+div#usrerDescription {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  border-bottom: 0px solid var(--naval-blue);
+}
+
+div#onlineUser div#usrerDescription div#onlineUsrDesc {
+  margin: 0;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  font-size: 14px;
+  flex-direction: row;
+}
+
+div#onlineUser div#usrerDescription div#onlineUsrDesc b#labelData {
+  display: none;
+}
+
+div#onlineUser div#usrerDescription div#onlineUsrDesc div#onlineUserDescImg {
+  width: 70px;
+  margin-left: 5px;
+}
+
+div#onlineUser div#usrerDescription div#onlineUsrDesc div#onlineUserDescImg img {
+  width: 14px;
+  height: 14px;
+}
+
+div#onlineUser div#usrerDescription div#onlineUsrDesc div:not(#onlineUserDescImg) {
+  width: calc((100% - 70px) / 4);
+}
+
+div#onlineUser div#usrerDescription div#onlineUsrDesc div {
+  padding: 15px 0 0 5px;
+}
+
 div#onlineUser:nth-child(odd) {
   background-color: var(--gray);
+}
+
+div#onlineUser:last-child {
+  border-bottom: none !important;
+
+}
+
+@media only screen and (max-width: 1000px) {
+  div#onlineUser {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  div#user-data div#onlineUserTbl div#onlineUsersHeader {
+    display: none;
+  }
+
+  div#onlineUser div#usrerDescription div#onlineUsrDesc {
+    gap: 5px;
+    height: auto;
+    flex-direction: column;
+  }
+
+  div#onlineUser div#usrerDescription div#onlineUsrDesc div {
+    padding: 3px 0 3px 5px;
+    border: 0px solid blue;
+    width: calc(100% - 7px) !important;
+  }
+
+  div#onlineUser div#usrerDescription div#onlineUsrDesc div#onlineUserDescImg {
+    margin: 0;
+  }
+
+  div#onlineUser div#usrerDescription div#onlineUsrDesc b#labelData {
+    display: inline;
+  }
 }
 
 /******** -------------------------- End Online Users Section -------------------------- ********/
@@ -1172,7 +1278,6 @@ footer#bottom p:nth-child(2) a {
     position: fixed;
     flex-direction: column;
   }
-
 
   div.isOpen a#Link {
     margin: 10px 10px 0 0;

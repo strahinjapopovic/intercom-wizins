@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useMutation } from '@apollo/client';
+import { useMutation } from '@apollo/client/react';
 import { getProfile } from '../../utils/authent.js';
 import { UPDATE_ONLINE_STATUS } from '../../utils/graphql/mutations.ts';
 import type { PayloadGetUserTypes, LocalStorageOnlineStatus } from '../../../types/types.ts';

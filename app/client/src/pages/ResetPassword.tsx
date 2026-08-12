@@ -2,14 +2,14 @@ import React from 'react';
 import htmlEntity from 'he';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useMutation } from '@apollo/client';
+import { useMutation } from '@apollo/client/react';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { LoggedIn, Logout } from '../utils/authent.js';
 import { RESET_PASSWORD } from '../utils/graphql/mutations.ts';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
 import tickSuccess from '../assets/images/message-icon/tick-mark-green.png';
-import { GetResPassParam, BcryptCompareResetPassX, BcryptCompareResetPassY } from '../../../utils/auth.ts';
+import { GetResPassParam, BcryptCompareResetPassX, BcryptCompareResetPassY } from '@utils/auth';
 //--------------------------------------------//  
 const ResetPassword = () => {
   const codexid = GetResPassParam().codexid;
