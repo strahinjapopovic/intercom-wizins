@@ -48,8 +48,8 @@ const startServer = async () => {
   }
 
   app.listen(3000, '0.0.0.0', () => {
-    console.log(`🚀 API Client running on port ${PORT}!`);
-    console.log(`🚀 GraphQL API Server running at http://localhost:${PORT}/graphql`);
+    console.log(`🚀 Server running on port ${PORT}!`);
+    console.log(`🚀 GraphQL API endpoint running at http://localhost:${PORT}/graphql`);
   });
 }
 startServer();

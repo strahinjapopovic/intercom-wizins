@@ -377,7 +377,7 @@ $ npm install --save-dev typescript tsx concurrently # under packages of npm you
 ```
 
 ## Starting server from terminal without scripts
-To start GraphQL server from root directory at http://localhost:3001/graphql
+To start GraphQL server from root directory at http://localhost:3000/graphql
 ```bash
 $ npx watch ./server/server.ts # OR node ./server/server.js 
 ```
@@ -397,7 +397,7 @@ $ npm install --save-dev nodemon # nodemon runs "start" script at first run
 ## Starting server on scripts
 If using scripts from root dir
 ```bash
-$ npm run dev # it will start both server and client side ports at once (http://localhost:3000 AND http://localhost:3001/graphql)
+$ npm run dev # it will start both server and client side ports at once (http://localhost:3000 AND http://localhost:3000/graphql)
 ```
 
 ## Server dev output: 
@@ -455,7 +455,7 @@ Live application can be visited [here](https://js-wizard.onrender.com/).
 
 ## License
 
-Copyright © 2024, [codexdev](https://github.com/strahinjapopovic). Released under the [MIT License](./LICENSE).
+Copyright © 2026, [codexdev](https://github.com/strahinjapopovic). Released under the [MIT License](./LICENSE).
 
 <a id="questions-and-contacts"></a>
 ## Questions and Contacts
